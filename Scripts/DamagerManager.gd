@@ -6,7 +6,7 @@ class hits:
 	var dmg: int
 	var dmged: Node
 var no_processed = []
-
+ 
 func _process(_delta):
 	if !no_processed.empty() and no_processed.size() % 2 == 0:
 		for i in no_processed:

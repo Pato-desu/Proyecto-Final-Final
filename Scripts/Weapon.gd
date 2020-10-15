@@ -8,7 +8,7 @@ const fire_rate = 0.25
 onready var timer = $Timer
 onready var firepos = $FirePos
 const damage = 50
-const max_life = 50
+const max_life = 25
 var life = max_life
 var q
 var dir = [0, 0.25, 0.5, 0.75, 1, -1, -0.75, -0.5, -0.25]

@@ -3,7 +3,8 @@ extends KinematicBody2D
 onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
 var bullet = preload("res://Scenes/Bullet.tscn")
-const speed = 700 #1300?
+const speed = 400
+const high_speed = 1000
 var velocity
 const fire_rate = 0.3
 var fire_time = 0.0
@@ -21,8 +22,11 @@ func _physics_process(_delta):
 		velocity.y -= 1
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
-		
-	move_and_slide(velocity.normalized()* speed)
+	
+	if Input.is_action_pressed("accelerate"):
+		move_and_slide(velocity.normalized()* high_speed)
+	else:
+		move_and_slide(velocity.normalized()* speed)
 	
 func before_dying():
 	visible = false

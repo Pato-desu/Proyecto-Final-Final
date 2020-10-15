@@ -32,6 +32,10 @@ b = Vector2( 1920, 1080 )
 size = 50
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 7 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 7 )
@@ -40,23 +44,8 @@ font_data = ExtResource( 7 )
 size = 30
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 50
-font_data = ExtResource( 7 )
-
 [node name="Game" type="Node"]
 script = ExtResource( 6 )
-
-[node name="Damage" type="Node" parent="."]
-script = ExtResource( 11 )
-
-[node name="Winner" type="Timer" parent="."]
-wait_time = 15.0
-one_shot = true
-autostart = true
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 192, 512 )
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -97,6 +86,17 @@ position = Vector2( 2000, 267 )
 [node name="Enemy2" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 2000, 832 )
 
+[node name="Damage" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="Winner" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 512 )
+
 [node name="UI" type="Control" parent="."]
 margin_left = 48.0
 margin_top = 16.0
@@ -130,6 +130,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Pause" type="Popup" parent="UI"]
+pause_mode = 2
+margin_top = 15.0
+margin_right = 40.0
+margin_bottom = 72.0
+script = ExtResource( 12 )
+
+[node name="Message" type="Label" parent="UI/Pause"]
+margin_left = -48.0
+margin_top = -16.0
+margin_right = -8.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 8 )
+text = "PAUSE"
+
 [node name="Game Over" type="Popup" parent="UI"]
 pause_mode = 2
 margin_left = 792.0
@@ -157,20 +172,5 @@ text = "Use R to reset"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Pause" type="Popup" parent="UI"]
-pause_mode = 2
-margin_top = 15.0
-margin_right = 40.0
-margin_bottom = 72.0
-script = ExtResource( 12 )
-
-[node name="Message" type="Label" parent="UI/Pause"]
-margin_left = -48.0
-margin_top = -16.0
-margin_right = -8.0
-margin_bottom = -2.0
-custom_fonts/font = SubResource( 8 )
-text = "PAUSE"
-[connection signal="timeout" from="Winner" to="." method="over" binds= [ true ]]
 [connection signal="timeout" from="Level/Spawner" to="Level/Spawner" method="_on_Spawner_timeout"]
+[connection signal="timeout" from="Winner" to="." method="over" binds= [ true ]]

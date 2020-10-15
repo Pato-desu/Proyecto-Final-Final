@@ -9,8 +9,10 @@ func _process(_delta):
 	if Input.is_action_pressed("shoot"):
 		activate()
 		modulate = Color(1, 1, 1, 1)
+		visual.width = 10
 	else:
 		modulate = Color(1, 1, 1, 0.5)
+		visual.width = 3
 	
 	if is_colliding():
 		visual.points[1] = get_collision_point() - global_position
