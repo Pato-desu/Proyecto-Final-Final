@@ -7,9 +7,10 @@ var velocity
 const damage = 50
 var life = 1
 
-func init(pos, dir):
+func init(pos, dir, color):
 	position = pos
 	velocity = dir.normalized() * speed
+	material.set_shader_param("new", color)
 
 func _physics_process(delta):
 	position = position + velocity * delta

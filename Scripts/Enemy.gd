@@ -8,6 +8,7 @@ const damage = 100
 const max_life = 100
 var life = max_life
 var q
+const color = Color.red
 
 func init(y):
 	position = Vector2(2000, y)
