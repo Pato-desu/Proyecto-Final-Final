@@ -4,7 +4,7 @@ onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
 var speed = 450
 var velocity
-const damage = 50
+const damage = 25
 var life = 1
 
 func init(pos, dir, color):

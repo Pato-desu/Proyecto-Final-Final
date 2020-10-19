@@ -13,12 +13,12 @@ const max_life = 25
 var life = max_life
 var q
 var dir = [0, 0.25, 0.5, 0.75, 1, -1, -0.75, -0.5, -0.25]
-var color
+var nocolor
 
 func _ready():
 	timer.wait_time = fire_rate
 	timer.start()
-	color = get_node("..").color
+	nocolor = get_node("..").color
 	#sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 
 func _process(_delta):
@@ -32,5 +32,5 @@ func _on_Timer_timeout():
 	var aux = bullet.instance()
 	level.add_child(aux)
 	dir.append(dir[0])
-	aux.init(firepos.global_position, Vector2(-1, dir.pop_front()), color)
+	aux.init(firepos.global_position, Vector2(-1, dir.pop_front()), nocolor)
 	
