@@ -4,15 +4,15 @@ onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
 onready var level = game.get_node("Level")
 const bullet = preload("res://Scenes/Bullet.tscn")
-onready var timer = $Timer
-onready var firepos = $FirePos
+#onready var timer = $Timer
+onready var firepos = $Boca
 onready var sprite = $Sprite
 const fire_rate = 0.25
 const damage = 50
 const max_life = 25
 var life = max_life
 var q
-var dir = [0, 0.25, 0.5, 0.75, 1, -1, -0.75, -0.5, -0.25]
+#var dir = [0, 0.25, 0.5, 0.75, 1, -1, -0.75, -0.5, -0.25]
 var nocolor
 
 func _ready():
@@ -31,6 +31,6 @@ func _on_Weapon_area_entered(area):
 func _on_Timer_timeout():
 	var aux = bullet.instance()
 	level.add_child(aux)
-	dir.append(dir[0])
-	aux.init(firepos.global_position, Vector2(-1, dir.pop_front()), nocolor)
+	#dir.append(dir[0])				dir.pop_front()
+	aux.init(firepos.global_position, Vector2(-1, 0), nocolor)
 	
