@@ -5,8 +5,9 @@
 [ext_resource path="res://Scenes/Weapons/1A1.tscn" type="PackedScene" id=3]
 
 [node name="Character" instance=ExtResource( 1 )]
+color = Color( 0.533333, 0, 0.0823529, 1 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 polygon = PoolVector2Array( -64, 0, -16, 64, 64, 40, 64, -40, -16, -64 )
 
 [node name="Sprite" parent="." index="2"]

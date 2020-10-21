@@ -18,48 +18,48 @@ period = 2.25
 
 [node name="1B1A2" parent="Bocas" index="1" instance=ExtResource( 2 )]
 position = Vector2( 8, 88 )
-angle = -201
+angle = -189
 period = 2.25
 time_to_wake_up = 0.25
 
 [node name="1B1A3" parent="Bocas" index="2" instance=ExtResource( 2 )]
 position = Vector2( 24, 88 )
-angle = -222
+angle = -198
 period = 2.25
 time_to_wake_up = 0.5
 
 [node name="1B1A4" parent="Bocas" index="3" instance=ExtResource( 2 )]
 position = Vector2( 48, 88 )
-angle = -243
+angle = -207
 period = 2.25
 time_to_wake_up = 0.75
 
 [node name="1B1A5" parent="Bocas" index="4" instance=ExtResource( 2 )]
 position = Vector2( 80, 88 )
-angle = -264
+angle = -216
 period = 2.25
 time_to_wake_up = 1.0
 
 [node name="1B1A6" parent="Bocas" index="5" instance=ExtResource( 2 )]
 position = Vector2( -80, 88 )
-angle = -96
+angle = -142
 period = 2.25
 time_to_wake_up = 1.25
 
 [node name="1B1A7" parent="Bocas" index="6" instance=ExtResource( 2 )]
 position = Vector2( -48, 88 )
-angle = -117
+angle = -153
 period = 2.25
 time_to_wake_up = 1.5
 
 [node name="1B1A8" parent="Bocas" index="7" instance=ExtResource( 2 )]
 position = Vector2( -24, 88 )
-angle = -138
+angle = -162
 period = 2.25
 time_to_wake_up = 1.75
 
 [node name="1B1A9" parent="Bocas" index="8" instance=ExtResource( 2 )]
 position = Vector2( -8, 88 )
-angle = -159
+angle = -171
 period = 2.25
 time_to_wake_up = 2.0

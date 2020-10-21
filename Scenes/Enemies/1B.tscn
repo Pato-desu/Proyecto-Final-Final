@@ -6,8 +6,9 @@
 
 [node name="Character" instance=ExtResource( 1 )]
 speed = 350
+color = Color( 0, 0.588235, 0.666667, 1 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 0, 16, 64, -64, 40, -64, -40, 16, -64 )
 
 [node name="Sprite" parent="." index="2"]

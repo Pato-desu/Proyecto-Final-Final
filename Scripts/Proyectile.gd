@@ -8,7 +8,7 @@ var velocity
 func init(pos, vel, color):
 	position = pos
 	velocity = vel
-	material.set_shader_param("new", color)
+	modulate = color
 
 func _physics_process(delta):
 	position = position + velocity * delta
