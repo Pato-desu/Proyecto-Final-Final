@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
-var bullet = preload("res://Scenes/Bullet.tscn")
 const speed = 400
 const high_speed = 1000
 var velocity

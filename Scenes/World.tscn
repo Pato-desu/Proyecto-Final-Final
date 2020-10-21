@@ -1,13 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Textures/background.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/ParallaxLayer.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=6]
 [ext_resource path="res://DejaVuSans.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scripts/TL.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/GameOver.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/HP.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/DamagerManager.gd" type="Script" id=11]
@@ -47,10 +45,17 @@ font_data = ExtResource( 7 )
 [node name="Game" type="Node"]
 script = ExtResource( 6 )
 
+[node name="Damage" type="Node" parent="."]
+script = ExtResource( 11 )
+
 [node name="Level" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Spawner" type="Timer" parent="Level"]
-wait_time = 3.0
+wait_time = 1.5
 autostart = true
 script = ExtResource( 5 )
 
@@ -80,20 +85,6 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Enemy1" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 2000, 267 )
-
-[node name="Enemy2" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 2000, 832 )
-
-[node name="Damage" type="Node" parent="."]
-script = ExtResource( 11 )
-
-[node name="Winner" type="Timer" parent="."]
-wait_time = 15.0
-one_shot = true
-autostart = true
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 512 )
 
@@ -102,18 +93,6 @@ margin_left = 48.0
 margin_top = 16.0
 margin_right = 176.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TL" type="Label" parent="UI"]
-pause_mode = 2
-margin_left = 1700.0
-margin_top = 8.0
-margin_right = 1834.0
-margin_bottom = 67.0
-custom_fonts/font = SubResource( 5 )
-script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,4 +152,3 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="timeout" from="Level/Spawner" to="Level/Spawner" method="_on_Spawner_timeout"]
-[connection signal="timeout" from="Winner" to="." method="over" binds= [ true ]]

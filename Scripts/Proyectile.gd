@@ -1,15 +1,13 @@
 extends Area2D
 
-onready var game = get_node("/root/Game")
-onready var dagame = game.get_node("Damage")
-var speed = 450
-var velocity
-const damage = 25
+onready var dagame = get_node("/root/Game/Damage")
 var life = 1
+var damage = 25
+var velocity
 
-func init(pos, dir, color):
+func init(pos, vel, color):
 	position = pos
-	velocity = dir.normalized() * speed
+	velocity = vel
 	material.set_shader_param("new", color)
 
 func _physics_process(delta):

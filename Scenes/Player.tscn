@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Textures/player_16.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/player_16.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Laser.tscn" type="PackedScene" id=3]
 

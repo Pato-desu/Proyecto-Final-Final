@@ -7,6 +7,7 @@ class hits:
 	var dmged: Node
 var no_processed = []
  
+#Si no se procesa ningun daño es posible que sea por una imparidad en la lista, o sea algo que no avisó que recibió daño
 func _process(_delta):
 	if !no_processed.empty() and no_processed.size() % 2 == 0:
 		for i in no_processed:
@@ -17,7 +18,7 @@ func calculate_damage(to, from):
 	var aux = hits.new()
 	var nodeto = to
 	var nodefrom = from
-		
+	#Este quilombo se puede limpiar ahora que ya no hay elementos que no hacen o reciben daño
 	while is_instance_valid (nodeto) and !("life" in nodeto):
 		nodeto = nodeto.get_parent()
 	if is_instance_valid (nodeto):

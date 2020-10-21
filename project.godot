@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="Proyecto Final"
 run/main_scene="res://Scenes/World.tscn"
-config/icon="res://Textures/player_16.png"
+config/icon="res://Sprites/player_16.png"
 
 [display]
 

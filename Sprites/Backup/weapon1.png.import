@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-a1d01abb3758a736a99b860a63122edf.stex"
+path="res://.import/weapon1.png-3a48b961f1a9c75ac31ce7016aabc797.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Backup/enemy.png"
-dest_files=[ "res://.import/enemy.png-a1d01abb3758a736a99b860a63122edf.stex" ]
+source_file="res://Sprites/Backup/weapon1.png"
+dest_files=[ "res://.import/weapon1.png-3a48b961f1a9c75ac31ce7016aabc797.stex" ]
 
 [params]
 
