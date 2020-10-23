@@ -17,4 +17,5 @@ texture = ExtResource( 2 )
 
 [node name="1B1" parent="Armas" index="0" instance=ExtResource( 3 )]
 position = Vector2( -28, 0 )
+rotation = 1.5708
 scale = Vector2( 0.63, 0.57 )
