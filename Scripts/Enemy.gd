@@ -6,13 +6,14 @@ export var max_life = 100
 var damage = 100
 export var speed = 450
 onready var velocity = Vector2.LEFT * speed
-var life = max_life
+var life
 var q
 export var color = Color.white
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 
 func init(x, y):
 	position = Vector2(x, y)
+	life = max_life
 
 func _physics_process(delta):
 	position = position + velocity * delta

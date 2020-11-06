@@ -1,6 +1,6 @@
 extends Position2D
 
-onready var level = get_node("/root/Game/Level")
+onready var level = get_node("/root/Game")
 const bullet = preload("res://Scenes/Proyectile.tscn")
 var color
 var speed

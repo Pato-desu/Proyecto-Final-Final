@@ -2,7 +2,7 @@ extends RayCast2D
 
 onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
-const damage = 10
+const damage = 1.8 #100 de daño por segundo aprox
 onready var visual = $Visual
 
 func _process(_delta):
