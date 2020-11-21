@@ -50,7 +50,7 @@ script = ExtResource( 9 )
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 2 )
-enemies = PoolVector3Array( 2, 500, 2, 4, 600, 1, 6, 400, 0 )
+enemies = PoolVector3Array( 5, 543, 0, 8, 600, 0, 11, 300, 0, 20, 800, 0, 21, 700, 0, 22, 750, 0, 24, 432, 1, 28, 648, 1, 32, 864, 1, 35, 648, 1, 38, 864, 1, 38, 432, 1, 45, 69, 0, 46, 216, 1, 48, 432, 1, 50, 648, 1, 52, 864, 1, 57, 108, 2, 63, 972, 2, 67, 540, 2, 69, 216, 1, 74, 540, 2, 75, 540, 2, 75.5, 420, 0, 78, 864, 1, 79, 108, 2, 80, 540, 2, 81, 972, 2, 81, 216, 1, 82.5, 432, 1 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 

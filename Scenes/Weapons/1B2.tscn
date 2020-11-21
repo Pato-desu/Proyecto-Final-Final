@@ -6,7 +6,7 @@
 
 [node name="1B2" instance=ExtResource( 1 )]
 rotation = -4.71239
-max_life = 125
+max_life = 70
 bullet_speed = 450
 
 [node name="CollisionPolygon2D" parent="." index="0"]
