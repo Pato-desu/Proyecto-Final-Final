@@ -4,14 +4,19 @@
 [ext_resource path="res://Sprites/Enemies/1B.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Weapons/1B2.tscn" type="PackedScene" id=3]
 
-[node name="Character" instance=ExtResource( 1 )]
-speed = 350
+[node name="1B" instance=ExtResource( 1 )]
+speed = 275
 color = Color( 0, 0.588235, 0.666667, 1 )
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="CollisionPolygon2D" parent="." index="0"]
+visible = false
 polygon = PoolVector2Array( 64, 0, 16, 64, -64, 40, -64, -40, 16, -64 )
+disabled = false
 
-[node name="Sprite" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
+[node name="Sprite" parent="." index="3"]
 rotation = -4.71239
 texture = ExtResource( 2 )
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( -64, 64, 64, 64, 0, -48 )
+
+[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/Example.png-9c62c3787988eeea0a45ec1e9b156698.stex"
 
 [node name="Character" type="Area2D"]
@@ -10,14 +13,19 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -64, 64, 64, 64, 0, -48 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 scale = Vector2( 7, 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="Armas" type="Node2D" parent="."]
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
