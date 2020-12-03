@@ -1,9 +1,9 @@
 extends Label
 
-onready var timer = get_node("/root/Game/Winner")
+onready var spawner = get_node("/root/Game/Spawner")
 
 func _process(_delta):
-	if is_instance_valid(timer) and timer != null:
-		text = str(stepify(timer.time_left, 0.01))
+	if is_instance_valid(spawner) and spawner != null:
+		text = "%.2f" % spawner.timer
 	else:
 		text = "0"

@@ -6,7 +6,8 @@
 
 [node name="1A1" instance=ExtResource( 2 )]
 rotation = -1.5708
-bullet_speed = 800
+max_life = 15
+bullet_speed = 650
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 disabled = false
@@ -15,5 +16,15 @@ disabled = false
 texture = ExtResource( 3 )
 
 [node name="1A1A" parent="Bocas" index="0" instance=ExtResource( 1 )]
-position = Vector2( 0, -72 )
+position = Vector2( 0.000228882, -64 )
+period = 0.75
+
+[node name="1A1A2" parent="Bocas" index="1" instance=ExtResource( 1 )]
+position = Vector2( 48, 0.000171661 )
+angle = -135
+period = 0.75
+
+[node name="1A1A3" parent="Bocas" index="2" instance=ExtResource( 1 )]
+position = Vector2( -48, -0.000175476 )
+angle = -225
 period = 0.75

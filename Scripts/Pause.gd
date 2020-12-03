@@ -8,6 +8,7 @@ func _process(_delta):
 			if flag:
 				get_tree().paused = false
 				flag = false
+				hide()
 			else:
 				flag = true
 		if Input.is_action_just_pressed("reset"):

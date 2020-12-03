@@ -21,6 +21,8 @@ func _physics_process(delta):
 func _process(_delta):
 	q = float(life)/ max_life
 	modulate = Color(q, q, q)
+	if not $Armas.get_child_count():
+		queue_free()
 
 func _on_Enemy_area_entered(area):
 	dagame.calculate_damage(self, area)

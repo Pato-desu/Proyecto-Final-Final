@@ -8,7 +8,7 @@
 radius = 64.4981
 
 [node name="1C3" instance=ExtResource( 2 )]
-max_life = 100
+max_life = 80
 bullet_speed = 350
 
 [node name="CollisionShape2D" parent="." index="1"]
