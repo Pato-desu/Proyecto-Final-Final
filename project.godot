@@ -176,6 +176,8 @@ pause={
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Weapon"
 2d_physics/layer_6="Proyectile"
+2d_physics/layer_7="Bouncing Surface"
+2d_physics/layer_8="Invisible Wall"
 
 [rendering]
 

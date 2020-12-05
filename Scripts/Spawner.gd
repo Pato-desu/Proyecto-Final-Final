@@ -5,6 +5,7 @@ var table = "res://Data/ExN.prn"
 export var z0 = preload("res://Scenes/Enemies/1A.tscn")
 export var z1 = preload("res://Scenes/Enemies/1B.tscn")
 export var z2 = preload("res://Scenes/Enemies/1C.tscn")
+export var b1 = preload("res://Scenes/Enemies/Bosses/Boss 1.tscn")
 var z = [z0, z1, z2]
 
 var Enemies = PoolVector3Array()
@@ -13,10 +14,12 @@ var timer = 0.0
 var dic
 
 func _ready():
-	dic = csv2Dict()
-	for i in dic["Index"].size() - 2:
-		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
-		Enemies.append(aux)
+#	dic = csv2Dict()
+#	for i in dic["Index"].size() - 2:
+#		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
+#		Enemies.append(aux)
+	aux = b1.instance()
+	add_child(aux)
 
 func _process(delta):
 	timer = timer + delta

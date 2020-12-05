@@ -12,19 +12,19 @@
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/TL.gd" type="Script" id=11]
 
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 1920, 0 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( 0, 1080 )
+b = Vector2( 1920, 1080 )
+
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 0, 1080 )
 b = Vector2( 0, 0 )
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( 1920, 0 )
-b = Vector2( 1920, 1080 )
-
-[sub_resource type="SegmentShape2D" id=3]
-b = Vector2( 1920, 0 )
-
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 0, 1080 )
 b = Vector2( 1920, 1080 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -52,9 +52,9 @@ script = ExtResource( 9 )
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="Background" type="ParallaxBackground" parent="."]
+[node name="Setting" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+[node name="Moving Background" type="ParallaxLayer" parent="Setting"]
 motion_mirroring = Vector2( 1920, 0 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -62,32 +62,32 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="Setting/Moving Background"]
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Walls" type="StaticBody2D" parent="Background"]
+[node name="Walls" type="StaticBody2D" parent="Setting"]
 collision_layer = 4
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Walls"]
+[node name="Upper" type="CollisionShape2D" parent="Setting/Walls"]
+shape = SubResource( 3 )
+
+[node name="Lower" type="CollisionShape2D" parent="Setting/Walls"]
+shape = SubResource( 4 )
+
+[node name="Left" type="CollisionShape2D" parent="Setting/Walls"]
 position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/Walls"]
+[node name="Right" type="CollisionShape2D" parent="Setting/Walls"]
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/Walls"]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/Walls"]
-shape = SubResource( 4 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 192, 512 )
+position = Vector2( 560, 200 )
 
 [node name="UI" type="Control" parent="."]
 __meta__ = {

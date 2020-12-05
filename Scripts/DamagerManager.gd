@@ -9,7 +9,7 @@ var no_processed = []
  
 #Si no se procesa ningun daño es posible que sea por una imparidad en la lista, o sea algo que no avisó que recibió daño
 func _process(_delta):
-	if !no_processed.empty() and no_processed.size() % 2 == 0:
+	if not no_processed.empty() and no_processed.size() % 2 == 0:
 		for i in no_processed:
 			damage(i.dmged, i.dmg)
 		no_processed.clear()
