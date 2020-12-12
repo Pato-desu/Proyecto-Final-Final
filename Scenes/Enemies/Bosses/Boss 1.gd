@@ -1,27 +1,27 @@
 extends Node
 
-onready var fragile_bar = get_node("Left Bar")
-onready var muzzle = get_node("Left Bar/Spawn")
+#onready var other_bar = get_node("Right Bar")
+onready var important_bar = get_node("Left Bar")
+onready var muzzle = important_bar.get_node("Spawn")
 const Ball = preload("res://Scenes/Proyectile.tscn")
+const BounceMat = preload("res://BounceMaterial.tres")
 var random = RandomNumberGenerator.new()
 var ball
-const ball_speed = 1000
+const ball_speed = 1600 #1000?
 
 func _ready():
-	randomize()
+	random.randomize()
 	shoot()
 
 func _process(_delta):
-#	if not fragile_bar:
+#	if not important_bar:
 	if not ball:
 		shoot()
-	else:
-		print(ball.linear_velocity)
 		
 func shoot():
 	ball = Ball.instance()
+	ball.material = BounceMat
 	add_child(ball)
-	var ang = random.randi_range(45, -45)
-	print(ang)
-	ang = deg2rad(ang)
-	ball.init(muzzle.global_position, Vector2(cos(ang), sin(ang*PI/2.0)) * ball_speed, Color(0, 0, 0))
+	var vely = random.randf_range(1, -1)
+	ball.init(muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color(0, 0, 0))
+	important_bar.bounced(ball)

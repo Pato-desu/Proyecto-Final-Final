@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Bosses/Boss 1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_d.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_b.png" type="Texture" id=3]
-[ext_resource path="res://BounceMaterial.tres" type="PhysicsMaterial" id=4]
 [ext_resource path="res://Scenes/Enemies/Bosses/Bar.gd" type="Script" id=5]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -14,13 +13,11 @@ b = Vector2( 150, 1080 )
 a = Vector2( 1770, 0 )
 b = Vector2( 1770, 1080 )
 
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( 0, 3 )
-b = Vector2( 1920, 3 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 960, 10 )
 
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 0, 1077 )
-b = Vector2( 1920, 1077 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 960, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 15 )
@@ -40,27 +37,23 @@ shape = SubResource( 1 )
 [node name="Right" type="CollisionShape2D" parent="Restrective Walls"]
 shape = SubResource( 2 )
 
-[node name="Bouncing Walls" type="RigidBody2D" parent="."]
+[node name="Bouncing Walls" type="StaticBody2D" parent="."]
 collision_layer = 64
 collision_mask = 32
-mode = 1
-physics_material_override = ExtResource( 4 )
-gravity_scale = 0.0
 
 [node name="Upper" type="CollisionShape2D" parent="Bouncing Walls"]
+position = Vector2( 960, 0 )
 shape = SubResource( 3 )
 
 [node name="Lower" type="CollisionShape2D" parent="Bouncing Walls"]
+position = Vector2( 960, 1080 )
 shape = SubResource( 4 )
 
-[node name="Left Bar" type="RigidBody2D" parent="."]
+[node name="Left Bar" type="KinematicBody2D" parent="."]
 position = Vector2( 75, 540 )
 scale = Vector2( 1, 5 )
 collision_layer = 64
 collision_mask = 32
-mode = 3
-physics_material_override = ExtResource( 4 )
-gravity_scale = 0.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar"]
@@ -72,14 +65,11 @@ texture = ExtResource( 3 )
 [node name="Spawn" type="Position2D" parent="Left Bar"]
 position = Vector2( 29, 0 )
 
-[node name="Right Bar" type="RigidBody2D" parent="."]
+[node name="Right Bar" type="KinematicBody2D" parent="."]
 position = Vector2( 1845, 540 )
 scale = Vector2( 1, 5 )
 collision_layer = 64
 collision_mask = 32
-mode = 3
-physics_material_override = ExtResource( 4 )
-gravity_scale = 0.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Bar"]
@@ -87,3 +77,5 @@ shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Right Bar"]
 texture = ExtResource( 2 )
+[connection signal="bounce" from="Left Bar" to="Right Bar" method="follow"]
+[connection signal="bounce" from="Right Bar" to="Left Bar" method="follow"]
