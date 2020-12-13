@@ -4,19 +4,22 @@ onready var dagame = get_node("/root/Game/Damage")
 var life = 1
 var damage = 25
 var velocity
+#var speed
 
 func init(pos, vel, color):
 	position = pos
 	velocity = vel
+#	speed = velocity.length
 	modulate = color
 
 func _physics_process(delta):
 	var obj = move_and_collide(velocity * delta)
 	if obj:
-		velocity = velocity.bounce(obj.normal)
 		var object = obj.collider
-		if object.has_signal("bounce"):
-			object.bounced(self)
+		if object.is_in_group("Elastic"):
+			velocity = velocity.bounce(obj.normal)
+			if object.has_method("bounce_p"):
+				object.bounce_p(self)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

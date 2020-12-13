@@ -37,26 +37,36 @@ shape = SubResource( 1 )
 [node name="Right" type="CollisionShape2D" parent="Restrective Walls"]
 shape = SubResource( 2 )
 
-[node name="Bouncing Walls" type="StaticBody2D" parent="."]
+[node name="Bouncing Walls" type="StaticBody2D" parent="." groups=[
+"Elastic",
+]]
 collision_layer = 64
 collision_mask = 32
 
-[node name="Upper" type="CollisionShape2D" parent="Bouncing Walls"]
+[node name="Upper" type="CollisionShape2D" parent="Bouncing Walls" groups=[
+"Elastic",
+]]
 position = Vector2( 960, 0 )
 shape = SubResource( 3 )
 
-[node name="Lower" type="CollisionShape2D" parent="Bouncing Walls"]
+[node name="Lower" type="CollisionShape2D" parent="Bouncing Walls" groups=[
+"Elastic",
+]]
 position = Vector2( 960, 1080 )
 shape = SubResource( 4 )
 
-[node name="Left Bar" type="KinematicBody2D" parent="."]
+[node name="Left Bar" type="KinematicBody2D" parent="." groups=[
+"Elastic",
+]]
 position = Vector2( 75, 540 )
 scale = Vector2( 1, 5 )
 collision_layer = 64
 collision_mask = 32
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar" groups=[
+"Elastic",
+]]
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Left Bar"]
@@ -65,14 +75,18 @@ texture = ExtResource( 3 )
 [node name="Spawn" type="Position2D" parent="Left Bar"]
 position = Vector2( 29, 0 )
 
-[node name="Right Bar" type="KinematicBody2D" parent="."]
+[node name="Right Bar" type="KinematicBody2D" parent="." groups=[
+"Elastic",
+]]
 position = Vector2( 1845, 540 )
 scale = Vector2( 1, 5 )
 collision_layer = 64
 collision_mask = 32
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Bar"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Bar" groups=[
+"Elastic",
+]]
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Right Bar"]

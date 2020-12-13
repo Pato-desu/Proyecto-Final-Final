@@ -51,4 +51,5 @@ func csv2Dict():
 		dict[items[0]] = items.duplicate()
 		dict[items[0]].erase(items[0])
 	file.close()
+	file.free()
 	return dict
