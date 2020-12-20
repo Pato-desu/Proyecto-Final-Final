@@ -18,6 +18,9 @@ func _ready():
 #	for i in dic["Index"].size() - 2:
 #		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
 #		Enemies.append(aux)
+#	print(typeof(Enemies[1]) == TYPE_VECTOR3)
+#	print(typeof(Enemies) == TYPE_VECTOR3_ARRAY)
+#	print(Enemies.get_type())
 	aux = b1.instance()
 	add_child(aux)
 
@@ -28,12 +31,10 @@ func _process(delta):
 			spawn(Enemies[0])
 			Enemies.remove(0)
 			
-			
 func spawn(enemy):
 	aux = z[enemy.z].instance()
 	aux.init(2000, enemy.y)
 	add_child(aux)
-
 
 func csv2Dict():
 	var file = File.new()
@@ -51,5 +52,5 @@ func csv2Dict():
 		dict[items[0]] = items.duplicate()
 		dict[items[0]].erase(items[0])
 	file.close()
-	file.free()
+#	file.free()
 	return dict

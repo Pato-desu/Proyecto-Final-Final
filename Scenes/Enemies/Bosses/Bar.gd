@@ -8,7 +8,6 @@ var ball
 signal bounce
 
 func _process(_delta):
-	print(self.name, " es ", get_instance_id())
 	if moving:
 		if is_instance_valid(ball):
 			var dif = ball.global_position.y - global_position.y
