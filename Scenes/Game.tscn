@@ -54,7 +54,7 @@ script = ExtResource( 2 )
 
 [node name="Setting" type="ParallaxBackground" parent="."]
 
-[node name="Moving Background" type="ParallaxLayer" parent="Setting"]
+[node name="Background" type="ParallaxLayer" parent="Setting"]
 motion_mirroring = Vector2( 1920, 0 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -62,7 +62,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Setting/Moving Background"]
+[node name="Sprite" type="Sprite" parent="Setting/Background"]
 texture = ExtResource( 5 )
 centered = false
 

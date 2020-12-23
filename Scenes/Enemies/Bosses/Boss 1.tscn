@@ -46,13 +46,13 @@ collision_mask = 32
 [node name="Upper" type="CollisionShape2D" parent="Bouncing Walls" groups=[
 "Elastic",
 ]]
-position = Vector2( 960, 0 )
+position = Vector2( 960, -5 )
 shape = SubResource( 3 )
 
 [node name="Lower" type="CollisionShape2D" parent="Bouncing Walls" groups=[
 "Elastic",
 ]]
-position = Vector2( 960, 1080 )
+position = Vector2( 960, 1085 )
 shape = SubResource( 4 )
 
 [node name="Left Bar" type="KinematicBody2D" parent="." groups=[

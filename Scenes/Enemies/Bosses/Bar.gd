@@ -19,13 +19,9 @@ func _process(_delta):
 				velocity.y = ball.velocity.y
 		move_and_slide(velocity)
 
-func bounce_l(ray):
-	var deviation = (ray.position.y - global_position.y) * 15
-#	print(proyectile.velocity.y)
-	print("ray ", ray.position.y)
-	print("bar ", global_position.y)
-	ray.cast_to.y += deviation #sino con el angulo puede ser
-
+func bounce_l(to):
+	return Vector2(to.x, (to.y - global_position.y) * 15)
+	
 func bounce_p(proyectile):
 	var deviation = (proyectile.global_position.y - global_position.y) * 15 #30 
 #	print(proyectile.velocity.y)

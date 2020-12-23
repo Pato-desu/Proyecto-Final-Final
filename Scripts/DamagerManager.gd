@@ -16,24 +16,29 @@ func _process(_delta):
 
 func calculate_damage(to, from):
 	var aux = hits.new()
+	aux.dmged = find_dmged(to)
+	aux.dmg = find_dmg(from)
+	no_processed.append(aux)
+
+func find_dmged(to):
 	var nodeto = to
-	var nodefrom = from
-	#Este quilombo se puede limpiar ahora que ya no hay elementos que no hacen o reciben daño
 	while is_instance_valid (nodeto) and !("life" in nodeto):
 		nodeto = nodeto.get_parent()
 	if is_instance_valid (nodeto):
-		aux.dmged = nodeto
+		return nodeto
 	else:
 		print(to.name + " doesn't take damage")
+		return null
 	
+func find_dmg(from):
+	var nodefrom = from
 	while is_instance_valid (nodefrom) and !("damage" in nodefrom):
 		nodefrom = nodefrom.get_parent()
 	if is_instance_valid (nodefrom):
-		aux.dmg = nodefrom.damage
+		return nodefrom.damage
 	else:
 		print(from.name + " doesn't do damage")
-	
-	no_processed.append(aux)
+		return null
 
 func damage(dmged, dmg):
 	if dmged != null and dmg != null:
@@ -42,7 +47,7 @@ func damage(dmged, dmg):
 			if dmged.has_method("before_dying"):
 				dmged.before_dying()
 			dmged.queue_free()
-			
+
 func collateral_damage(dmg):
 	if is_instance_valid (player):
 		damage(player, dmg)

@@ -12,15 +12,12 @@ const ball_speed = 1400 #1000?
 func _ready():
 	random = RandomNumberGenerator.new()
 	random.randomize()
-#	shoot()
+	shoot()
 
-#func _process(_delta):
-#	var objects = [get_node("Restrective Walls/Left"), get_node("Restrective Walls/Right"), get_node("Left Bar"), get_node("Right Bar")]
-#	for i in objects:
-#		print(i.name, " es ", i.get_instance_id())
+func _process(_delta):
 #	if not important_bar:
-#	if not ball:
-#		shoot()
+	if not ball:
+		shoot()
 		
 func shoot():
 	ball = Ball.instance()
