@@ -7,7 +7,8 @@ class hits:
 	var dmged: Node
 var no_processed = []
  
-#Si no se procesa ningun daño es posible que sea por una imparidad en la lista, o sea algo que no avisó que recibió daño
+#Si no se procesa ningun daño es posible que sea por una imparidad en la lista,
+# o sea algo que no avisó que recibió daño
 func _process(_delta):
 	if not no_processed.empty() and no_processed.size() % 2 == 0:
 		for i in no_processed:
@@ -27,7 +28,7 @@ func find_dmged(to):
 	if is_instance_valid (nodeto):
 		return nodeto
 	else:
-		print(to.name + " doesn't take damage")
+#		print(to.name + " doesn't take damage")
 		return null
 	
 func find_dmg(from):
@@ -37,7 +38,7 @@ func find_dmg(from):
 	if is_instance_valid (nodefrom):
 		return nodefrom.damage
 	else:
-		print(from.name + " doesn't do damage")
+#		print(from.name + " doesn't do damage")
 		return null
 
 func damage(dmged, dmg):

@@ -12,14 +12,16 @@ var fire_time = 0.0
 const max_life = 500
 var life = max_life
 const damage = 100
+var x_axis = true
 
 func _physics_process(_delta):
 	speed = normal_speed
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("right"):
-		velocity.x += 1
-	if Input.is_action_pressed("left"):
-		velocity.x -= 1
+	if x_axis:
+		if Input.is_action_pressed("right"):
+			velocity.x += 1
+		if Input.is_action_pressed("left"):
+			velocity.x -= 1
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("down"):
@@ -33,8 +35,8 @@ func _physics_process(_delta):
 		speed += less_speed
 	else:
 		$Laser.deactivate()
-		
-	move_and_slide(velocity.normalized()* speed)
+	
+	move_and_slide(velocity.normalized() * speed)
 	
 func before_dying():
 	visible = false

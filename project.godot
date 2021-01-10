@@ -178,6 +178,8 @@ pause={
 2d_physics/layer_6="Proyectile"
 2d_physics/layer_7="Bouncing Surface"
 2d_physics/layer_8="Invisible Wall"
+2d_physics/layer_9="Special Alfa 1"
+2d_physics/layer_10="Special Alfa 2"
 
 [rendering]
 

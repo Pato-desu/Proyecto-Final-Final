@@ -21,7 +21,9 @@ func _physics_process(_delta):
 	#visual del punto 2
 	visual.points[1] = get_collision_point() - global_position
 	#rebote visual y de daño
+#	print("before")
 	bounce(cast_to, get_collision_point(), get_collision_normal(), collider)
+#	print("after")
 
 func activate():
 	activated = true
@@ -35,19 +37,26 @@ func deactivate():
 
 func bounce(prev, from, norm, col):
 	if col.is_in_group("Elastic"):
-		var to = prev.bounce(norm)
+		var to = prev.bounce(norm).normalized()
 		if col.has_method("bounce_l"):
 			to = col.bounce_l(to + global_position)
-		var result = space_state.intersect_ray(from, to + global_position, [col], 94, true, true)
-		visual.add_point(result.position - global_position)
-		damager(result.collider)
-		bounce(to + global_position - from, result.position, result.normal, result.collider)
+		elif col.get_node("..").has_method("bounce_l"):
+			col = col.get_node("..")
+			to = col.bounce_l(to + global_position)
+		var result = space_state.intersect_ray(from, to + global_position, [self, col], collision_mask + 2, true, true)
+		if not result.empty(): 
+			visual.add_point(result.position - global_position)
+			damager(result.collider)
+			bounce(to + global_position - from, result.position, result.normal, result.collider)
 
 func damager(col):
 	if activated:
-		var aux = dagame.find_dmged(col)
-		if aux:
-			dagame.damage(aux, damage)
+		if not col.get_collision_layer_bit(8):
+			var aux = dagame.find_dmged(col)
+			if aux:
+				dagame.damage(aux, damage)
+		else:
+			col.velocity = get_collision_normal().normalized() * -1 * col.velocity.length()
 	
 #	var raycast = RayCast2D.new()
 #	add_child(raycast)

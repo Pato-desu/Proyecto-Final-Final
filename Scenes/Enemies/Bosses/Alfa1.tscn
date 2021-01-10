@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/Enemies/Bosses/Boss 1.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Enemies/Bosses/boss_1_d.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Enemies/Bosses/boss_1_b.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Enemies/Bosses/Bar.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Enemies/Alfa/Alfa1_Bar.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemies/Bosses/boss_1_c.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Enemies/Alfa/Alfa1.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Enemies/Alfa/Alfa1_Weapon.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Enemies/Bosses/boss_1_d.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemies/Bosses/boss_1_b.png" type="Texture" id=6]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 150, 0 )
@@ -23,10 +25,13 @@ extents = Vector2( 960, 10 )
 extents = Vector2( 15, 15 )
 
 [sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15, 15 )
 
-[node name="Boss 1" type="Node"]
-script = ExtResource( 1 )
+[node name="Boss Alfa 1" type="Node"]
+script = ExtResource( 3 )
 
 [node name="Restrective Walls" type="StaticBody2D" parent="."]
 collision_layer = 128
@@ -46,23 +51,23 @@ collision_mask = 32
 [node name="Upper" type="CollisionShape2D" parent="Bouncing Walls" groups=[
 "Elastic",
 ]]
-position = Vector2( 960, -5 )
+position = Vector2( 960, 0 )
 shape = SubResource( 3 )
 
 [node name="Lower" type="CollisionShape2D" parent="Bouncing Walls" groups=[
 "Elastic",
 ]]
-position = Vector2( 960, 1085 )
+position = Vector2( 960, 1080 )
 shape = SubResource( 4 )
 
 [node name="Left Bar" type="KinematicBody2D" parent="." groups=[
 "Elastic",
 ]]
 position = Vector2( 75, 540 )
-scale = Vector2( 1, 5 )
+scale = Vector2( 1, 6 )
 collision_layer = 64
 collision_mask = 32
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar" groups=[
 "Elastic",
@@ -70,26 +75,42 @@ script = ExtResource( 5 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Left Bar"]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
-[node name="Spawn" type="Position2D" parent="Left Bar"]
+[node name="Weapon" type="Area2D" parent="Left Bar" groups=[
+"Elastic",
+]]
+collision_layer = 80
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar/Weapon" groups=[
+"Elastic",
+]]
+visible = false
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Left Bar/Weapon"]
+texture = ExtResource( 6 )
+
+[node name="Spawn" type="Position2D" parent="Left Bar/Weapon"]
 position = Vector2( 29, 0 )
 
 [node name="Right Bar" type="KinematicBody2D" parent="." groups=[
 "Elastic",
 ]]
 position = Vector2( 1845, 540 )
-scale = Vector2( 1, 5 )
+scale = Vector2( 1, 6 )
 collision_layer = 64
 collision_mask = 32
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Bar" groups=[
 "Elastic",
 ]]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="Right Bar"]
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 [connection signal="bounce" from="Left Bar" to="Right Bar" method="follow"]
 [connection signal="bounce" from="Right Bar" to="Left Bar" method="follow"]

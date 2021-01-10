@@ -5,8 +5,9 @@ var table = "res://Data/ExN.prn"
 export var z0 = preload("res://Scenes/Enemies/1A.tscn")
 export var z1 = preload("res://Scenes/Enemies/1B.tscn")
 export var z2 = preload("res://Scenes/Enemies/1C.tscn")
-export var b1 = preload("res://Scenes/Enemies/Bosses/Boss 1.tscn")
-var z = [z0, z1, z2]
+export var a1 = preload("res://Scenes/Enemies/Bosses/Alfa1.tscn")
+export var a2 = preload("res://Scenes/Enemies/Bosses/Alfa2.tscn")
+var z = [z0, z1, z2, a1, a2]
 
 var Enemies = PoolVector3Array()
 var aux
@@ -18,23 +19,24 @@ func _ready():
 #	for i in dic["Index"].size() - 2:
 #		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
 #		Enemies.append(aux)
-#	print(typeof(Enemies[1]) == TYPE_VECTOR3)
-#	print(typeof(Enemies) == TYPE_VECTOR3_ARRAY)
-#	print(Enemies.get_type())
-	aux = b1.instance()
-	add_child(aux)
+	Enemies.append(Vector3(1, 0, 3))
+	Enemies.append(Vector3(999, 0, 4))
 
 func _process(delta):
 	timer = timer + delta
-	if Enemies:
-		if Enemies[0].x < timer:
-			spawn(Enemies[0])
-			Enemies.remove(0)
+	if Enemies and Enemies[0].x < timer:
+		spawn(Enemies[0])
+		Enemies.remove(0)
 			
 func spawn(enemy):
 	aux = z[enemy.z].instance()
-	aux.init(2000, enemy.y)
+	if enemy.y:
+		aux.init(2000, enemy.y)
 	add_child(aux)
+
+func next():
+	if Enemies:
+		Enemies[0].x = 0
 
 func csv2Dict():
 	var file = File.new()
