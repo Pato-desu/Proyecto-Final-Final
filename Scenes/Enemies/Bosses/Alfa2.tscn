@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Alfa/Alfa2.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Enemies/Alfa/Alfa2_Bar.gd" type="Script" id=2]
@@ -17,10 +17,34 @@ extents = Vector2( 960, 10 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 960, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15, 15 )
+[sub_resource type="VisualShader" id=5]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
 
-[sub_resource type="DynamicFont" id=6]
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, 375 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 60
 font_data = ExtResource( 6 )
 
@@ -76,19 +100,26 @@ shape = SubResource( 4 )
 [node name="Right Bar" type="KinematicBody2D" parent="." groups=[
 "Elastic",
 ]]
+material = SubResource( 6 )
 position = Vector2( 1845, 540 )
 scale = Vector2( 1, 6 )
 collision_layer = 64
 collision_mask = 32
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Bar" groups=[
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Right Bar" groups=[
 "Elastic",
 ]]
-shape = SubResource( 5 )
+polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15, -15, -15, 0, -18, 15, -15 )
 
 [node name="Sprite" type="Sprite" parent="Right Bar"]
 texture = ExtResource( 3 )
+
+[node name="T1" type="Polygon2D" parent="Right Bar"]
+polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15 )
+
+[node name="T2" type="Polygon2D" parent="Right Bar"]
+polygon = PoolVector2Array( 15, -15, 0, -18, -15, -15 )
 
 [node name="Pseudo Weapon" type="Line2D" parent="."]
 points = PoolVector2Array( 960, 16, 960, 1080 )
@@ -106,7 +137,7 @@ margin_left = 860.0
 margin_top = 50.0
 margin_right = -62.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1
@@ -119,7 +150,7 @@ margin_left = 1022.0
 margin_top = 50.0
 margin_right = 138.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1

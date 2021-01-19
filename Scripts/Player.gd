@@ -9,7 +9,7 @@ var speed
 var velocity
 const fire_rate = 0.3
 var fire_time = 0.0
-const max_life = 500
+const max_life = 100
 var life = max_life
 const damage = 100
 var x_axis = true

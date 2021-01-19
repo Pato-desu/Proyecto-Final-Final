@@ -8,7 +8,7 @@ points = PoolVector2Array( -64, 64, 64, 64, 0, -48 )
 [sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/Example.png-9c62c3787988eeea0a45ec1e9b156698.stex"
 
-[node name="Character" type="Area2D"]
+[node name="Enemy" type="Area2D"]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource( 2 )

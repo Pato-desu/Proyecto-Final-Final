@@ -10,3 +10,4 @@ func _process(_delta):
 func go_phase2():
 	bar.queue_free()
 	spawner.next()
+	queue_free()

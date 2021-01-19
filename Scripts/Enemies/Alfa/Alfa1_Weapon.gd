@@ -2,12 +2,13 @@ extends Area2D
 
 onready var dagame = get_node("/root/Game/Damage")
 onready var boss = get_node("../..")
-onready var bar = boss.get_node("Right Bar")
+onready var lbar = boss.get_node("Left Bar")
+onready var rbar = boss.get_node("Right Bar")
 onready var muzzle = get_node("Spawn")
 const Ball = preload("res://Scenes/Proyectile.tscn")
 var random
 var ball
-const ball_speed = 800 #1000? #1400
+const ball_speed = 1000 #1000? #1400
 export var max_life = 500
 var life
 var q
@@ -28,5 +29,6 @@ func shoot():
 	ball = Ball.instance()
 	var vely = random.randf_range(1, -1)
 	boss.call_deferred("add_child", ball)
-	ball.init(muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color(1, 1, 1))
-	bar.follow(ball)
+	ball.init(muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color(0.5, 0, 0))
+	lbar.follow(null)
+	rbar.follow(ball)

@@ -10,6 +10,7 @@ var life
 var q
 export var color = Color.white
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
+var resize = 1
 
 func init(x, y):
 	position = Vector2(x, y)
@@ -22,6 +23,9 @@ func _process(_delta):
 	q = float(life)/ max_life
 	modulate = Color(q, q, q)
 	if not $Armas.get_child_count():
+		resize = 0.9
+	scale *= resize
+	if scale.x <= 0.1:
 		queue_free()
 
 func _on_Enemy_area_entered(area):

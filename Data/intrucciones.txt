@@ -1,0 +1,5 @@
+Actualizar el .csv
+Abrirlo con el bloc de notas
+Guardar como .txt pero darle de nombre "... .prn"
+Cambiar nombre a de "... .prn.txt" a "... .prn"
+quizas el paso 2 y 3 estan de mas lol

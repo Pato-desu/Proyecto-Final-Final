@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Enemies/1C.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Weapons/1C3.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]

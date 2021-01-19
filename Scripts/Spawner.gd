@@ -15,12 +15,12 @@ var timer = 0.0
 var dic
 
 func _ready():
-#	dic = csv2Dict()
-#	for i in dic["Index"].size() - 2:
-#		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
-#		Enemies.append(aux)
-	Enemies.append(Vector3(1, 0, 3))
-	Enemies.append(Vector3(999, 0, 4))
+	dic = csv2Dict()
+	for i in dic["Index"].size() - 2:
+		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
+		Enemies.append(aux)
+#	Enemies.append(Vector3(1, 0, 3))
+#	Enemies.append(Vector3(1, 0, 4))
 
 func _process(delta):
 	timer = timer + delta
@@ -36,7 +36,7 @@ func spawn(enemy):
 
 func next():
 	if Enemies:
-		Enemies[0].x = 0
+		Enemies[0].x = 1
 
 func csv2Dict():
 	var file = File.new()

@@ -17,10 +17,6 @@ func _process(_delta):
 			else:
 				velocity.y = clamp(ball.velocity.y, -speed, speed)
 		move_and_slide(velocity)
-
-func bounce_p(proyectile):
-	moving = false
-	#CUANDO SE VA
 	
 func follow(proyectile):
 	moving = true
