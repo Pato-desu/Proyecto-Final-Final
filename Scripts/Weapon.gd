@@ -2,7 +2,7 @@ extends Area2D
 
 onready var dagame = get_node("/root/Game/Damage")
 export var max_life = 50
-var damage = 50
+var damage = 10
 export var bullet_speed = 500
 var life
 var q

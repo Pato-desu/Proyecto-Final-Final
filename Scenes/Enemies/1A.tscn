@@ -9,12 +9,8 @@ speed = 325
 color = Color( 0.533333, 0, 0.0823529, 1 )
 
 [node name="CollisionPolygon2D" parent="." index="0"]
-visible = false
 polygon = PoolVector2Array( -64, 0, -16, 64, 64, 40, 64, -40, -16, -64 )
 disabled = false
-
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
 
 [node name="Sprite" parent="." index="3"]
 rotation = -1.5708

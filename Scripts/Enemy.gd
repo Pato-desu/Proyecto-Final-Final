@@ -3,7 +3,7 @@ extends Area2D
 onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
 export var max_life = 100
-var damage = 100
+var damage = 20
 export var speed = 450
 onready var velocity = Vector2.LEFT * speed
 var life
@@ -24,6 +24,7 @@ func _process(_delta):
 	modulate = Color(q, q, q)
 	if not $Armas.get_child_count():
 		resize = 0.9
+		$CollisionPolygon2D.queue_free()
 	scale *= resize
 	if scale.x <= 0.1:
 		queue_free()
@@ -35,4 +36,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func before_dying():
-	dagame.collateral_damage(max_life)
+	dagame.collateral_damage(20)

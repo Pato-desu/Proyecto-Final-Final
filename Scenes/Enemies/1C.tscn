@@ -13,9 +13,6 @@ max_life = 50
 speed = 250
 color = Color( 1, 0.498039, 0.152941, 1 )
 
-[node name="CollisionPolygon2D" parent="." index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
 disabled = false

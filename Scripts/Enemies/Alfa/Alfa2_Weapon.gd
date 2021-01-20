@@ -41,7 +41,7 @@ func shoot(n):
 	#	print(added_pos)
 
 func dashed_line(dash_length):
-	self_modulate = Color(1, 1, 1, 0)
+	self_modulate.a = 0
 	var dash_step = Vector2.DOWN * dash_length
 	var draw = true
 	var segment_start = points[0]

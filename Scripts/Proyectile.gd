@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var dagame = get_node("/root/Game/Damage")
 var life = 1
-var damage = 25
+var damage = 5
 var velocity
 #var speed
 

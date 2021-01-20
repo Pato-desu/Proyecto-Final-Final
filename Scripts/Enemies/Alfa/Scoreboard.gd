@@ -5,7 +5,7 @@ onready var player = get_node("/root/Game/Player")
 onready var left = get_node("Left") 
 onready var right = get_node("Right")
 onready var boss = get_node("..")
-const damage = 100
+const damage = 20
 
 func goal(_body, l):
 	if l:

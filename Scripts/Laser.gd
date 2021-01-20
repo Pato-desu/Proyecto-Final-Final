@@ -26,12 +26,12 @@ func _physics_process(_delta):
 
 func activate():
 	activated = true
-	modulate = Color(1, 1, 1, 1)
+	modulate.a = 1
 	visual.width = 11
 
 func deactivate():
 	activated = false
-	modulate = Color(1, 1, 1, 0.5)
+	modulate.a = 0.2
 	visual.width = 3
 
 func bounce(prev, from, norm, col, n):

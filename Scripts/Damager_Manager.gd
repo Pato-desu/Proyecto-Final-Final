@@ -48,6 +48,8 @@ func damage(dmged, dmg):
 			if dmged.has_method("before_dying"):
 				dmged.before_dying()
 			dmged.queue_free()
+		elif dmged.has_method("losing_hp"):
+			dmged.losing_hp()
 
 func collateral_damage(dmg):
 	if is_instance_valid (player):
