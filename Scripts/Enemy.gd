@@ -2,6 +2,7 @@ extends Area2D
 
 onready var game = get_node("/root/Game")
 onready var dagame = game.get_node("Damage")
+onready var weapons = $Armas
 export var max_life = 100
 var damage = 20
 export var speed = 450
@@ -22,9 +23,11 @@ func _physics_process(delta):
 func _process(_delta):
 	q = float(life)/ max_life
 	modulate = Color(q, q, q)
-	if not $Armas.get_child_count():
+	if weapons and not weapons.get_child_count():
 		resize = 0.9
+		weapons.queue_free()
 		$CollisionPolygon2D.queue_free()
+		$CollisionShape2D.queue_free()
 	scale *= resize
 	if scale.x <= 0.1:
 		queue_free()

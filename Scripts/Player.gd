@@ -56,6 +56,7 @@ func _physics_process(_delta):
 	else:
 		$Laser.deactivate()
 	
+# warning-ignore:return_value_discarded
 	move_and_slide(velocity.normalized() * speed)
 
 func _on_Hurtbox_area_entered(area):

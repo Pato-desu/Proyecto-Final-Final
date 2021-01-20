@@ -15,7 +15,6 @@ color = Color( 1, 0.498039, 0.152941, 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
-disabled = false
 
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 1 )

@@ -33,6 +33,7 @@ func _process(_delta):
 				velocity.y = -speed
 			else:
 				velocity.y = clamp(ball.velocity.y, -speed, speed)
+# warning-ignore:return_value_discarded
 		move_and_slide(velocity)
 
 func bounce_l(to, from):

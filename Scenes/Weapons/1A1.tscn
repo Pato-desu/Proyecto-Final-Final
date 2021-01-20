@@ -10,7 +10,7 @@ max_life = 15
 bullet_speed = 650
 
 [node name="CollisionPolygon2D" parent="." index="0"]
-disabled = false
+polygon = PoolVector2Array( 0, -55, -70, 68, 70, 68 )
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 3 )

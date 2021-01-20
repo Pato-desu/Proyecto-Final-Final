@@ -4,6 +4,7 @@ func _process(_delta):
 	if visible:
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("reset"):
 			get_tree().paused = false
+# warning-ignore:return_value_discarded
 			get_tree().reload_current_scene() #BUGS CON ESCAPE Y CLICK IZQ?
 #		if Input.is_action_just_pressed("escape"):
 #			get_tree().paused = false

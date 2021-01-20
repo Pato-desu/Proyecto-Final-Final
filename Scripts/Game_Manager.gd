@@ -7,6 +7,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("reset"):
+# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("pause"):
 		get_node("UI/Pause").pop_up()

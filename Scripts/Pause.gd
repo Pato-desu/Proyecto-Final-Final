@@ -13,6 +13,7 @@ func _process(_delta):
 				flag = true
 		if Input.is_action_just_pressed("reset"):
 			get_tree().paused = false
+# warning-ignore:return_value_discarded
 			get_tree().reload_current_scene()
 
 func pop_up():

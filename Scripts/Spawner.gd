@@ -16,11 +16,10 @@ var dic
 
 func _ready():
 	dic = csv2Dict()
-	for i in dic["Index"].size() - 2:
+	for i in dic["Index"].size():
 		aux = Vector3(dic["Time"][i], dic["Height"][i], dic["Type"][i])
 		Enemies.append(aux)
-#	Enemies.append(Vector3(1, 0, 3))
-#	Enemies.append(Vector3(1, 0, 4))
+#	print(Enemies)
 
 func _process(delta):
 	timer = timer + delta
@@ -29,6 +28,7 @@ func _process(delta):
 		Enemies.remove(0)
 			
 func spawn(enemy):
+#	print(enemy)
 	aux = z[enemy.z].instance()
 	if enemy.y:
 		aux.init(2000, enemy.y)

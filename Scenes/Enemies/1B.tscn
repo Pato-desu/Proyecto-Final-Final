@@ -10,7 +10,6 @@ color = Color( 0, 0.588235, 0.666667, 1 )
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 0, 16, 64, -64, 40, -64, -40, 16, -64 )
-disabled = false
 
 [node name="Sprite" parent="." index="3"]
 rotation = -4.71239

@@ -13,7 +13,6 @@ bullet_speed = 350
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
-disabled = false
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 1 )
