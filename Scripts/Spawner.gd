@@ -1,7 +1,6 @@
 extends Node
 
-#var table = "res://Data/Nivel 1.prn"
-var table = "res://Data/Test boss 1.prn"
+var table = "res://Data/ExN.prn"
 
 export var z0 = preload("res://Scenes/Enemies/1A.tscn")
 export var z1 = preload("res://Scenes/Enemies/1B.tscn")
