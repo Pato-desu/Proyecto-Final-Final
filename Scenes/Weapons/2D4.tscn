@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Muzzle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Weapons/2D4.png" type="Texture" id=3]
+
+[node name="2D4" instance=ExtResource( 1 )]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( 64, 64, 0, -46, -64, 64 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+
+[node name="2D4L" parent="Bocas" index="0" instance=ExtResource( 2 )]
+position = Vector2( 0, -64 )
