@@ -7,7 +7,7 @@
 [node name="2D4" instance=ExtResource( 1 )]
 
 [node name="CollisionPolygon2D" parent="." index="0"]
-polygon = PoolVector2Array( 64, 64, 0, -46, -64, 64 )
+polygon = PoolVector2Array( 72, 72, 0, -56, -72, 72 )
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 3 )
