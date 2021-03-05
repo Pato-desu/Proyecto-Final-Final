@@ -14,4 +14,4 @@ texture = ExtResource( 3 )
 
 [node name="2D4L" parent="Bocas" index="0" instance=ExtResource( 2 )]
 position = Vector2( 0, -64 )
-period = 0.2
+period = 0.5
