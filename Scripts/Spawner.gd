@@ -1,14 +1,18 @@
 extends Node
 
 #var table = "res://Data/Nivel 1.prn"
-var table = "res://Data/Test boss 1.prn"
+#var table = "res://Data/Test boss 1.prn"
+#var table = "res://Data/Nivel 1 modified.prn"
+var table = "res://Data/Test 2D.prn"
 
 export var z0 = preload("res://Scenes/Enemies/1A.tscn")
 export var z1 = preload("res://Scenes/Enemies/1B.tscn")
 export var z2 = preload("res://Scenes/Enemies/1C.tscn")
-export var a1 = preload("res://Scenes/Enemies/Bosses/Alfa1.tscn")
-export var a2 = preload("res://Scenes/Enemies/Bosses/Alfa2.tscn")
-var z = [z0, z1, z2, a1, a2]
+export var z3 = preload("res://Scenes/Enemies/Bosses/Alfa1.tscn")
+export var z4 = preload("res://Scenes/Enemies/Bosses/Alfa2.tscn")
+export var z5 = preload("res://Scenes/Enemies/2D.tscn")
+
+var z = [z0, z1, z2, z3, z4, z5]
 
 var Enemies = PoolVector3Array()
 var aux

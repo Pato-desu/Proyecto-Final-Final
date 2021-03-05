@@ -5,6 +5,7 @@
 [ext_resource path="res://Sprites/Enemies/2D.png" type="Texture" id=3]
 
 [node name="2D" instance=ExtResource( 1 )]
+angular_vel = 1
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 64, 0, -46, -64, 64 )
@@ -14,4 +15,14 @@ texture = ExtResource( 3 )
 
 [node name="2D4" parent="Armas" index="0" instance=ExtResource( 2 )]
 position = Vector2( 0, -25 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="2D5" parent="Armas" index="1" instance=ExtResource( 2 )]
+position = Vector2( 45, 53 )
+rotation = 2.0944
+scale = Vector2( 0.5, 0.5 )
+
+[node name="2D6" parent="Armas" index="2" instance=ExtResource( 2 )]
+position = Vector2( -45, 53 )
+rotation = 4.18879
 scale = Vector2( 0.5, 0.5 )

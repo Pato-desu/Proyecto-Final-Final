@@ -12,6 +12,7 @@ var q
 export var color = Color.white
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 var resize = 1
+export var angular_vel = 0
 
 func init(x, y):
 	position = Vector2(x, y)
@@ -19,6 +20,7 @@ func init(x, y):
 
 func _physics_process(delta):
 	position = position + velocity * delta
+	rotation_degrees += angular_vel
 	
 func _process(_delta):
 	q = float(life)/ max_life
