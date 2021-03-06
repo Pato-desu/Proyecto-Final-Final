@@ -1,11 +1,14 @@
 extends Position2D
 
 onready var level = get_node("/root/Game")
+onready var weapon = get_node("../..")
+onready var enemy = get_node("../../../..")
 const bullet = preload("res://Scenes/Proyectile.tscn")
 var color
 var speed
 
 export var angle = 180
+var new_angle
 var direction
 export var period = 0.0
 var period_timer
@@ -17,9 +20,8 @@ export var time_passive = 0.0
 var passive_timer
 
 func _ready():
-	direction = Vector2(cos(deg2rad(angle)), sin(deg2rad(angle)))
-	speed = get_node("../..").bullet_speed
-	color = get_node("../../../..").color
+	speed = weapon.bullet_speed
+	color = enemy.color
 	if period:
 		period_timer = Timer.new()
 		add_child(period_timer)
@@ -60,6 +62,9 @@ func going_to_sleep():
 		passive_timer.start()
 
 func shoot():
+	new_angle = angle + weapon.rotation_degrees
+	print(weapon.rotation_degrees)
+	direction = Vector2(cos(deg2rad(new_angle)), sin(deg2rad(new_angle)))
 	var aux = bullet.instance()
 	level.add_child(aux)
 	aux.init(global_position, direction.normalized() * speed, color)
