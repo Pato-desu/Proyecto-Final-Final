@@ -5,6 +5,9 @@
 [ext_resource path="res://Sprites/Enemies/2D.png" type="Texture" id=3]
 
 [node name="2D" instance=ExtResource( 1 )]
+max_life = 50
+speed = 175
+color = Color( 0.105882, 0, 0.690196, 1 )
 angular_vel = 1
 
 [node name="CollisionPolygon2D" parent="." index="0"]

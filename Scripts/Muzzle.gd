@@ -62,8 +62,8 @@ func going_to_sleep():
 		passive_timer.start()
 
 func shoot():
-	new_angle = 0 + weapon.rotation_degrees + enemy.rotation_degrees
-	print(enemy.rotation_degrees)
+	new_angle = - angle + weapon.rotation_degrees + enemy.rotation_degrees + 5 #(se siente mejor)
+#	print(weapon.rotation_degrees, " + ", enemy.rotation_degrees, " = ", new_angle, " = ", deg2rad(new_angle))
 	direction = Vector2(cos(deg2rad(new_angle)), sin(deg2rad(new_angle)))
 	var aux = bullet.instance()
 	level.add_child(aux)

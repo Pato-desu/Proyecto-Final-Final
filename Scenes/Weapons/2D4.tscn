@@ -5,6 +5,8 @@
 [ext_resource path="res://Sprites/Weapons/2D4.png" type="Texture" id=3]
 
 [node name="2D4" instance=ExtResource( 1 )]
+max_life = 20
+bullet_speed = 300
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 72, 72, 0, -56, -72, 72 )
