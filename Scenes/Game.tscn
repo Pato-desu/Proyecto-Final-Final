@@ -1,6 +1,5 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://DejaVuSans.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/ParallaxLayer.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
@@ -11,6 +10,7 @@
 [ext_resource path="res://Scripts/Damager_Manager.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/TL.gd" type="Script" id=11]
+[ext_resource path="res://Fonts/HUD_custom_font.tres" type="DynamicFont" id=12]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 1920, 0 )
@@ -27,21 +27,21 @@ b = Vector2( 0, 0 )
 a = Vector2( 1920, 0 )
 b = Vector2( 1920, 1080 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = ExtResource( 1 )
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Fonts/DejaVuSans_base_font.ttf"
 
 [sub_resource type="DynamicFont" id=6]
 size = 50
-font_data = ExtResource( 1 )
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 60
-font_data = ExtResource( 1 )
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=8]
+resource_local_to_scene = true
 size = 30
-font_data = ExtResource( 1 )
+font_data = SubResource( 5 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 7 )
@@ -100,7 +100,7 @@ margin_left = 30.0
 margin_top = 30.0
 margin_right = 150.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = ExtResource( 12 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,7 +112,7 @@ margin_left = 1740.0
 margin_top = 30.0
 margin_right = 1890.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = ExtResource( 12 )
 align = 2
 script = ExtResource( 11 )
 __meta__ = {

@@ -5,7 +5,10 @@
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_a.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Enemies/Alfa/Alfa2_Weapon.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Enemies/Alfa/Scoreboard.gd" type="Script" id=5]
-[ext_resource path="res://DejaVuSans.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=6]
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
