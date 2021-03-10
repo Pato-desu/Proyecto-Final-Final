@@ -21,8 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Proyecto Final"
-run/main_scene="res://Scenes/Game.tscn"
-config/icon="res://Sprites/player_16.png"
+run/main_scene="res://Scenes/Main/Main Menu.tscn"
+config/icon="res://Sprites/General/player_16.png"
 
 [display]
 
@@ -180,7 +180,3 @@ pause={
 2d_physics/layer_8="Invisible Wall"
 2d_physics/layer_9="Special Alfa 1"
 2d_physics/layer_10="Special Alfa 2"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

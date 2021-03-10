@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const Ball = preload("res://Scenes/Proyectile.tscn")
+const Ball = preload("res://Scenes/General/Proyectile.tscn")
 onready var boss = get_node("..")
 var velocity = Vector2.ZERO
 var speed

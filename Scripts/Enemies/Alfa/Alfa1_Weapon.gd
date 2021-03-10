@@ -1,11 +1,11 @@
 extends Area2D
 
-onready var dagame = get_node("/root/Game/Damage")
+onready var dagame = get_node("/root/Game/Damager")
 onready var boss = get_node("../..")
 onready var lbar = boss.get_node("Left Bar")
 onready var rbar = boss.get_node("Right Bar")
 onready var muzzle = get_node("Spawn")
-const Ball = preload("res://Scenes/Proyectile.tscn")
+const Ball = preload("res://Scenes/General/Proyectile.tscn")
 var random
 var ball
 const ball_speed = 1000 #1000? #1400

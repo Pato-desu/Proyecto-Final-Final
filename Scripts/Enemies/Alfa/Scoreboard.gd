@@ -1,6 +1,6 @@
 extends Control
 
-onready var dagame = get_node("/root/Game/Damage")
+onready var dagame = get_node("/root/Game/Damager")
 onready var player = get_node("/root/Game/Player")
 onready var left = get_node("Left") 
 onready var right = get_node("Right")

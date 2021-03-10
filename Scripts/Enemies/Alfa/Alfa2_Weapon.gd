@@ -2,7 +2,7 @@ extends Line2D
 
 onready var boss = get_node("..")
 onready var score = boss.get_node("Scoreboard")
-const Ball = preload("res://Scenes/Proyectile.tscn")
+const Ball = preload("res://Scenes/General/Proyectile.tscn")
 var random
 var ball
 const ball_speed = 800 #1000? #1400
