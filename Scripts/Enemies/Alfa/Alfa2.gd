@@ -1,6 +1,6 @@
 extends Node
 
-onready var bar = get_node("Right Bar")
+onready var bar = get_node("RightBar")
 onready var game = get_node("/root/Game")
 onready var player = game.get_node("Player")
 

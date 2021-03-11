@@ -1,9 +1,9 @@
 extends Node
 
 #var table = "res://Data/Nivel 1.prn"
+var table = "res://Data/Nivel 1 modified.prn"
 #var table = "res://Data/Test boss 1.prn"
 #var table = "res://Data/Test boss 1.5.prn"
-var table = "res://Data/Nivel 1 modified.prn"
 #var table = "res://Data/Test 2D.prn"
 
 export var z0 = preload("res://Scenes/Enemies/Level One/1A.tscn")

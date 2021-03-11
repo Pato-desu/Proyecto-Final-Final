@@ -35,11 +35,6 @@ func deactivate():
 	visual.width = 3
 
 func bounce(prev, from, norm, col, n):
-#	print(n)
-#	print(col.name)
-#	print(from)
-#	print(prev)
-#	print(norm)
 	if col.is_in_group("Elastic") and n <= max_reflects:
 		var to = prev.bounce(norm)
 		if col.has_method("bounce_l"):

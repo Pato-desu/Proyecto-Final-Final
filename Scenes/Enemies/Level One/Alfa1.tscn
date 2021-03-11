@@ -24,43 +24,43 @@ extents = Vector2( 960, 10 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 21, 15.3333 )
 
-[node name="Boss Alfa 1" type="Node"]
+[node name="BossAlfa1" type="Node"]
 script = ExtResource( 3 )
 
-[node name="Restrective Walls" type="StaticBody2D" parent="."]
+[node name="RestrectiveWalls" type="StaticBody2D" parent="."]
 collision_layer = 128
 
-[node name="Left" type="CollisionShape2D" parent="Restrective Walls"]
+[node name="Left" type="CollisionShape2D" parent="RestrectiveWalls"]
 shape = SubResource( 1 )
 
-[node name="Right" type="CollisionShape2D" parent="Restrective Walls"]
+[node name="Right" type="CollisionShape2D" parent="RestrectiveWalls"]
 shape = SubResource( 2 )
 
-[node name="Bouncing Wall 1" type="StaticBody2D" parent="." groups=[
+[node name="UpperBouncingWall" type="StaticBody2D" parent="." groups=[
 "Elastic",
 ]]
 collision_layer = 64
 collision_mask = 32
 
-[node name="Upper" type="CollisionShape2D" parent="Bouncing Wall 1" groups=[
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBouncingWall" groups=[
 "Elastic",
 ]]
 position = Vector2( 960, 0 )
 shape = SubResource( 3 )
 
-[node name="Bouncing Wall 2" type="StaticBody2D" parent="." groups=[
+[node name="LowerBouncingWall" type="StaticBody2D" parent="." groups=[
 "Elastic",
 ]]
 collision_layer = 64
 collision_mask = 32
 
-[node name="Lower" type="CollisionShape2D" parent="Bouncing Wall 2" groups=[
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBouncingWall" groups=[
 "Elastic",
 ]]
 position = Vector2( 960, 1080 )
 shape = SubResource( 4 )
 
-[node name="Left Bar" type="KinematicBody2D" parent="." groups=[
+[node name="LeftBar" type="KinematicBody2D" parent="." groups=[
 "Elastic",
 ]]
 position = Vector2( 75, 540 )
@@ -69,41 +69,42 @@ collision_layer = 64
 collision_mask = 32
 script = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Left Bar" groups=[
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftBar" groups=[
 "Elastic",
 ]]
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15, -15, -15, 0, -18, 15, -15 )
 
-[node name="T1" type="Polygon2D" parent="Left Bar"]
+[node name="Extreme1" type="Polygon2D" parent="LeftBar"]
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15 )
 
-[node name="T2" type="Polygon2D" parent="Left Bar"]
+[node name="Extreme2" type="Polygon2D" parent="LeftBar"]
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 15, -15, 0, -18, -15, -15 )
 
-[node name="Sprite" type="Sprite" parent="Left Bar"]
+[node name="Sprite" type="Sprite" parent="LeftBar"]
 position = Vector2( 0, -0.166664 )
 scale = Vector2( 1, 1.01111 )
 texture = ExtResource( 4 )
 
-[node name="Weapon" type="Area2D" parent="Left Bar" groups=[
+[node name="Weapon" type="Area2D" parent="LeftBar" groups=[
 "Elastic",
 ]]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 1 )
+max_life = 250
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Bar/Weapon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBar/Weapon"]
 shape = SubResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="Left Bar/Weapon"]
+[node name="Sprite" type="Sprite" parent="LeftBar/Weapon"]
 texture = ExtResource( 6 )
 
-[node name="Spawn" type="Position2D" parent="Left Bar/Weapon"]
+[node name="SpawnPoint" type="Position2D" parent="LeftBar/Weapon"]
 position = Vector2( 29, 0 )
 
-[node name="Right Bar" type="KinematicBody2D" parent="." groups=[
+[node name="RightBar" type="KinematicBody2D" parent="." groups=[
 "Elastic",
 ]]
 position = Vector2( 1845, 540 )
@@ -112,18 +113,18 @@ collision_layer = 64
 collision_mask = 32
 script = ExtResource( 2 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Right Bar" groups=[
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RightBar" groups=[
 "Elastic",
 ]]
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15, -15, -15, 0, -18, 15, -15 )
 
-[node name="T1" type="Polygon2D" parent="Right Bar"]
+[node name="Extreme1" type="Polygon2D" parent="RightBar"]
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15 )
 
-[node name="T2" type="Polygon2D" parent="Right Bar"]
+[node name="Extreme2" type="Polygon2D" parent="RightBar"]
 polygon = PoolVector2Array( 15, -15, 0, -18, -15, -15 )
 
-[node name="Sprite" type="Sprite" parent="Right Bar"]
+[node name="Sprite" type="Sprite" parent="RightBar"]
 texture = ExtResource( 5 )
-[connection signal="bounce" from="Left Bar" to="Right Bar" method="follow"]
-[connection signal="bounce" from="Right Bar" to="Left Bar" method="follow"]
+[connection signal="bounce" from="LeftBar" to="RightBar" method="follow"]
+[connection signal="bounce" from="RightBar" to="LeftBar" method="follow"]

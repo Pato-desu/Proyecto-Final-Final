@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Proyecto Final"
-run/main_scene="res://Scenes/Main/Main Menu.tscn"
+run/main_scene="res://Scenes/Main/MainMenu.tscn"
 config/icon="res://Sprites/General/player_16.png"
 
 [display]

@@ -13,4 +13,4 @@ func _process(_delta):
 		get_node("UI/Menus/Pause").pop_up()
 	
 func over(win):
-	get_node("UI/Menus/Game Over").pop_up(win)
+	get_node("UI/Menus/GameOver").pop_up(win)

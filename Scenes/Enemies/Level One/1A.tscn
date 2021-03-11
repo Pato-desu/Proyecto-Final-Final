@@ -4,10 +4,6 @@
 [ext_resource path="res://Scenes/Enemies/Weapons/Level One/1A1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Enemies/Minions/1A.png" type="Texture" id=3]
 
-
-
-
-
 [node name="1A" instance=ExtResource( 1 )]
 speed = 325
 color = Color( 0.533333, 0, 0.0823529, 1 )
@@ -21,4 +17,5 @@ texture = ExtResource( 3 )
 
 [node name="1A1" parent="Armas" index="0" instance=ExtResource( 2 )]
 position = Vector2( -45, 0 )
+rotation = -1.5708
 scale = Vector2( 1, 0.45 )

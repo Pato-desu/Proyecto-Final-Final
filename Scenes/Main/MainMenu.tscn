@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/UI/Menus/SimpleButton.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/General/main_menu.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/General/main_menu.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/UI/Menus/SimpleButton.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/MMButtons_custom_font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -23,7 +23,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
 flip_v = true
@@ -31,7 +31,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title Words" type="RichTextLabel" parent="."]
+[node name="TitleWords" type="RichTextLabel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -55,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main Buttons" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -66,12 +66,12 @@ margin_right = 250.0
 margin_bottom = 430.0
 custom_constants/separation = 5
 alignment = 1
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play Button" type="Button" parent="Main Buttons"]
+[node name="PlayButton" type="Button" parent="MainButtons"]
 margin_top = 94.0
 margin_right = 500.0
 margin_bottom = 148.0
@@ -80,7 +80,7 @@ custom_colors/font_color_disabled = Color( 0.247059, 0.247059, 0.247059, 1 )
 custom_colors/font_color_hover = Color( 0.709804, 0.901961, 0.113725, 1 )
 text = "Play"
 
-[node name="Options Button" type="Button" parent="Main Buttons"]
+[node name="OptionsButton" type="Button" parent="MainButtons"]
 margin_top = 153.0
 margin_right = 500.0
 margin_bottom = 207.0
@@ -90,7 +90,7 @@ custom_colors/font_color_hover = Color( 0.709804, 0.901961, 0.113725, 1 )
 disabled = true
 text = "Options"
 
-[node name="Credits Button" type="Button" parent="Main Buttons"]
+[node name="CreditsButton" type="Button" parent="MainButtons"]
 margin_top = 212.0
 margin_right = 500.0
 margin_bottom = 266.0
@@ -100,7 +100,7 @@ custom_colors/font_color_hover = Color( 0.709804, 0.901961, 0.113725, 1 )
 disabled = true
 text = "Credits"
 
-[node name="Exit Button" type="Button" parent="Main Buttons"]
+[node name="ExitButton" type="Button" parent="MainButtons"]
 margin_top = 271.0
 margin_right = 500.0
 margin_bottom = 325.0
@@ -108,7 +108,7 @@ custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.247059, 0.247059, 0.247059, 1 )
 custom_colors/font_color_hover = Color( 0.709804, 0.901961, 0.113725, 1 )
 text = "Exit"
-[connection signal="pressed" from="Main Buttons/Play Button" to="Main Buttons" method="button_pressed" binds= [ "play" ]]
-[connection signal="pressed" from="Main Buttons/Options Button" to="Main Buttons" method="button_pressed" binds= [ "options" ]]
-[connection signal="pressed" from="Main Buttons/Credits Button" to="Main Buttons" method="button_pressed" binds= [ "credits" ]]
-[connection signal="pressed" from="Main Buttons/Exit Button" to="Main Buttons" method="button_pressed" binds= [ "exit" ]]
+[connection signal="pressed" from="MainButtons/PlayButton" to="MainButtons" method="button_pressed" binds= [ "play" ]]
+[connection signal="pressed" from="MainButtons/OptionsButton" to="MainButtons" method="button_pressed" binds= [ "options" ]]
+[connection signal="pressed" from="MainButtons/CreditsButton" to="MainButtons" method="button_pressed" binds= [ "credits" ]]
+[connection signal="pressed" from="MainButtons/ExitButton" to="MainButtons" method="button_pressed" binds= [ "exit" ]]

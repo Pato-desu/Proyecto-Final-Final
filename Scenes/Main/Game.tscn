@@ -114,14 +114,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Game Over" type="Popup" parent="UI/Menus"]
+[node name="GameOver" type="Popup" parent="UI/Menus"]
 pause_mode = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="Label" parent="UI/Menus/Game Over"]
+[node name="Message" type="Label" parent="UI/Menus/GameOver"]
 margin_left = 840.0
 margin_top = 440.0
 margin_right = 1109.0
@@ -132,7 +132,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Aclaration" type="Label" parent="UI/Menus/Game Over"]
+[node name="Aclaration" type="Label" parent="UI/Menus/GameOver"]
 margin_left = 872.0
 margin_top = 520.0
 margin_right = 1085.0
@@ -145,7 +145,7 @@ __meta__ = {
 
 [node name="HUD" type="Node" parent="UI"]
 
-[node name="Health Points" type="Label" parent="UI/HUD"]
+[node name="HealthPoints" type="Label" parent="UI/HUD"]
 pause_mode = 2
 margin_left = 30.0
 margin_top = 30.0
@@ -157,7 +157,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time Left" type="Label" parent="UI/HUD"]
+[node name="TimeLeft" type="Label" parent="UI/HUD"]
 pause_mode = 2
 margin_left = 1740.0
 margin_top = 30.0
