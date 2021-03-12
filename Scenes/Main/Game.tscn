@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/UI/Menus/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Management/GameManager.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scripts/Extra/ParallaxLayer.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Management/DamagerManager.gd" type="Script" id=10]
 [ext_resource path="res://Fonts/HUD_custom_font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Fonts/GameplayMenuButtons_custom_font.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Scripts/UI/Menus/SceneManagement.gd" type="Script" id=13]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 1920, 0 )
@@ -32,15 +34,12 @@ font_path = "res://Fonts/DejaVuSans_base_font.ttf"
 
 [sub_resource type="DynamicFont" id=6]
 size = 50
+use_filter = true
 font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 60
-font_data = SubResource( 5 )
-
-[sub_resource type="DynamicFont" id=8]
-resource_local_to_scene = true
-size = 30
+use_filter = true
 font_data = SubResource( 5 )
 
 [node name="Game" type="Node"]
@@ -90,58 +89,127 @@ shape = SubResource( 4 )
 position = Vector2( 560, 200 )
 
 [node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Menus" type="Node" parent="UI"]
+script = ExtResource( 13 )
 
 [node name="Pause" type="Popup" parent="UI/Menus"]
 pause_mode = 2
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="Label" parent="UI/Menus/Pause"]
-margin_left = 896.0
-margin_top = 376.0
-margin_right = 1061.0
-margin_bottom = 436.0
+[node name="VSplitContainer" type="VSplitContainer" parent="UI/Menus/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.5
+margin_top = -35.5
+margin_right = 82.5
+margin_bottom = 35.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="UI/Menus/Pause/VSplitContainer"]
+margin_right = 175.0
+margin_bottom = 59.0
 custom_fonts/font = SubResource( 6 )
 text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Buttons" type="VBoxContainer" parent="UI/Menus/Pause/VSplitContainer"]
+margin_top = 71.0
+margin_right = 175.0
+margin_bottom = 205.0
+
+[node name="Resume" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+margin_right = 175.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 12 )
+text = "Resume"
+flat = true
+
+[node name="Restart" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+margin_top = 46.0
+margin_right = 175.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 12 )
+text = "Restart"
+flat = true
+
+[node name="MainMenu" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+margin_top = 92.0
+margin_right = 175.0
+margin_bottom = 134.0
+custom_fonts/font = ExtResource( 12 )
+text = "Main Menu"
+flat = true
+
 [node name="GameOver" type="Popup" parent="UI/Menus"]
 pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="Label" parent="UI/Menus/GameOver"]
-margin_left = 840.0
-margin_top = 440.0
-margin_right = 1109.0
-margin_bottom = 511.0
+[node name="VBoxContainer" type="VSplitContainer" parent="UI/Menus/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -100.0
+margin_right = 140.0
+margin_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 5
+
+[node name="Message" type="Label" parent="UI/Menus/GameOver/VBoxContainer"]
+margin_top = 2.0
+margin_right = 280.0
+margin_bottom = 73.0
 custom_fonts/font = SubResource( 7 )
 text = "You ......!"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Aclaration" type="Label" parent="UI/Menus/GameOver"]
-margin_left = 872.0
-margin_top = 520.0
-margin_right = 1085.0
-margin_bottom = 556.0
-custom_fonts/font = SubResource( 8 )
-text = "Use R to reset"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Buttons" type="VBoxContainer" parent="UI/Menus/GameOver/VBoxContainer"]
+margin_top = 88.0
+margin_right = 280.0
+margin_bottom = 183.0
+
+[node name="Replay" type="Button" parent="UI/Menus/GameOver/VBoxContainer/Buttons"]
+margin_right = 280.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 12 )
+text = "Replay"
+flat = true
+
+[node name="MainMenu" type="Button" parent="UI/Menus/GameOver/VBoxContainer/Buttons"]
+margin_top = 46.0
+margin_right = 280.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 12 )
+text = "Main Menu"
+flat = true
 
 [node name="HUD" type="Node" parent="UI"]
 
