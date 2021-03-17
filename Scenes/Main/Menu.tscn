@@ -106,7 +106,7 @@ custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color_disabled = Color( 0.247059, 0.247059, 0.247059, 1 )
 custom_colors/font_color_hover = Color( 0.709804, 0.901961, 0.113725, 1 )
 text = "Exit"
-[connection signal="pressed" from="MainButtons/PlayButton" to="MainButtons" method="button_pressed" binds= [ "play" ]]
-[connection signal="pressed" from="MainButtons/OptionsButton" to="MainButtons" method="button_pressed" binds= [ "options" ]]
-[connection signal="pressed" from="MainButtons/CreditsButton" to="MainButtons" method="button_pressed" binds= [ "credits" ]]
-[connection signal="pressed" from="MainButtons/ExitButton" to="MainButtons" method="button_pressed" binds= [ "exit" ]]
+[connection signal="pressed" from="MainButtons/PlayButton" to="MainButtons" method="action" binds= [ "play" ]]
+[connection signal="pressed" from="MainButtons/OptionsButton" to="MainButtons" method="action" binds= [ "options" ]]
+[connection signal="pressed" from="MainButtons/CreditsButton" to="MainButtons" method="action" binds= [ "credits" ]]
+[connection signal="pressed" from="MainButtons/ExitButton" to="MainButtons" method="action" binds= [ "exit" ]]

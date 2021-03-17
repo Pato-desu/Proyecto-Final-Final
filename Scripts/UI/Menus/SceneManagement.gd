@@ -1,15 +1,18 @@
 extends Node
 
-func button_pressed(name):
+func action(name):
 	match name:
-		"play":
+		#',' innecesarias?
+		"play", "restart", "reset", "replay":
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://Scenes/Main/Game.tscn")
-		"menu":
+			get_tree().paused = false
+		"menu", "main menu":
+# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://Scenes/Main/Menu.tscn")
-		"resume":
+		"resume", "continue":
 			get_tree().paused = false
 		"pause":
 			get_tree().paused = true
-		"exit":
+		"exit", "quit":
 			get_tree().quit()

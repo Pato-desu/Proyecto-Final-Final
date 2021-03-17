@@ -100,7 +100,6 @@ script = ExtResource( 13 )
 
 [node name="Pause" type="Popup" parent="UI/Menus"]
 pause_mode = 2
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -237,3 +236,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Resume" to="UI/Menus/Pause" method="hide"]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Resume" to="UI/Menus" method="action" binds= [ "resume" ]]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="UI/Menus" method="action" binds= [ "restart" ]]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
+[connection signal="pressed" from="UI/Menus/GameOver/VBoxContainer/Buttons/Replay" to="UI/Menus" method="action" binds= [ "restart" ]]
+[connection signal="pressed" from="UI/Menus/GameOver/VBoxContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
