@@ -4,7 +4,7 @@ onready var scene_manager = get_node("..")
 
 func _process(_delta):
 	if visible:
-		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("reset"):
+		if Input.is_action_just_pressed("reset"):
 			scene_manager.action("reset")
 		 #se deberia poder salir con ESC
 #		if Input.is_action_just_pressed("escape"):

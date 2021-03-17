@@ -2,7 +2,7 @@ extends Popup
 
 onready var scene_manager = get_node("..")
 
-var flag = false	#para q just_pressed ande bien
+#var flag = false	#para q just_pressed ande bien
 
 func _process(_delta):
 	if visible:

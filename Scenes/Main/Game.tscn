@@ -138,6 +138,8 @@ margin_bottom = 205.0
 margin_right = 175.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Resume"
 flat = true
 
@@ -146,6 +148,8 @@ margin_top = 46.0
 margin_right = 175.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Restart"
 flat = true
 
@@ -154,6 +158,8 @@ margin_top = 92.0
 margin_right = 175.0
 margin_bottom = 134.0
 custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Main Menu"
 flat = true
 
@@ -199,6 +205,8 @@ margin_bottom = 183.0
 margin_right = 280.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Replay"
 flat = true
 
@@ -207,6 +215,8 @@ margin_top = 46.0
 margin_right = 280.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Main Menu"
 flat = true
 
