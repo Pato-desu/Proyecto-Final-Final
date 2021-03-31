@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/GameplayMenuButtons_custom_font.tres" type="DynamicFont" id=1]
+
+[node name="Button" type="Button"]
+margin_right = 113.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
+text = "Button"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

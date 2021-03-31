@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/General/Proyectile.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/General/proyectile.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/UI/HUD/OutlinePixelArt.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0
@@ -11,14 +12,14 @@ radius = 8.0
 
 [node name="Proyectile" type="KinematicBody2D"]
 collision_layer = 32
-collision_mask = 64
+collision_mask = 1664
 script = ExtResource( 1 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -30,5 +31,6 @@ scale = Vector2( 1.6, 1.6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Bullet_area_entered"]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+script = ExtResource( 3 )
+[connection signal="area_entered" from="Hurtbox" to="." method="area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/General/Muzzle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/General/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Enemies/Weapons/1A1.png" type="Texture" id=3]
+
+[node name="1A1" instance=ExtResource( 2 )]
+bullet_speed = 650
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PoolVector2Array( 0, -55, -70, 68, 70, 68 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+
+[node name="1A1A3" parent="Muzzles" index="0" instance=ExtResource( 1 )]
+position = Vector2( 80, 80 )
+angle = 330
+period = 0.75
+
+[node name="1A1A1" parent="Muzzles" index="1" instance=ExtResource( 1 )]
+position = Vector2( 0.000228882, -64 )
+angle = 90
+period = 0.75
+
+[node name="1A1A2" parent="Muzzles" index="2" instance=ExtResource( 1 )]
+position = Vector2( -80, 80 )
+angle = 210
+period = 0.75

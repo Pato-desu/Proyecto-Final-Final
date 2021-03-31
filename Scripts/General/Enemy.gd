@@ -1,14 +1,14 @@
 extends Area2D
 
 onready var game = get_node("/root/Game")
-onready var dagame = game.get_node("Damager")
-onready var weapons = $Armas
-export var max_life = 100
+onready var damager = game.get_node("Damager")
+onready var weapons = $Weapons
+export var max_health = 100
+var health
 var damage = 20
 export var speed = 450
 onready var velocity = Vector2.LEFT * speed
 var life
-var q
 export var color = Color.white
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 var resize = 1
@@ -16,15 +16,15 @@ export var angular_vel = 0
 
 func init(x, y):
 	position = Vector2(x, y)
-	life = max_life
+	health = max_health
 
 func _physics_process(delta):
 	position = position + velocity * delta
 	rotation_degrees += angular_vel
 	
 func _process(_delta):
-	q = float(life)/ max_life
-	modulate = Color(q, q, q)
+	life = float(health)/ max_health
+	modulate.a = life
 	if weapons and not weapons.get_child_count():
 		resize = 0.9
 		weapons.queue_free()
@@ -34,11 +34,11 @@ func _process(_delta):
 	if scale.x <= 0.1:
 		queue_free()
 
-func _on_Enemy_area_entered(area):
-	dagame.calculate_damage(self, area)
-
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
+func area_entered(area):
+	damager.calculate_damage(self, area)
 
 func before_dying():
-	dagame.collateral_damage(20)
+	damager.collateral_damage(20)
+
+func screen_exited():
+	queue_free()

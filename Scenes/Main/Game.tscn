@@ -1,18 +1,24 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/UI/Menus/GameOver.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Management/GameManager.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/UI/Menus/Pause.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Scenes/GameScene.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/Menus/PopUpMenu.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/UI/HUD/HealthPoints.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Management/SpawnerManager.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Scenes/SpawnerManager.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/UI/HUD/TimeLeft.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/General/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/General/background.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Extra/ParallaxLayer.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Management/DamagerManager.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Scenes/DamagerManager.gd" type="Script" id=10]
 [ext_resource path="res://Fonts/HUD_custom_font.tres" type="DynamicFont" id=11]
-[ext_resource path="res://Fonts/GameplayMenuButtons_custom_font.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Scripts/UI/Menus/SceneManagement.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Enemies/Minions/1A.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Scenes/SceneManager.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Buttons/SubButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Enemies/Minions/1B.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Enemies/Minions/2D.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Enemies/Bosses/Alpha1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Enemies/Bosses/Alpha2.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Enemies/Minions/1C.tscn" type="PackedScene" id=19]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 1920, 0 )
@@ -50,6 +56,7 @@ script = ExtResource( 10 )
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 5 )
+enemies = [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ) ]
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
@@ -86,17 +93,21 @@ shape = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 560, 200 )
+position = Vector2( 818.246, 514.394 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Menus" type="Node" parent="UI"]
+[node name="Menus" type="Control" parent="UI"]
 script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Pause" type="Popup" parent="UI/Menus"]
 pause_mode = 2
@@ -112,10 +123,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -82.5
-margin_top = -35.5
-margin_right = 82.5
-margin_bottom = 35.5
+margin_left = -82.4999
+margin_top = -120.0
+margin_right = 92.5
+margin_bottom = 85.0002
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -132,47 +143,43 @@ __meta__ = {
 [node name="Buttons" type="VBoxContainer" parent="UI/Menus/Pause/VSplitContainer"]
 margin_top = 71.0
 margin_right = 175.0
-margin_bottom = 205.0
+margin_bottom = 251.0
 
-[node name="Resume" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+[node name="Resume" parent="UI/Menus/Pause/VSplitContainer/Buttons" instance=ExtResource( 14 )]
 margin_right = 175.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
-custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
+focus_neighbour_top = NodePath("../MainMenu")
 text = "Resume"
-flat = true
 
-[node name="Restart" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+[node name="Restart" parent="UI/Menus/Pause/VSplitContainer/Buttons" instance=ExtResource( 14 )]
 margin_top = 46.0
 margin_right = 175.0
 margin_bottom = 88.0
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
-custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
 text = "Restart"
-flat = true
 
-[node name="MainMenu" type="Button" parent="UI/Menus/Pause/VSplitContainer/Buttons"]
+[node name="Options" parent="UI/Menus/Pause/VSplitContainer/Buttons" instance=ExtResource( 14 )]
 margin_top = 92.0
 margin_right = 175.0
 margin_bottom = 134.0
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
-custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
+disabled = true
+text = "Options"
+
+[node name="MainMenu" parent="UI/Menus/Pause/VSplitContainer/Buttons" instance=ExtResource( 14 )]
+margin_top = 138.0
+margin_right = 175.0
+margin_bottom = 180.0
+focus_neighbour_bottom = NodePath("../Resume")
 text = "Main Menu"
-flat = true
 
 [node name="GameOver" type="Popup" parent="UI/Menus"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VSplitContainer" parent="UI/Menus/GameOver"]
+[node name="VSplitContainer" type="VSplitContainer" parent="UI/Menus/GameOver"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -185,42 +192,39 @@ grow_horizontal = 2
 grow_vertical = 2
 split_offset = 5
 
-[node name="Message" type="Label" parent="UI/Menus/GameOver/VBoxContainer"]
+[node name="Message" type="Label" parent="UI/Menus/GameOver/VSplitContainer"]
 margin_top = 2.0
 margin_right = 280.0
 margin_bottom = 73.0
 custom_fonts/font = SubResource( 7 )
 text = "You ......!"
 align = 1
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="UI/Menus/GameOver/VBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="UI/Menus/GameOver/VSplitContainer"]
 margin_top = 88.0
 margin_right = 280.0
 margin_bottom = 183.0
 
-[node name="Replay" type="Button" parent="UI/Menus/GameOver/VBoxContainer/Buttons"]
+[node name="Replay" parent="UI/Menus/GameOver/VSplitContainer/Buttons" instance=ExtResource( 14 )]
 margin_right = 280.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
-custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
+focus_neighbour_top = NodePath("../MainMenu")
 text = "Replay"
-flat = true
 
-[node name="MainMenu" type="Button" parent="UI/Menus/GameOver/VBoxContainer/Buttons"]
+[node name="MainMenu" parent="UI/Menus/GameOver/VSplitContainer/Buttons" instance=ExtResource( 14 )]
 margin_top = 46.0
 margin_right = 280.0
 margin_bottom = 88.0
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color_hover = Color( 0.282353, 0.823529, 0.309804, 1 )
-custom_colors/font_color_pressed = Color( 0.0352941, 0.54902, 0, 1 )
+focus_neighbour_bottom = NodePath("../Replay")
 text = "Main Menu"
-flat = true
 
-[node name="HUD" type="Node" parent="UI"]
+[node name="HUD" type="Control" parent="UI"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HealthPoints" type="Label" parent="UI/HUD"]
 pause_mode = 2
@@ -246,9 +250,14 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="about_to_show" from="UI/Menus/Pause" to="UI/Menus/Pause" method="pop_up"]
+[connection signal="popup_hide" from="UI/Menus/Pause" to="UI/Menus/Pause" method="close_up"]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Resume" to="UI/Menus/Pause" method="hide"]
-[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Resume" to="UI/Menus" method="action" binds= [ "resume" ]]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="UI/Menus" method="action" binds= [ "restart" ]]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Options" to="UI/Menus" method="action" binds= [ "options" ]]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
-[connection signal="pressed" from="UI/Menus/GameOver/VBoxContainer/Buttons/Replay" to="UI/Menus" method="action" binds= [ "restart" ]]
-[connection signal="pressed" from="UI/Menus/GameOver/VBoxContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
+[connection signal="about_to_show" from="UI/Menus/GameOver" to="UI/Menus/GameOver" method="pop_up"]
+[connection signal="about_to_show" from="UI/Menus/GameOver" to="UI/Menus/GameOver/VSplitContainer/Message" method="update_text"]
+[connection signal="popup_hide" from="UI/Menus/GameOver" to="UI/Menus/GameOver" method="close_up"]
+[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/Replay" to="UI/Menus" method="action" binds= [ "replay" ]]
+[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]

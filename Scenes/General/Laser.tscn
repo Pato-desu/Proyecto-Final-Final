@@ -2,11 +2,10 @@
 
 [ext_resource path="res://Scripts/General/Laser.gd" type="Script" id=1]
 
-
 [node name="Laser" type="RayCast2D"]
 enabled = true
 cast_to = Vector2( 2000, 0 )
-collision_mask = 2147483996
+collision_mask = 2147483992
 collide_with_areas = true
 script = ExtResource( 1 )
 
