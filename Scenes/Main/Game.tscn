@@ -56,6 +56,7 @@ script = ExtResource( 10 )
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 5 )
+level = 1
 enemies = [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ) ]
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -256,8 +257,8 @@ __meta__ = {
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="UI/Menus" method="action" binds= [ "restart" ]]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Options" to="UI/Menus" method="action" binds= [ "options" ]]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
-[connection signal="about_to_show" from="UI/Menus/GameOver" to="UI/Menus/GameOver" method="pop_up"]
 [connection signal="about_to_show" from="UI/Menus/GameOver" to="UI/Menus/GameOver/VSplitContainer/Message" method="update_text"]
+[connection signal="about_to_show" from="UI/Menus/GameOver" to="UI/Menus/GameOver" method="pop_up"]
 [connection signal="popup_hide" from="UI/Menus/GameOver" to="UI/Menus/GameOver" method="close_up"]
 [connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/Replay" to="UI/Menus" method="action" binds= [ "replay" ]]
 [connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/MainMenu" to="UI/Menus" method="action" binds= [ "main menu" ]]
