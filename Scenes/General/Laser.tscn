@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/General/Laser.gd" type="Script" id=1]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/3 = false
+glow_levels/5 = false
+glow_intensity = 0.93
+glow_strength = 1.29
+glow_blend_mode = 0
+glow_hdr_luminance_cap = 2.0
 
 [node name="Laser" type="RayCast2D"]
 enabled = true
@@ -9,6 +20,9 @@ collision_mask = 2147483994
 collide_with_areas = true
 script = ExtResource( 1 )
 
-[node name="Visual" type="Line2D" parent="."]
+[node name="Line" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 0 )
-default_color = Color( 0.709804, 0.901961, 0.113725, 1 )
+default_color = Color( 0.568627, 1, 0, 1 )
+
+[node name="Glow" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

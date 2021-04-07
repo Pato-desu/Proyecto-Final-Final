@@ -3,8 +3,8 @@ extends Node
 onready var game = get_node("..")
 
 var map
-var levels = ["res://Data/Level 1 modified.prn", "res://Data/Test boss 1.prn", "res://Data/Test boss 1.5.prn"]
-export (int, "Level 1", "Boss Alpha 1", "Boss Alpha 2") var level
+var levels = ["res://Data/Nada.prn", "res://Data/Level 1 modified.prn", "res://Data/Test boss 1.prn", "res://Data/Test boss 1.5.prn"]
+export (int, "Nada", "Level 1", "Boss Alpha 1", "Boss Alpha 2") var level
 
 export(Array, PackedScene) var enemies
 

@@ -14,7 +14,7 @@ const less_speed = -200
 var speed
 var velocity
 var life = 1
-const extra_alpha = 0.5
+const extra_alpha = 0.3
 
 const fire_rate = 0.3
 #var fire_time = 0.0
