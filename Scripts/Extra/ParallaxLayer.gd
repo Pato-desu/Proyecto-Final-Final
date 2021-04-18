@@ -1,6 +1,6 @@
 extends ParallaxLayer
 
-var speed = 50
+export var speed = 50
 var off = 0
 func _process(delta):
 	off += delta * speed

@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Scenes/SceneManager.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/General/main_menu.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Extra/Instructions3.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Buttons/MainButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Scenes/MenuScene.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Main/Scener.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/UI/Menus/PopUpMenu.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Main/PopupMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fonts/MainButtons_custom_font.tres" type="DynamicFont" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -13,33 +17,153 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.275591 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+max_value = 5.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.986667, 4.97159 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_align_y = true
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/spark.png-6fdc6b45ad137f1c87427339090a6d68.stex"
+
 [node name="Menu" type="Node"]
 pause_mode = 2
 script = ExtResource( 5 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Scener" parent="." instance=ExtResource( 6 )]
+
+[node name="NewMain" parent="." instance=ExtResource( 8 )]
+visible = false
+escapeable = true
+
+[node name="VSplitContainer" parent="NewMain" index="0"]
+margin_left = -245.657
+margin_top = -350.575
+margin_right = 254.343
+margin_bottom = 349.425
+
+[node name="Title" parent="NewMain/VSplitContainer" index="0"]
+margin_right = 500.0
+margin_bottom = 385.0
+text = "Don't
+Shot
+'Em
+Up"
+
+[node name="Buttons" parent="NewMain/VSplitContainer" index="1"]
+margin_top = 397.0
+margin_right = 500.0
+margin_bottom = 700.0
+
+[node name="Close" parent="NewMain/VSplitContainer/Buttons" index="0"]
+margin_top = 37.0
+margin_right = 500.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 9 )
+text = "Play"
+flat = false
+
+[node name="Controls" parent="NewMain/VSplitContainer/Buttons" index="1" instance=ExtResource( 4 )]
+margin_top = 95.0
+margin_right = 500.0
+margin_bottom = 149.0
+text = "Controls"
+
+[node name="Options" parent="NewMain/VSplitContainer/Buttons" index="2" instance=ExtResource( 4 )]
+margin_top = 153.0
+margin_right = 500.0
+margin_bottom = 207.0
+disabled = true
+text = "Options"
+
+[node name="Exit" parent="NewMain/VSplitContainer/Buttons" index="3" instance=ExtResource( 4 )]
+margin_top = 211.0
+margin_right = 500.0
+margin_bottom = 265.0
+focus_neighbour_bottom = NodePath("../PlayButton")
+text = "Exit"
+
+[node name="NewControls" parent="." instance=ExtResource( 8 )]
+visible = false
+closeable = true
+
+[node name="VSplitContainer" parent="NewControls" index="0"]
+margin_left = -172.535
+margin_top = -429.418
+margin_right = 160.465
+margin_bottom = 470.582
+
+[node name="Title" parent="NewControls/VSplitContainer" index="0"]
+margin_right = 333.0
+margin_bottom = 94.0
+text = "Controls"
+
+[node name="Buttons" parent="NewControls/VSplitContainer" index="1"]
+margin_top = 106.0
+margin_right = 333.0
+margin_bottom = 900.0
+alignment = 2
+
+[node name="Close" parent="NewControls/VSplitContainer/Buttons" index="0"]
+margin_top = 740.0
+margin_right = 333.0
+margin_bottom = 794.0
+custom_fonts/font = ExtResource( 9 )
+text = "Back"
+flat = false
+
+[node name="Text" type="TextureRect" parent="NewControls"]
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 1870.0
+margin_bottom = 1030.0
 texture = ExtResource( 3 )
-expand = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TitleWords" type="RichTextLabel" parent="."]
+[node name="OldMain" type="Popup" parent="."]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escapeable = true
+
+[node name="TitleWords" type="RichTextLabel" parent="OldMain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -250.0
-margin_top = -400.0
-margin_right = 250.0
+margin_left = 710.0
+margin_top = 140.0
+margin_right = 1210.0
+margin_bottom = 540.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]Don't
-Shot
-'Em
-Up[/center]"
+bbcode_text = "[center]Don't[/center]
+[center]Shot[/center]
+[center]'Em[/center]
+[center]Up[/center]"
 text = "Don't
 Shot
 'Em
@@ -50,15 +174,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainButtons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="OldMain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -250.0
-margin_top = 10.0
-margin_right = 250.0
-margin_bottom = 430.0
+margin_left = 710.0
+margin_top = 550.0
+margin_right = 1210.0
+margin_bottom = 970.0
 custom_constants/separation = 5
 alignment = 1
 script = ExtResource( 2 )
@@ -66,34 +190,106 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" parent="MainButtons" instance=ExtResource( 4 )]
+[node name="Play" parent="OldMain/Buttons" instance=ExtResource( 4 )]
 margin_top = 94.0
 margin_right = 500.0
 margin_bottom = 148.0
 focus_neighbour_top = NodePath("../ExitButton")
 text = "Play"
 
-[node name="Controls" parent="MainButtons" instance=ExtResource( 4 )]
+[node name="Controls" parent="OldMain/Buttons" instance=ExtResource( 4 )]
 margin_top = 153.0
 margin_right = 500.0
 margin_bottom = 207.0
-disabled = true
 text = "Controls"
 
-[node name="Options" parent="MainButtons" instance=ExtResource( 4 )]
+[node name="Options" parent="OldMain/Buttons" instance=ExtResource( 4 )]
 margin_top = 212.0
 margin_right = 500.0
 margin_bottom = 266.0
 disabled = true
 text = "Options"
 
-[node name="Exit" parent="MainButtons" instance=ExtResource( 4 )]
+[node name="Exit" parent="OldMain/Buttons" instance=ExtResource( 4 )]
 margin_top = 271.0
 margin_right = 500.0
 margin_bottom = 325.0
 focus_neighbour_bottom = NodePath("../PlayButton")
 text = "Exit"
-[connection signal="pressed" from="MainButtons/Play" to="MainButtons" method="action" binds= [ "play" ]]
-[connection signal="pressed" from="MainButtons/Controls" to="MainButtons" method="action" binds= [ "tutorial" ]]
-[connection signal="pressed" from="MainButtons/Options" to="MainButtons" method="action" binds= [ "options" ]]
-[connection signal="pressed" from="MainButtons/Exit" to="." method="exit"]
+
+[node name="OldControls" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+closeable = true
+
+[node name="TitleWord" type="RichTextLabel" parent="OldControls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 690.0
+margin_top = 120.0
+margin_right = 1190.0
+margin_bottom = 263.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Controls[/center]"
+text = "Controls"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="OldControls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 58.0
+margin_top = 54.0
+margin_right = 558.0
+margin_bottom = 188.0
+custom_constants/separation = 5
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" parent="OldControls/Buttons" instance=ExtResource( 4 )]
+margin_top = 40.0
+margin_right = 500.0
+margin_bottom = 94.0
+focus_neighbour_bottom = NodePath("../PlayButton")
+text = "Back"
+
+[node name="Text" type="TextureRect" parent="OldControls"]
+margin_left = -20.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Stars" type="Particles2D" parent="."]
+position = Vector2( 960, 540 )
+amount = 60
+preprocess = 1.0
+process_material = SubResource( 6 )
+texture = SubResource( 7 )
+[connection signal="pressed" from="NewMain/VSplitContainer/Buttons/Close" to="Scener" method="_on_Close_pressed"]
+[connection signal="pressed" from="NewMain/VSplitContainer/Buttons/Controls" to="NewControls" method="popup"]
+[connection signal="pressed" from="NewMain/VSplitContainer/Buttons/Exit" to="." method="exit"]
+[connection signal="pressed" from="NewControls/VSplitContainer/Buttons/Close" to="NewMain" method="popup"]
+[connection signal="pressed" from="OldMain/Buttons/Play" to="Scener" method="action" binds= [ "play" ]]
+[connection signal="pressed" from="OldMain/Buttons/Controls" to="Scener" method="action" binds= [ "tutorial" ]]
+[connection signal="pressed" from="OldMain/Buttons/Exit" to="." method="exit"]
+[connection signal="pressed" from="OldControls/Buttons/Back" to="Scener" method="action" binds= [ "menu" ]]
+
+[editable path="NewMain"]
+
+[editable path="NewControls"]

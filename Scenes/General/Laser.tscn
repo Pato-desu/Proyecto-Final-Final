@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/General/Laser.gd" type="Script" id=1]
-[ext_resource path="res://Sparks.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Extra/particle.png" type="Texture" id=2]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -14,10 +14,31 @@ glow_strength = 1.29
 glow_blend_mode = 0
 glow_hdr_luminance_cap = 2.0
 
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.00438596, 0.535088 )
+colors = PoolColorArray( 0.976471, 1, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.3
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 230.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 3000.0
+scale = 2.0
+color_ramp = SubResource( 3 )
+
 [node name="Laser" type="RayCast2D"]
 enabled = true
 cast_to = Vector2( 2000, 0 )
-collision_mask = 2147483994
+collision_mask = 2147485018
 collide_with_areas = true
 script = ExtResource( 1 )
 
@@ -29,5 +50,14 @@ texture_mode = 1
 [node name="Glow" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="Sparks" parent="." instance=ExtResource( 2 )]
+[node name="Sparks" type="Particles2D" parent="."]
+scale = Vector2( 3, 3 )
 emitting = false
+amount = 6
+lifetime = 0.3
+speed_scale = 1.5
+randomness = 0.3
+local_coords = false
+draw_order = 1
+process_material = SubResource( 4 )
+texture = ExtResource( 2 )

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/UI/Menus/PopUpMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Buttons/SubButton.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="PopupMenu" type="Popup"]
+pause_mode = 2
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.4999
+margin_top = -120.0
+margin_right = 92.5
+margin_bottom = 85.0002
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VSplitContainer"]
+margin_right = 175.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 1 )
+text = "Title"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="VSplitContainer"]
+margin_top = 71.0
+margin_right = 175.0
+margin_bottom = 205.0
+alignment = 1
+
+[node name="Close" parent="VSplitContainer/Buttons" instance=ExtResource( 3 )]
+margin_top = 46.0
+margin_right = 174.0
+margin_bottom = 88.0
+focus_neighbour_top = NodePath("../MainMenu")
+text = "Close"
+[connection signal="about_to_show" from="." to="." method="pop_up"]
+[connection signal="popup_hide" from="." to="." method="close_up"]
+[connection signal="pressed" from="VSplitContainer/Buttons/Close" to="." method="hide"]

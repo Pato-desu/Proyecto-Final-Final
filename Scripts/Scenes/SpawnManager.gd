@@ -2,12 +2,6 @@ extends Node
 
 onready var game = get_node("..")
 
-var map
-var levels = ["res://Data/Nada.prn", "res://Data/Level 1 modified.prn", "res://Data/Test boss 1.prn", "res://Data/Test boss 1.5.prn"]
-export (int, "Nada", "Level 1", "Boss Alpha 1", "Boss Alpha 2") var level
-
-export(Array, PackedScene) var enemies
-
 const default_x = 2000
 var i = 0
 var aux
@@ -15,8 +9,10 @@ var timer = 0.0
 var list
 
 func _ready():
-	map = levels[level]
-	list = csv_to_dictionary()
+	if(game.maps[game.selected_map]):
+		list = csv_to_dictionary(game.maps[game.selected_map])
+#	else:
+#		print("bad selection")
 
 func _process(delta):
 	timer = timer + delta
@@ -24,7 +20,7 @@ func _process(delta):
 		spawn()
 			
 func spawn():
-	aux = enemies[int(list["Type"][i])].instance()
+	aux = game.enemies[int(list["Type"][i])].instance()
 	if bool(int(list["Height"][i])):
 		aux.init(default_x, float(list["Height"][i]))
 	add_child(aux)
@@ -36,7 +32,7 @@ func next():
 	else:
 		game.over(true)
 
-func csv_to_dictionary():
+func csv_to_dictionary(map):
 	var file = File.new()
 	assert(file.file_exists(map))
 	file.open(map, File.READ)

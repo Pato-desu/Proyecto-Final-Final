@@ -28,9 +28,8 @@ func behaviour(cast, from, prev, n):
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
 	var result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
 	if result.empty():
-		line.add_point(cast - from + global_position)
+		line.add_point(cast + from - global_position)
 	else:
-		print(result.position)
 		line.add_point(result.position - global_position)
 		var collider = result.collider
 		#Rebote
@@ -60,8 +59,8 @@ func behaviour(cast, from, prev, n):
 					damager.damage(damager.find_dmged(collider), damage) #Si es algo con vida lo daña
 
 func hover(col):
-	if col.has_node("Sprite") and col.get_node("Sprite").has_method("select"):
-		col.get_node("Sprite").select()
+	if col.has_node("Sprite") and col.get_node("Sprite").has_method("activate"):
+		col.get_node("Sprite").activate()
 #	else:
 #		print("Falta shader o sprite")
 

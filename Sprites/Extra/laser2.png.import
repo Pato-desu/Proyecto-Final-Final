@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/main_menu.png-390a6ab98ecb3926a26a1ca6d68ac4ee.stex"
+path="res://.import/laser2.png-45bff26af9d645805676b3dc7bb71008.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/General/main_menu.png"
-dest_files=[ "res://.import/main_menu.png-390a6ab98ecb3926a26a1ca6d68ac4ee.stex" ]
+source_file="res://Sprites/Extra/laser2.png"
+dest_files=[ "res://.import/laser2.png-45bff26af9d645805676b3dc7bb71008.stex" ]
 
 [params]
 

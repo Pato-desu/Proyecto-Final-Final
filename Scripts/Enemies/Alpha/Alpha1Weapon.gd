@@ -7,8 +7,8 @@ onready var muzzle = get_node("SpawnPoint")
 const Ball = preload("res://Scenes/General/Proyectile.tscn")
 var random
 var the_ball
-const ball_speed = 0 #1000? #1400?
 export var max_health = 500
+export var ball_speed = 800 #1400?
 var health
 var life
 const ball_clons = 4

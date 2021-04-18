@@ -198,3 +198,7 @@ pause={
 2d_physics/layer_9="Laser Sensor"
 2d_physics/layer_10="Proyectile Sensor"
 2d_physics/layer_11="Obstacle"
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )
