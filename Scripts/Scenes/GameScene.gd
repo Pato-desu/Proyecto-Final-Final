@@ -2,8 +2,8 @@ extends Node
 
 #onready var pause = get_node("UI/Menus/Pause")
 #onready var gg = get_node("UI/Menus/GameOver")
-onready var pause = get_node("UI/Menus/NewPause")
-onready var gg = get_node("UI/Menus/NewGameOver")
+onready var pause = get_node("UI/Menus/Pause")
+onready var gg = get_node("UI/Menus/GameOver")
 var won = -1
 
 export(Array, PackedScene) var enemies
@@ -29,6 +29,6 @@ func _process(_delta):
 	
 func over(win):
 	won = int(win)
-	gg.get_node("VSplitContainer/Label").update_text()
+	gg.get_node("VSplitContainer/Title").update_text()
 	#por alguna razon no puedo pausar el tree desde aca
 

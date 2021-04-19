@@ -1,6 +1,6 @@
 extends Node
 
-onready var main = get_node("NewMain")
+onready var main = get_node("Main")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
