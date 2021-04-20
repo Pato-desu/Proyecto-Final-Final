@@ -140,8 +140,8 @@ preprocess = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 10 )
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Close" to="Scener" method="action" binds= [ "play" ]]
-[connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Main" method="hide"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Controls" method="popup"]
+[connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Main" method="hide"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Exit" to="." method="exit"]
 [connection signal="pressed" from="Controls/VSplitContainer/Buttons/Close" to="Main" method="popup"]
 
