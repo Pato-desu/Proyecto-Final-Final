@@ -12,14 +12,14 @@
 [ext_resource path="res://Fonts/HUD_custom_font.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Scenes/Enemies/Minions/1A.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Main/Scener.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Main/Button.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Enemies/Minions/1B.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Enemies/Minions/2D.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Enemies/Bosses/Alpha1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Enemies/Bosses/Alpha2.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Enemies/Minions/1C.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Main/Test.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Main/PopupMenu.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Tests/LaserTest.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/UI/PopupMenu.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 1920, 0 )
@@ -40,7 +40,7 @@ b = Vector2( 1920, 1080 )
 script = ExtResource( 2 )
 enemies = [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 20 ) ]
 maps = [ "res://Data/Test.prn", "res://Data/Level 1 modified.prn", "res://Data/Test boss 1.prn", "res://Data/Test boss 1.5.prn" ]
-selected_map = 1
+selected_map = 0
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -209,11 +209,11 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="Scener" method="action" binds= [ "restart" ]]
 [connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="Scener" method="action" binds= [ "main" ]]
 [connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/Close" to="Scener" method="action" binds= [ "restart" ]]
 [connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/MainMenu" to="Scener" method="action" binds= [ "main" ]]
 
 [editable path="UI/Menus/Pause"]
-
 [editable path="UI/Menus/GameOver"]

@@ -6,16 +6,9 @@ class hits:
 	var dmg: int
 	var dmged: Node
 var no_processed = []
- 
-#Si no se procesa ningun daño es posible que sea por una imparidad en la lista,
-# o sea algo que no avisó que recibió daño
-func _process(_delta):
-	if not no_processed.empty() and no_processed.size() % 2 == 0:
-		for i in no_processed:
-			damage(i.dmged, i.dmg)
-		no_processed.clear()
 
-func calculate_damage(to, from):
+#Se carga las interacciones de ambos 2 lados antes de ejecutarse el daño
+func load_damage(to, from):
 	var aux = hits.new()
 	aux.dmged = find_dmged(to)
 	aux.dmg = find_dmg(from)
@@ -41,11 +34,19 @@ func find_dmg(from):
 #		print(from.name + " doesn't do damage")
 		return null
 
-func damage(dmged, dmg):
+#Si no se procesa ningun daño es posible que sea por una imparidad en la lista,
+# o sea algo que no avisó que recibió daño
+func _process(_delta):
+	if not no_processed.empty() and no_processed.size() % 2 == 0:
+		for i in no_processed:
+			execute_damage(i.dmged, i.dmg)
+		no_processed.clear()
+
+func execute_damage(dmged, dmg):
 	if dmged != null and dmg != null:
 		dmged.health -= dmg
 		if dmged.health <= 0:
-			damage(find_dmged(dmged.get_node("..")), -dmged.health)
+			execute_damage(find_dmged(dmged.get_node("..")), -dmged.health)
 			if dmged.has_method("before_dying"):
 				dmged.before_dying()
 			dmged.queue_free()
@@ -54,5 +55,5 @@ func damage(dmged, dmg):
 
 func collateral_damage(dmg):
 	if is_instance_valid (player):
-		damage(player, dmg)
+		execute_damage(player, dmg)
 	

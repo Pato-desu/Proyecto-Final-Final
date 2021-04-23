@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var speed
+var speed = 300
 var moving = false
 var the_ball
 const dist_precisa = 15
@@ -9,14 +9,6 @@ const desv_laser = 15
 const desv_ball = 5
 var speed_mult = 1
 signal bounce
-
-func _ready():
-#	if has_node("Weapon"):
-#		speed_mult = 2
-		speed = 300 #250
-#	else:
-#		speed_mult = 0.5
-#		speed = 500
 
 func _process(_delta):
 	if moving:

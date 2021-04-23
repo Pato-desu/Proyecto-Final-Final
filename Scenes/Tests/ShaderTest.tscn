@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Shaders/ThinOutline.tres" type="Material" id=1]
+[ext_resource path="res://Sprites/Extra/proyectile.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemies/Minions/1A.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/ThickOutline.tres" type="Material" id=4]
+[ext_resource path="res://Sprites/Extra/Sin título.png" type="Texture" id=5]
+
+[node name="Node" type="Node"]
+
+[node name="NormalOutlinedSprite" type="Sprite" parent="."]
+material = ExtResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="PixelOutlinedSprite" type="Sprite" parent="."]
+material = ExtResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="weird" type="Sprite" parent="."]
+material = ExtResource( 4 )
+texture = ExtResource( 5 )

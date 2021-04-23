@@ -9,8 +9,8 @@ var timer = 0.0
 var list
 
 func _ready():
-	if(game.maps[game.selected_map]):
-		list = csv_to_dictionary(game.maps[game.selected_map])
+	assert(game.maps.size() > game.selected_map)
+	list = csv_to_dictionary(game.maps[game.selected_map])
 #	else:
 #		print("bad selection")
 

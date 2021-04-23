@@ -8,16 +8,14 @@ const ball_speed = 1000 #800? #1400
 export var max_health = 100
 var health
 var ball
-var life
+#var life
 
 func _ready():
 	health = max_health
 	shoot(0)
 
 func _process(_delta):
-	life = float(health)/ max_health
-	modulate.a = life
-	if not ball:
+	if not is_instance_valid(ball):
 		shoot(int(score.text))
 	elif ball.velocity.x > 0:
 		boss.follow(ball)
@@ -37,6 +35,9 @@ func shoot(n):
 			added_pos *= -1
 		boss.call_deferred("add_child", other_ball)
 		other_ball.init(ball.position + added_pos, ball.velocity, Color.gray)
+
+func losing_hp():
+	modulate.a = float(health) / max_health
 
 func before_dying():
 	boss.call_deferred("finished")

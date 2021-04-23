@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Alpha/Alpha1Bar.gd" type="Script" id=1]
-[ext_resource path="res://Shaders/OutlinePixelArt.tres" type="Material" id=2]
 [ext_resource path="res://Scripts/Enemies/Alpha/Alpha1Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Enemies/Alpha/Alpha1.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_g.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_j.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_1_a.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/UI/HUD/ActivableShader.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 960, 10 )
@@ -90,8 +88,6 @@ shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="LeftBar/Weapon"]
 texture = ExtResource( 6 )
-script = ExtResource( 8 )
-shader = ExtResource( 2 )
 
 [node name="SpawnPoint" type="Position2D" parent="LeftBar/Weapon"]
 position = Vector2( 29, 0 )

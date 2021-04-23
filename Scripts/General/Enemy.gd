@@ -8,11 +8,13 @@ var health
 var damage = 20
 export var speed = 450
 onready var velocity = Vector2.LEFT * speed
-var life
+#var life
 export var color = Color.white
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 var resize = 1
 export var angular_vel = 0
+onready var sprite = $Sprite
+var shader = preload("res://Shaders/ThickOutline.tres")
 
 func init(x, y):
 	position = Vector2(x, y)
@@ -23,19 +25,26 @@ func _physics_process(delta):
 	rotation_degrees += angular_vel
 	
 func _process(_delta):
-	life = float(health)/ max_health
-	modulate.a = life
-	if weapons and not weapons.get_child_count():
+	if is_instance_valid(weapons) and not weapons.get_child_count():
 		resize = 0.9
-		weapons.queue_free()
 		$CollisionPolygon2D.queue_free()
 		$CollisionShape2D.queue_free()
+		weapons.queue_free()
 	scale *= resize
 	if scale.x <= 0.1:
 		queue_free()
 
 func area_entered(area):
-	damager.calculate_damage(self, area)
+	damager.load_damage(self, area)
+
+func pointed():
+	sprite.material = shader
+	
+func not_pointed():
+	sprite.material = null
+
+func losing_hp():
+	modulate.a = float(health) / max_health	
 
 func before_dying():
 	damager.collateral_damage(20)

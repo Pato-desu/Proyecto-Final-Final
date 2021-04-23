@@ -30,8 +30,8 @@ func finished():
 func goal(body, left):
 	if body == the_ball:
 		if left:
-			damager.damage(player, dmg)
+			damager.execute_damage(player, dmg)
 			scorel.update_text()
 		else:
-			damager.damage(weapon, dmg)
+			damager.execute_damage(weapon, dmg)
 			scorer.update_text()

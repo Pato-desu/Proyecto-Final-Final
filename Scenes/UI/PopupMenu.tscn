@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UI/Menus/PopUpMenu.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Main/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/UI/Menus/Focus.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -51,7 +51,7 @@ script = ExtResource( 4 )
 
 [node name="Close" parent="VSplitContainer/Buttons" instance=ExtResource( 3 )]
 margin_top = 28.0
-margin_right = 174.0
+margin_right = 175.0
 margin_bottom = 70.0
 text = "Close"
 [connection signal="about_to_show" from="." to="." method="pop_up"]

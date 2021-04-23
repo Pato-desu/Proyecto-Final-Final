@@ -10,8 +10,10 @@ var the_ball
 export var max_health = 500
 export var ball_speed = 800 #1400?
 var health
-var life
+#var life
 const ball_clons = 4
+onready var sprite = $Sprite
+var shader = preload("res://Shaders/ThinOutline.tres")
 
 func _ready():
 	random = RandomNumberGenerator.new()
@@ -22,8 +24,6 @@ func _ready():
 func _process(_delta):
 	if not the_ball:
 		shoot()
-	life = float(health)/ max_health
-	modulate.a = life
 
 func shoot():
 	the_ball = Ball.instance()
@@ -42,5 +42,14 @@ func multiply(proyectile):
 		boss.call_deferred("add_child", other_ball)
 		other_ball.init(proyectile.global_position + added_pos, proyectile.velocity, Color.gray)
 
+func pointed():
+	sprite.material = shader
+	
+func not_pointed():
+	sprite.material = null
+
+func losing_hp():
+	modulate.a = float(health) / max_health
+	
 func before_dying():
 	boss.call_deferred("finished")

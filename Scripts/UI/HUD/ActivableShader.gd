@@ -1,6 +1,6 @@
 extends Sprite
 
-export var shader = preload("res://Shaders/Outline.tres")
+export (ShaderMaterial) var shader
 var activated = false
 
 func _ready():

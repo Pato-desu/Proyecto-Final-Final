@@ -10,7 +10,7 @@ func _ready():
 	set_process(false)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("escape"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		if escapeable:
 			get_tree().quit()
 		if closeable:
@@ -18,6 +18,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("reset") and reseteable:
 		# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
+#	if pauser and Input.is_action_pressed("pause exiter"): #para el 'play' del joystick
+#		hide() #si hay submenu dentro de la pausa no anda ni ahi
 
 func pop_up():
 	if pauser:

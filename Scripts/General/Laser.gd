@@ -10,6 +10,9 @@ const damage = 1.8 #100 D daño por segundo aprox
 var activated = false
 const max_reflects = 6
 var space_state
+onready var prev_pointed = null
+var result
+var collider
 var aux
 
 func _ready():
@@ -20,18 +23,31 @@ func _physics_process(_delta):
 	for i in line.get_point_count() - 2:
 		line.remove_point(2) #Resize nunca me anduvo para nada
 	sparks.emitting = false
+	if not is_instance_valid(prev_pointed):
+		prev_pointed = null
 	#Comportamiento recursivo en caso de rebote:
 	behaviour(cast_to, global_position, player, 0)
 	
 func behaviour(cast, from, prev, n):
 	#Dibujo de punto
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
-	var result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
+	result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
 	if result.empty():
 		line.add_point(cast + from - global_position)
+		#Desapuntado
+		if prev_pointed and prev_pointed.has_method("not_pointed"):
+			prev_pointed.not_pointed()
+		prev_pointed = null
 	else:
 		line.add_point(result.position - global_position)
-		var collider = result.collider
+		collider = result.collider
+		#Apuntado
+		if prev_pointed != collider:
+			if collider.has_method("pointed"):
+				collider.pointed()
+			if prev_pointed and prev_pointed.has_method("not_pointed"):
+				prev_pointed.not_pointed()
+			prev_pointed = collider
 		#Rebote
 		if collider.get_collision_layer_bit(6):
 			#hover(collider)
@@ -44,25 +60,21 @@ func behaviour(cast, from, prev, n):
 			sparks.position = result.position - global_position
 			#Activacion del sensor
 			if collider.get_collision_layer_bit(8):
-				hover(collider)
+#				hover(collider)
 				if activated:
 					sparks.emitting = true
-					if collider.has_method("laser_sensor"):
-						collider.laser_sensor(self, result.normal.normalized())
-	#				else:
-	#					print("Está mal la máscara o la función")
+					assert(collider.has_method("laser_sensor"))
+					collider.laser_sensor(self, result.normal.normalized())
 			#Dañado
 			else:
-				hover(collider)
+#				hover(collider)
 				if activated:
 					sparks.emitting = true
-					damager.damage(damager.find_dmged(collider), damage) #Si es algo con vida lo daña
+					damager.execute_damage(damager.find_dmged(collider), damage) #Si es algo con vida lo daña
 
-func hover(col):
-	if col.has_node("Sprite") and col.get_node("Sprite").has_method("activate"):
-		col.get_node("Sprite").activate()
-#	else:
-#		print("Falta shader o sprite")
+#func hover(col):
+#	if col.has_node("Sprite") and col.get_node("Sprite").has_method("activate"):
+#		col.get_node("Sprite").activate()
 
 func activate():
 	activated = true

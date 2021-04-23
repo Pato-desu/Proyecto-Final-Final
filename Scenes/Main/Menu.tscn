@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Main/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Extra/Instructions3.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Scenes/MenuScene.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Main/Scener.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Main/PopupMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI/PopupMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fonts/MainButtons_custom_font.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Sprites/Extra/particle.png" type="Texture" id=10]
 
@@ -139,12 +139,12 @@ amount = 60
 preprocess = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 10 )
+
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Close" to="Scener" method="action" binds= [ "play" ]]
-[connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Controls" method="popup"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Main" method="hide"]
+[connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Controls" method="popup"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Exit" to="." method="exit"]
 [connection signal="pressed" from="Controls/VSplitContainer/Buttons/Close" to="Main" method="popup"]
 
 [editable path="Main"]
-
 [editable path="Controls"]
