@@ -10,6 +10,10 @@ color = Color( 0.533333, 0, 0.0823529, 1 )
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( -64, 0, -16, 64, 64, 40, 64, -40, -16, -64 )
+disabled = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
 
 [node name="Sprite" parent="." index="3"]
 rotation = -1.5708
@@ -19,3 +23,5 @@ texture = ExtResource( 3 )
 position = Vector2( -45, 0 )
 rotation = -1.5708
 scale = Vector2( 1.2, 0.5 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

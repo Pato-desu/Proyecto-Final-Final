@@ -5,13 +5,12 @@ onready var boss = get_node("../..")
 onready var spawn = boss.get_node("SpawnLine")
 onready var score = boss.get_node("Scoreboard/Right")
 const ball_speed = 1000 #800? #1400
-export var max_health = 100
-var health
+const max_health = 100.0
+var health = max_health
 var ball
 #var life
 
 func _ready():
-	health = max_health
 	shoot(0)
 
 func _process(_delta):

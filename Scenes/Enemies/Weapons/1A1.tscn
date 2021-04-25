@@ -10,6 +10,9 @@ bullet_speed = 800
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 0, -55, -70, 68, 70, 68 )
 
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 3 )
 

@@ -7,9 +7,9 @@ onready var muzzle = get_node("SpawnPoint")
 const Ball = preload("res://Scenes/General/Proyectile.tscn")
 var random
 var the_ball
-export var max_health = 500
-export var ball_speed = 800 #1400?
-var health
+var max_health = 500.0
+var health = max_health
+var ball_speed = 500 #800?#1400?
 #var life
 const ball_clons = 4
 onready var sprite = $Sprite
@@ -19,7 +19,6 @@ func _ready():
 	random = RandomNumberGenerator.new()
 	random.randomize()
 	shoot()
-	health = max_health
 
 func _process(_delta):
 	if not the_ball:

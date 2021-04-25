@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/General/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Extra/particle.png" type="Texture" id=2]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/1 = true
-glow_levels/3 = false
-glow_levels/5 = false
-glow_intensity = 0.93
-glow_strength = 1.29
-glow_blend_mode = 0
-glow_hdr_luminance_cap = 2.0
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.00438596, 0.629921 )
@@ -46,9 +35,6 @@ script = ExtResource( 1 )
 points = PoolVector2Array( 0, 0, 0, 0 )
 default_color = Color( 0.568627, 1, 0, 1 )
 texture_mode = 1
-
-[node name="Glow" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
 
 [node name="Sparks" type="Particles2D" parent="."]
 scale = Vector2( 3, 3 )

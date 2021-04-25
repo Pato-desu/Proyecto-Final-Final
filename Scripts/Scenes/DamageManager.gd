@@ -20,9 +20,9 @@ func find_dmged(to):
 		nodeto = nodeto.get_parent()
 	if is_instance_valid (nodeto):
 		return nodeto
-	else:
+#	else:
 #		print(to.name + " doesn't take damage")
-		return null
+	return null
 	
 func find_dmg(from):
 	var nodefrom = from
@@ -30,9 +30,9 @@ func find_dmg(from):
 		nodefrom = nodefrom.get_parent()
 	if is_instance_valid (nodefrom):
 		return nodefrom.damage
-	else:
+#	else:
 #		print(from.name + " doesn't do damage")
-		return null
+	return null
 
 #Si no se procesa ningun daño es posible que sea por una imparidad en la lista,
 # o sea algo que no avisó que recibió daño
@@ -45,15 +45,15 @@ func _process(_delta):
 func execute_damage(dmged, dmg):
 	if dmged != null and dmg != null:
 		dmged.health -= dmg
+		if dmged.has_method("losing_hp"):
+			dmged.losing_hp()
 		if dmged.health <= 0:
 			execute_damage(find_dmged(dmged.get_node("..")), -dmged.health)
 			if dmged.has_method("before_dying"):
 				dmged.before_dying()
 			dmged.queue_free()
-		elif dmged.has_method("losing_hp"):
-			dmged.losing_hp()
 
-func collateral_damage(dmg):
+func death():
 	if is_instance_valid (player):
-		execute_damage(player, dmg)
+		player.on_another_death()
 	

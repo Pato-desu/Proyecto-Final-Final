@@ -62,6 +62,9 @@ position = Vector2( 1845, 540 )
 scale = Vector2( 50, 50 )
 collision_layer = 1216
 collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bouncy Wea"]
 shape = SubResource( 5 )
@@ -76,6 +79,9 @@ scale = Vector2( 50, 50 )
 collision_layer = 1024
 collision_mask = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vulnerable Wea"]
 shape = SubResource( 5 )

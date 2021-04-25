@@ -81,7 +81,6 @@ texture = ExtResource( 5 )
 collision_layer = 16
 collision_mask = 32
 script = ExtResource( 3 )
-ball_speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBar/Weapon"]
 shape = SubResource( 5 )
@@ -110,5 +109,6 @@ polygon = PoolVector2Array( 15, -15, 0, -18, -15, -15 )
 
 [node name="Sprite" type="Sprite" parent="RightBar"]
 texture = ExtResource( 7 )
+
 [connection signal="bounce" from="LeftBar" to="RightBar" method="follow"]
 [connection signal="bounce" from="RightBar" to="LeftBar" method="follow"]

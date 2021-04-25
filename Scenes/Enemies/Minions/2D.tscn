@@ -5,13 +5,14 @@
 [ext_resource path="res://Scenes/Enemies/Weapons/2D4.tscn" type="PackedScene" id=3]
 
 [node name="2D" instance=ExtResource( 2 )]
-max_health = 50
+max_health = 60.0
 speed = 175
 color = Color( 0.105882, 0, 0.690196, 1 )
 angular_vel = 1
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 64, 0, -46, -64, 64 )
+disabled = false
 
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 1 )
@@ -29,3 +30,5 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( -45, 53 )
 rotation = -2.0944
 scale = Vector2( 0.5, 0.5 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

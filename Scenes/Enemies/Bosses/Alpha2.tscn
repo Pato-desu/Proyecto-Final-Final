@@ -154,5 +154,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="body_entered" from="SensorWalls/Left" to="." method="goal" binds= [ true ]]
 [connection signal="body_entered" from="SensorWalls/Right" to="." method="goal" binds= [ false ]]

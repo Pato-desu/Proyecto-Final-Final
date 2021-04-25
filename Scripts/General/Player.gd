@@ -7,28 +7,28 @@ onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
 
-export var max_health = 100
-var health
+const max_health = 100.0
+var health = max_health
 const damage = 150
+const empathetic_pain = 20
 const normal_speed = 500
 var speed
 var velocity
 #var life = 1
-const extra_alpha = 0.3
-var saved_alpha_modulation
+const glow = 0.3
 
 const fire_rate = 0.3
 #var fire_time = 0.0
 var x_axis = true
 #var y_axis = true
 
+var new_modulation
 var flicking_timer = Timer.new()
 const flicking_time = 1
 var flick_timer = Timer.new()
 const flick_time = 0.1
 
 func _ready():
-	health = max_health
 	flicking_timer.one_shot = true
 	flicking_timer.wait_time = flicking_time
 	flick_timer.wait_time = flick_time
@@ -36,12 +36,11 @@ func _ready():
 	flick_timer.connect("timeout", self, "changing_visibility")
 	add_child(flicking_timer)
 	add_child(flick_timer)
-	modulate.a += extra_alpha 
+	modulate.a += glow 
 	
 #func _process(_delta):
 
 func _physics_process(_delta):
-	speed = normal_speed
 	velocity = Vector2.ZERO
 	if x_axis:
 		if Input.is_action_pressed("right"):
@@ -53,32 +52,21 @@ func _physics_process(_delta):
 		velocity.y -= 1
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
-	
+	speed = normal_speed
 	if Input.is_action_pressed("speed up"):
 		speed *= 2
 	if Input.is_action_pressed("speed down") or Input.is_action_pressed("shoot"):
 		speed /= 2
-	
-	if Input.is_action_pressed("shoot"):
-		laser.activate()
-	else:
-		laser.deactivate()
-	
 	# warning-ignore:return_value_discarded
 	move_and_slide(velocity.normalized() * speed)
+	
+	if Input.is_action_just_pressed("shoot"):
+		laser.activate()
+	if Input.is_action_just_released("shoot"):
+		laser.deactivate()
 
 func area_entered(area):
 	damager.load_damage(self, area)
-
-func losing_hp():
-	modulate.a = extra_alpha + float(health)/ max_health
-	hurtbox.monitoring = false
-	hurtbox.monitorable = false
-#	set_deferred("hurtbox.monitorable", false)
-	flicking_timer.start()
-	flick_timer.start()
-	saved_alpha_modulation = modulate.a
-	modulate.a = 0
 	
 func pointed():
 	sprite.material = shader
@@ -86,20 +74,31 @@ func pointed():
 func not_pointed():
 	sprite.material = null
 
+func losing_hp():
+	hurtbox.monitoring = false
+	hurtbox.monitorable = false
+#	set_deferred("hurtbox.monitorable", false)
+	flicking_timer.start()
+	flick_timer.start()
+	new_modulation = glow + health/ max_health
+	modulate.a = 0
+	
 func not_losing_hp():
 	hurtbox.monitoring = true
 	hurtbox.monitorable = true
 	flick_timer.stop()
-	modulate.a = saved_alpha_modulation
-
-func before_dying():
-	visible = false
-	game.over(false)
+	modulate.a = glow + float(health)/ max_health
 
 func changing_visibility():
 	# warning-ignore:narrowing_conversion
 	if modulate.a:
-		saved_alpha_modulation = modulate.a
 		modulate.a = 0
 	else:
-		modulate.a = saved_alpha_modulation
+		modulate.a = glow + float(health)/ max_health
+
+func on_another_death():
+	damager.execute_damage(self, empathetic_pain)
+
+func before_dying():
+	visible = false
+	game.over(false)

@@ -4,7 +4,6 @@ onready var game = get_node("/root/Game")
 onready var damager = game.get_node("Damager")
 onready var player = game.get_node("Player/Hurtbox")
 onready var line = $Line
-onready var glow = $Glow
 onready var sparks = $Sparks
 const damage = 1.8 #100 D daño por segundo aprox
 var activated = false
@@ -14,9 +13,12 @@ onready var prev_pointed = null
 var result
 var collider
 var aux
+const glow = 0.3
 
 func _ready():
 	space_state = get_world_2d().direct_space_state
+	modulate.a += glow
+	deactivate()
 
 func _physics_process(_delta):
 	#Limpiado
@@ -78,12 +80,10 @@ func behaviour(cast, from, prev, n):
 
 func activate():
 	activated = true
-	modulate.a = 1
+	modulate.a += 1
 	line.width = 11
-	glow.environment.glow_enabled = activated
 
 func deactivate():
 	activated = false
-	modulate.a = 0.2
+	modulate.a -= 1
 	line.width = 3
-	glow.environment.glow_enabled = activated

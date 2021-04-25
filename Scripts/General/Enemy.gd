@@ -3,8 +3,8 @@ extends Area2D
 onready var game = get_node("/root/Game")
 onready var damager = game.get_node("Damager")
 onready var weapons = $Weapons
-export var max_health = 100
-var health
+export var max_health = 100.0
+var health = max_health
 var damage = 20
 export var speed = 450
 onready var velocity = Vector2.LEFT * speed
@@ -15,10 +15,13 @@ var resize = 1
 export var angular_vel = 0
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThickOutline.tres")
+const glow = 0.3
 
+func _ready():
+	modulate.a += glow
+	
 func init(x, y):
 	position = Vector2(x, y)
-	health = max_health
 
 func _physics_process(delta):
 	position = position + velocity * delta
@@ -44,10 +47,10 @@ func not_pointed():
 	sprite.material = null
 
 func losing_hp():
-	modulate.a = float(health) / max_health	
+	modulate.a = glow + float(health) / max_health	
 
 func before_dying():
-	damager.collateral_damage(20)
+	damager.death()
 
 func screen_exited():
 	queue_free()

@@ -23,7 +23,7 @@ func _process(_delta):
 	else:
 		gg.popup()
 #		get_tree().paused = false
-	
+
 func over(win):
 	won = int(win)
 	gg.get_node("VSplitContainer/Title").update_text()
