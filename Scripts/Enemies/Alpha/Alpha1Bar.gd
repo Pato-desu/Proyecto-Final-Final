@@ -10,7 +10,7 @@ const desv_ball = 5
 var speed_mult = 1
 signal bounce
 
-func _process(_delta):
+func _physics_process(_delta):
 	if moving:
 		if is_instance_valid(the_ball) and the_ball.is_inside_tree():
 			var dif = the_ball.global_position.y - global_position.y

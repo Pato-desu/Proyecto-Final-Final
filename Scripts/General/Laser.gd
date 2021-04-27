@@ -80,10 +80,10 @@ func behaviour(cast, from, prev, n):
 
 func activate():
 	activated = true
-	modulate.a += 1
+	modulate.a = 1 + glow
 	line.width = 11
 
 func deactivate():
 	activated = false
-	modulate.a -= 1
+	modulate.a = glow
 	line.width = 3

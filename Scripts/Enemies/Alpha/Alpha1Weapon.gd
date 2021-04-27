@@ -20,7 +20,7 @@ func _ready():
 	random.randomize()
 	shoot()
 
-func _process(_delta):
+func _physics_process(_delta):
 	if not the_ball:
 		shoot()
 

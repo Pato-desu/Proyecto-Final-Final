@@ -13,7 +13,7 @@ var ball
 func _ready():
 	shoot(0)
 
-func _process(_delta):
+func _physics_process(_delta):
 	if not is_instance_valid(ball):
 		shoot(int(score.text))
 	elif ball.velocity.x > 0:

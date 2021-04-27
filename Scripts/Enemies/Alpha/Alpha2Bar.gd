@@ -9,7 +9,7 @@ const dist_precisa = 15
 const desv_laser = 15
 var health = 5
 
-func _process(_delta):
+func _physics_process(_delta):
 	if moving:
 		if is_instance_valid(ball):
 			var dif = ball.global_position.y - global_position.y

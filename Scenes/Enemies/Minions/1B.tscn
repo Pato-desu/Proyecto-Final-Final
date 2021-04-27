@@ -5,8 +5,9 @@
 [ext_resource path="res://Scenes/Enemies/Weapons/1B2.tscn" type="PackedScene" id=3]
 
 [node name="1B" instance=ExtResource( 2 )]
-speed = 275
-color = Color( 0, 0.588235, 0.666667, 1 )
+max_health = 200.0
+speed = 180
+color = Color( 0, 1, 1, 1 )
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 0, 16, 64, -64, 40, -64, -40, 16, -64 )
@@ -23,5 +24,3 @@ texture = ExtResource( 1 )
 position = Vector2( -28, 0 )
 rotation = 1.5708
 scale = Vector2( 0.63, 0.57 )
-
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

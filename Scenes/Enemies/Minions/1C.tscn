@@ -25,5 +25,3 @@ texture = ExtResource( 1 )
 
 [node name="1C3" parent="Weapons" index="0" instance=ExtResource( 2 )]
 scale = Vector2( 1.06, 1.06 )
-
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

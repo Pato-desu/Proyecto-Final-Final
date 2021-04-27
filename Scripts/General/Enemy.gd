@@ -2,6 +2,7 @@ extends Area2D
 
 onready var game = get_node("/root/Game")
 onready var damager = game.get_node("Damager")
+onready var player = game.get_node("Player")
 onready var weapons = $Weapons
 export var max_health = 100.0
 var health = max_health
@@ -10,6 +11,7 @@ export var speed = 450
 onready var velocity = Vector2.LEFT * speed
 #var life
 export var color = Color.white
+var looking = Vector2.UP
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
 var resize = 1
 export var angular_vel = 0
@@ -25,8 +27,28 @@ func init(x, y):
 
 func _physics_process(delta):
 	position = position + velocity * delta
-	rotation_degrees += angular_vel
-	
+#	rotation_degrees += angular_vel * ¿delta?
+	assert(player)
+	var rotation_speed = 0.5
+	var original_rotation = rotation
+	look_at(player.global_position)
+	var objective_rotation = rotation - PI
+	rotation = original_rotation
+	var dif = objective_rotation - rotation
+	if dif > 20:
+		rotation += rotation_speed
+	elif dif < -20:
+		rotation -= rotation_speed
+#	var objective = player.global_position - global_position
+#	var dif = objective.angle() - looking.angle()
+#	print(objective.angle())
+#	print()
+#	if dif > 20:
+#		rotation_degrees -= rotation_speed
+#	elif dif < -20:
+#		rotation_degrees += rotation_speed
+#	else:
+		
 func _process(_delta):
 	if is_instance_valid(weapons) and not weapons.get_child_count():
 		resize = 0.9
