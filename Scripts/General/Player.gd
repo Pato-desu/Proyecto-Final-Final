@@ -6,6 +6,7 @@ onready var hurtbox = $Hurtbox
 onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
+var looking = Vector2.RIGHT
 
 const max_health = 100.0
 var health = max_health
@@ -64,6 +65,16 @@ func _physics_process(_delta):
 		laser.activate()
 	if Input.is_action_just_released("shoot"):
 		laser.deactivate()
+	
+	var minimum = 0.1
+	var dif = (get_global_mouse_position() - global_position).angle() - looking.angle()
+	if dif > minimum:
+		var rotation_speed = 0.01
+		if dif < PI:
+			rotation += rotation_speed
+		elif dif < 2*PI - minimum:
+			rotation -= rotation_speed
+		
 
 func area_entered(area):
 	damager.load_damage(self, area)

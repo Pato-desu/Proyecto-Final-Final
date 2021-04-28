@@ -11,13 +11,20 @@ export var speed = 450
 onready var velocity = Vector2.LEFT * speed
 #var life
 export var color = Color.white
-var looking = Vector2.UP
 #sprite.get_texture().get_data().get_pixel(sprite.get_texture().get_data().get_width()/2.0, sprite.get_texture().get_data().get_height()/2.0)
-var resize = 1
-export var angular_vel = 0
+
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.3
+var resize = 1
+
+var looking = Vector2.LEFT
+export var angular_vel = 0
+const rotation_speed = 0.01
+const minimum = 0.1
+var original_rotation
+var objective_rotation
+var dif
 
 func _ready():
 	modulate.a += glow
@@ -29,25 +36,16 @@ func _physics_process(delta):
 	position = position + velocity * delta
 #	rotation_degrees += angular_vel * ¿delta?
 	assert(player)
-	var rotation_speed = 0.5
-	var original_rotation = rotation
+	original_rotation = rotation
 	look_at(player.global_position)
-	var objective_rotation = rotation - PI
+	objective_rotation = rotation + PI
 	rotation = original_rotation
-	var dif = objective_rotation - rotation
-	if dif > 20:
-		rotation += rotation_speed
-	elif dif < -20:
-		rotation -= rotation_speed
-#	var objective = player.global_position - global_position
-#	var dif = objective.angle() - looking.angle()
-#	print(objective.angle())
-#	print()
-#	if dif > 20:
-#		rotation_degrees -= rotation_speed
-#	elif dif < -20:
-#		rotation_degrees += rotation_speed
-#	else:
+	dif = objective_rotation - original_rotation
+	if dif > minimum:
+		if dif < PI:
+			rotation += rotation_speed
+		elif dif < 2*PI - minimum:
+			rotation -= rotation_speed
 		
 func _process(_delta):
 	if is_instance_valid(weapons) and not weapons.get_child_count():
