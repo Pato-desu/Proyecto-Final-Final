@@ -70,6 +70,7 @@ __meta__ = {
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Bouncy Wea"]
+modulate = Color( 0.0941176, 0.113725, 0.658824, 1 )
 texture = ExtResource( 2 )
 
 [node name="Vulnerable Wea" type="KinematicBody2D" parent="."]
@@ -87,4 +88,5 @@ __meta__ = {
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Vulnerable Wea"]
+modulate = Color( 0.67451, 0.160784, 0.160784, 1 )
 texture = ExtResource( 2 )

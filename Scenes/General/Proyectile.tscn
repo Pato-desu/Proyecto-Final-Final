@@ -33,6 +33,7 @@ scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )
 
 [node name="ATField" type="Sprite" parent="Body"]
+modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 3 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="area_entered"]

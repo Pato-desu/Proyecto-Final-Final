@@ -6,7 +6,7 @@ var damage = 5
 var velocity
 const glow = 0.0
 onready var sprite = $Body
-onready var color_outline = sprite.get_node("ATField")
+onready var atf = sprite.get_node("ATField")
 var shader = preload("res://Shaders/ThinOutline.tres")
 var obj
 var object
@@ -14,8 +14,8 @@ var object
 func init(pos, vel, color):
 	position = pos
 	velocity = vel
-	color_outline.modulate = color
-	color_outline.modulate.a += glow
+	atf.modulate = color
+	atf.modulate.a += glow
 
 func _physics_process(delta):
 	obj = move_and_collide(velocity * delta)

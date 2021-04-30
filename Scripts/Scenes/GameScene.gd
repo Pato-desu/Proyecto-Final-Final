@@ -8,8 +8,8 @@ export(Array, PackedScene) var enemies
 export (Array, String, FILE, "*.prn") var maps 
 export (int) var selected_map = 1
 
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+#func _ready():
+#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(_delta):
 	if won == -1:

@@ -6,7 +6,6 @@ onready var hurtbox = $Hurtbox
 onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
-var looking = Vector2.RIGHT
 
 const max_health = 100.0
 var health = max_health
@@ -15,6 +14,7 @@ const empathetic_pain = 20
 const normal_speed = 500
 var speed
 var velocity
+var original_rotation = rotation
 #var life = 1
 const glow = 0.3
 
@@ -66,15 +66,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("shoot"):
 		laser.deactivate()
 	
-	var minimum = 0.1
-	var dif = (get_global_mouse_position() - global_position).angle() - looking.angle()
-	if dif > minimum:
-		var rotation_speed = 0.01
-		if dif < PI:
-			rotation += rotation_speed
-		elif dif < 2*PI - minimum:
-			rotation -= rotation_speed
-		
+	look_at(get_global_mouse_position())
 
 func area_entered(area):
 	damager.load_damage(self, area)
@@ -113,3 +105,21 @@ func on_another_death():
 func before_dying():
 	visible = false
 	game.over(false)
+
+# warning-ignore:shadowed_variable
+func following_rotation(target_global_position, original_angle, minimum, speed):
+	var objective_angle = (target_global_position - global_position).angle()
+	var current_angle = positive_angle_to_short_angle(rotation + original_angle)
+	var diff_angle = positive_angle_to_short_angle(objective_angle - current_angle)
+	if abs(diff_angle) > minimum:
+		if diff_angle > 0:
+			rotation += speed
+		else:
+			rotation -= speed
+
+func positive_angle_to_short_angle(angle):
+	if angle > PI:
+		return -2*PI + angle
+	elif angle < -PI:
+		return 2*PI + angle
+	return angle

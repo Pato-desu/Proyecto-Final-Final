@@ -18,13 +18,7 @@ var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.3
 var resize = 1
 
-var looking = Vector2.LEFT
-export var angular_vel = 0
-const rotation_speed = 0.01
-const minimum = 0.1
-var original_rotation
-var objective_rotation
-var dif
+export var angular_vel = 0 #No usada ahora
 
 func _ready():
 	modulate.a += glow
@@ -34,18 +28,8 @@ func init(x, y):
 
 func _physics_process(delta):
 	position = position + velocity * delta
-#	rotation_degrees += angular_vel * ¿delta?
-	assert(player)
-	original_rotation = rotation
-	look_at(player.global_position)
-	objective_rotation = rotation + PI
-	rotation = original_rotation
-	dif = objective_rotation - original_rotation
-	if dif > minimum:
-		if dif < PI:
-			rotation += rotation_speed
-		elif dif < 2*PI - minimum:
-			rotation -= rotation_speed
+	if is_instance_valid(player):
+		following_rotation(player.global_position, Vector2.LEFT.angle(), 0.1, 0.01)
 		
 func _process(_delta):
 	if is_instance_valid(weapons) and not weapons.get_child_count():
@@ -74,3 +58,21 @@ func before_dying():
 
 func screen_exited():
 	queue_free()
+
+# warning-ignore:shadowed_variable
+func following_rotation(target_global_position, original_angle, minimum, speed):
+	var objective_angle = (target_global_position - global_position).angle()
+	var current_angle = positive_angle_to_short_angle(rotation + original_angle)
+	var diff_angle = positive_angle_to_short_angle(objective_angle - current_angle)
+	if abs(diff_angle) > minimum:
+		if diff_angle > 0:
+			rotation += speed
+		else:
+			rotation -= speed
+
+func positive_angle_to_short_angle(angle):
+	if angle > PI:
+		return -2*PI + angle
+	elif angle < -PI:
+		return 2*PI + angle
+	return angle

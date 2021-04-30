@@ -6,6 +6,7 @@ onready var player = game.get_node("Player/Hurtbox")
 onready var line = $Line
 onready var sparks = $Sparks
 const damage = 1.8 #100 D daño por segundo aprox
+var length = cast_to.length()
 var activated = false
 const max_reflects = 6
 var space_state
@@ -14,6 +15,7 @@ var result
 var collider
 var aux
 const glow = 0.3
+onready var parent = get_node("..")
 
 func _ready():
 	space_state = get_world_2d().direct_space_state
@@ -28,20 +30,23 @@ func _physics_process(_delta):
 	if not is_instance_valid(prev_pointed):
 		prev_pointed = null
 	#Comportamiento recursivo en caso de rebote:
-	behaviour(cast_to, global_position, player, 0)
+	behaviour((get_global_mouse_position() - global_position).normalized() * length, global_position, player, 0)
 	
 func behaviour(cast, from, prev, n):
+#	print("from ", from)
+	print("cast ", cast)
 	#Dibujo de punto
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
 	result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
 	if result.empty():
-		line.add_point(cast + from - global_position)
+		line.add_point(to_local(cast + from))
 		#Desapuntado
 		if prev_pointed and prev_pointed.has_method("not_pointed"):
 			prev_pointed.not_pointed()
 		prev_pointed = null
 	else:
-		line.add_point(result.position - global_position)
+#		print(result.collider.name)
+		line.add_point(to_local(result.position))
 		collider = result.collider
 		#Apuntado
 		if prev_pointed != collider:
