@@ -24,7 +24,7 @@ func _physics_process(_delta):
 func shoot(n):
 	ball = Ball.instance()
 	boss.call_deferred("add_child", ball)
-	ball.init(spawn.random_pos(), spawn.random_dir() * ball_speed, Color.white)
+	ball.call_deferred("init", spawn.random_pos(), spawn.random_dir() * ball_speed, Color.white)
 	ball.set_collision_layer_bit(8, true) #agrega Laser Sensor
 #	ball.scale = Vector2(2, 2)
 	for i in n:
@@ -33,7 +33,7 @@ func shoot(n):
 		if i%2:
 			added_pos *= -1
 		boss.call_deferred("add_child", other_ball)
-		other_ball.init(ball.position + added_pos, ball.velocity, Color.gray)
+		other_ball.call_deferred("init", ball.position + added_pos, ball.velocity, Color.gray)
 
 func losing_hp():
 	modulate.a = float(health) / max_health

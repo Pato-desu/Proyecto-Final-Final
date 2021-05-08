@@ -28,7 +28,7 @@ func shoot():
 	the_ball = Ball.instance()
 	var vely = random.randf_range(1, -1)
 	boss.call_deferred("add_child", the_ball)
-	the_ball.init(muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color.white)
+	the_ball.call_deferred("init", muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color.white)
 	lbar.follow(null)
 	rbar.follow(the_ball)
 

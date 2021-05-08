@@ -3,9 +3,9 @@ extends KinematicBody2D
 onready var damager = get_node("/root/Game/Damager")
 var health = 1
 var damage = 5
-var velocity
+var velocity = Vector2.ZERO
 const glow = 0.0
-onready var sprite = $Body
+onready var sprite = get_node("Body")
 onready var atf = sprite.get_node("ATField")
 var shader = preload("res://Shaders/ThinOutline.tres")
 var obj
