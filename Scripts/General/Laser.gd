@@ -34,7 +34,7 @@ func _physics_process(_delta):
 	
 func behaviour(cast, from, prev, n):
 #	print("from ", from)
-	print("cast ", cast)
+#	print("cast ", cast)
 	#Dibujo de punto
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
 	result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		

@@ -12,6 +12,7 @@ font_data = ExtResource( 1 )
 
 [node name="PopupMenu" type="Popup"]
 pause_mode = 2
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -19,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="VSplitContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -28,9 +29,7 @@ margin_left = -960.0
 margin_top = -540.0
 margin_right = -785.0
 margin_bottom = -335.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_constants/separation = 40
 
 [node name="Title" type="Label" parent="VSplitContainer"]
 margin_right = 175.0
@@ -43,17 +42,16 @@ __meta__ = {
 }
 
 [node name="Buttons" type="VBoxContainer" parent="VSplitContainer"]
-margin_top = 106.0
+margin_top = 134.0
 margin_right = 175.0
-margin_bottom = 205.0
+margin_bottom = 176.0
 alignment = 1
 script = ExtResource( 4 )
 
 [node name="Close" parent="VSplitContainer/Buttons" instance=ExtResource( 3 )]
-margin_top = 28.0
 margin_right = 175.0
-margin_bottom = 70.0
 text = "Close"
+
 [connection signal="about_to_show" from="." to="." method="pop_up"]
 [connection signal="popup_hide" from="." to="." method="close_up"]
 [connection signal="pressed" from="VSplitContainer/Buttons/Close" to="." method="hide"]

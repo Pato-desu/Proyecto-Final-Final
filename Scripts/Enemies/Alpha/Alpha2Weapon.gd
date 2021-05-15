@@ -22,6 +22,7 @@ func _physics_process(_delta):
 		boss.follow(null)
 
 func shoot(n):
+	print("q")
 	ball = Ball.instance()
 	boss.call_deferred("add_child", ball)
 	ball.call_deferred("init", spawn.random_pos(), spawn.random_dir() * ball_speed, Color.white)

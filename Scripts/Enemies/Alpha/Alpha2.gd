@@ -28,6 +28,7 @@ func finished():
 	queue_free()
 
 func goal(body, left):
+	print(body.name)
 	if body == the_ball:
 		if left:
 			damager.execute_damage(player, dmg)

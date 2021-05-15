@@ -9,15 +9,15 @@
 [ext_resource path="res://Scripts/Enemies/Alpha/Alpha2SpawnLine.gd" type="Script" id=7]
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 960, 10 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 960, 10 )
-
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 960, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 960, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
 
 [sub_resource type="VisualShader" id=5]
 code = "shader_type spatial;
@@ -65,7 +65,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BouncingWalls/Upper"]
 position = Vector2( 960, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Lower" type="StaticBody2D" parent="BouncingWalls"]
 collision_layer = 192
@@ -77,7 +77,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BouncingWalls/Lower"]
 position = Vector2( 960, 1080 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="SensorWalls" type="Node2D" parent="."]
 __meta__ = {
@@ -92,7 +92,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorWalls/Left"]
 position = Vector2( 0, 540 )
 scale = Vector2( 1, 55 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Right" type="Area2D" parent="SensorWalls"]
 collision_layer = 512
@@ -101,7 +101,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorWalls/Right"]
 position = Vector2( 1920, 540 )
 scale = Vector2( 1, 55 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="SpawnLine" type="Line2D" parent="."]
 points = PoolVector2Array( 960, 16, 960, 1080 )
