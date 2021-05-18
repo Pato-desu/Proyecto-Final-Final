@@ -40,6 +40,7 @@ script = ExtResource( 5 )
 [node name="Scener" parent="." instance=ExtResource( 6 )]
 
 [node name="Main" parent="." instance=ExtResource( 8 )]
+visible = false
 mouse_hider = false
 escapeable = true
 
@@ -58,44 +59,44 @@ Shot
 Up"
 
 [node name="Buttons" parent="Main/VSplitContainer" index="1"]
-margin_top = 397.0
+margin_top = 425.0
 margin_right = 500.0
-margin_bottom = 700.0
+margin_bottom = 653.0
 
 [node name="Close" parent="Main/VSplitContainer/Buttons" index="0"]
-margin_top = 37.0
 margin_right = 500.0
-margin_bottom = 91.0
+margin_bottom = 54.0
 custom_fonts/font = ExtResource( 9 )
 text = "Play"
 flat = false
 
 [node name="Controls" parent="Main/VSplitContainer/Buttons" index="1" instance=ExtResource( 1 )]
-margin_top = 95.0
+margin_top = 58.0
 margin_right = 500.0
-margin_bottom = 149.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 9 )
 text = "Controls"
 flat = false
 
 [node name="Options" parent="Main/VSplitContainer/Buttons" index="2" instance=ExtResource( 1 )]
-margin_top = 153.0
+margin_top = 116.0
 margin_right = 500.0
-margin_bottom = 207.0
+margin_bottom = 170.0
 custom_fonts/font = ExtResource( 9 )
 disabled = true
 text = "Options"
 flat = false
 
 [node name="Exit" parent="Main/VSplitContainer/Buttons" index="3" instance=ExtResource( 1 )]
-margin_top = 211.0
+margin_top = 174.0
 margin_right = 500.0
-margin_bottom = 265.0
+margin_bottom = 228.0
 custom_fonts/font = ExtResource( 9 )
 text = "Exit"
 flat = false
 
 [node name="Controls" parent="." instance=ExtResource( 8 )]
+visible = false
 mouse_hider = false
 closeable = true
 
@@ -111,13 +112,12 @@ text = "Controls"
 
 [node name="Buttons" parent="Controls/VSplitContainer" index="1"]
 margin_right = 333.0
-margin_bottom = 900.0
+margin_bottom = 188.0
 alignment = 2
 
 [node name="Close" parent="Controls/VSplitContainer/Buttons" index="0"]
-margin_top = 740.0
 margin_right = 333.0
-margin_bottom = 794.0
+margin_bottom = 54.0
 custom_fonts/font = ExtResource( 9 )
 text = "Back"
 flat = false

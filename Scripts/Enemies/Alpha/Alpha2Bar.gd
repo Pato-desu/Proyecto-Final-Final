@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var boss = get_node("..")
 var velocity = Vector2.ZERO
-var speed = 525
+var speed = 700
 var moving = false
 var ball
 const dist_precisa = 15

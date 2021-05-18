@@ -18,7 +18,7 @@ var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.3
 var resize = 1
 
-export var angular_vel = 0 #No usada ahora
+export var angular_vel = 0 # -1 apunta al jugador
 
 func _ready():
 	modulate.a += glow
@@ -27,9 +27,13 @@ func init(x, y):
 	position = Vector2(x, y)
 
 func _physics_process(delta):
-	position = position + velocity * delta
-	if is_instance_valid(player):
-		following_rotation(player.global_position, Vector2.LEFT.angle(), 0.1, 0.01)
+	position += velocity * delta
+	if angular_vel == -1:
+		if is_instance_valid(player):
+			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.1, 0.01)
+	else:
+		rotation += angular_vel * delta
+#		rotate(angular_vel * delta)
 		
 func _process(_delta):
 	if is_instance_valid(weapons) and not weapons.get_child_count():

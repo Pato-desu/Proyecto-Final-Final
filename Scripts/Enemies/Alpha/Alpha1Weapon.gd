@@ -21,14 +21,15 @@ func _ready():
 	shoot()
 
 func _physics_process(_delta):
-	if not the_ball:
+	if not is_instance_valid(the_ball):
 		shoot()
 
 func shoot():
 	the_ball = Ball.instance()
 	var vely = random.randf_range(1, -1)
 	boss.call_deferred("add_child", the_ball)
-	the_ball.call_deferred("init", muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color.white)
+	the_ball.init(muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color.black)
+#	the_ball.call_deferred("init", muzzle.global_position, Vector2(1, vely).normalized() * ball_speed, Color.black)
 	lbar.follow(null)
 	rbar.follow(the_ball)
 
@@ -39,7 +40,7 @@ func multiply(proyectile):
 		if i%2:
 			added_pos *= -1
 		boss.call_deferred("add_child", other_ball)
-		other_ball.init(proyectile.global_position + added_pos, proyectile.velocity, Color.gray)
+		other_ball.init(proyectile.global_position + added_pos, proyectile.velocity, Color(0.7, 0.7, 0.7))
 
 func pointed():
 	sprite.material = shader

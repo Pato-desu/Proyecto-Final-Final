@@ -33,8 +33,6 @@ func _physics_process(_delta):
 	behaviour((get_global_mouse_position() - global_position).normalized() * length, global_position, player, 0)
 	
 func behaviour(cast, from, prev, n):
-#	print("from ", from)
-#	print("cast ", cast)
 	#Dibujo de punto
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
 	result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
@@ -64,7 +62,7 @@ func behaviour(cast, from, prev, n):
 			if n <= max_reflects:
 				behaviour(to, result.position, collider, n+1) #Recursividad
 		else:
-			sparks.position = result.position - global_position
+			sparks.position = to_local(result.position)
 			#Activacion del sensor
 			if collider.get_collision_layer_bit(8):
 #				hover(collider)

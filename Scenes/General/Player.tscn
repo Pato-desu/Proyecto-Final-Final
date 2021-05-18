@@ -2,18 +2,17 @@
 
 [ext_resource path="res://Scripts/General/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/General/Laser.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/General/player.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/General/player5.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Extra/PlayerHurtbox.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 16 )
+extents = Vector2( 4, 8 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 1028
 script = ExtResource( 1 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 4, 0 )
 shape = SubResource( 1 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -29,6 +28,5 @@ scale = Vector2( 8, 8 )
 texture = ExtResource( 3 )
 
 [node name="Laser" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 0 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="area_entered"]
