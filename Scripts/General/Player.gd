@@ -65,9 +65,8 @@ func _physics_process(_delta):
 		laser.activate()
 	if Input.is_action_just_released("shoot"):
 		laser.deactivate()
+#	mouse_pointing()
 	
-	look_at(get_global_mouse_position())
-
 func area_entered(area):
 	damager.load_damage(self, area)
 	
@@ -123,3 +122,7 @@ func positive_angle_to_short_angle(angle):
 	elif angle < -PI:
 		return 2*PI + angle
 	return angle
+
+#func mouse_pointing():
+#	look_at(get_global_mouse_position())
+#	laser.cast_to = (get_global_mouse_position() - global_position).normalized() * laser.length

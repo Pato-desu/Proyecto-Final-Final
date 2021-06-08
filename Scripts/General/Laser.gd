@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	if not is_instance_valid(prev_pointed):
 		prev_pointed = null
 	#Comportamiento recursivo en caso de rebote:
-	behaviour((get_global_mouse_position() - global_position).normalized() * length, global_position, player, 0)
+	behaviour(cast_to, global_position, player, 0)
 	
 func behaviour(cast, from, prev, n):
 	#Dibujo de punto
