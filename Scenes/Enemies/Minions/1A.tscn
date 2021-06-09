@@ -8,7 +8,7 @@
 max_health = 200.0
 speed = 200
 color = Color( 0.929412, 0.109804, 0.141176, 1 )
-angular_vel = -1
+point_to_the_player = true
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( -64, 0, -16, 64, 64, 40, 64, -40, -16, -64 )

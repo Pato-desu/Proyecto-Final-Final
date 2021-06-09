@@ -8,7 +8,7 @@
 max_health = 120.0
 speed = 110
 color = Color( 0.192157, 0.0509804, 1, 1 )
-angular_vel = 1
+or_angular_velocity = 1
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 64, 64, 0, -46, -64, 64 )
@@ -30,3 +30,5 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( -45, 53 )
 rotation = -2.0944
 scale = Vector2( 0.5, 0.5 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

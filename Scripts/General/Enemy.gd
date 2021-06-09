@@ -18,7 +18,8 @@ var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.3
 var resize = 1
 
-export var angular_vel = 0 # -1 apunta al jugador
+export var point_to_the_player = false
+export var or_angular_velocity = 0
 
 func _ready():
 	modulate.a += glow
@@ -28,11 +29,11 @@ func init(x, y):
 
 func _physics_process(delta):
 	position += velocity * delta
-	if angular_vel == -1:
+	if point_to_the_player:
 		if is_instance_valid(player):
 			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.1, 0.01)
 	else:
-		rotation += angular_vel * delta
+		rotation += or_angular_velocity * delta
 #		rotate(angular_vel * delta)
 		
 func _process(_delta):
