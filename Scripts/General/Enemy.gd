@@ -17,7 +17,7 @@ onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.3
 var resize = 1
-
+ 
 export var point_to_the_player = false
 export var or_angular_velocity = 0
 
