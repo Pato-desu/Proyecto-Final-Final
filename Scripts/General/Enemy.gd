@@ -31,20 +31,21 @@ func _physics_process(delta):
 	position += velocity * delta
 	if point_to_the_player:
 		if is_instance_valid(player):
-			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.1, 0.01)
+			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.03, 0.03)
 	else:
 		rotation += or_angular_velocity * delta
 #		rotate(angular_vel * delta)
-		
-func _process(_delta):
+
 	if is_instance_valid(weapons) and not weapons.get_child_count():
-		resize = 0.9
+		resize = 0.9 / (delta * 60) #60 por los 60 fps
 		$CollisionPolygon2D.queue_free()
 		$CollisionShape2D.queue_free()
 		weapons.queue_free()
 	scale *= resize
 	if scale.x <= 0.1:
 		queue_free()
+		
+#func _process(_delta):
 
 func area_entered(area):
 	damager.load_damage(self, area)

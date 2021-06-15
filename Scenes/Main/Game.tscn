@@ -41,7 +41,6 @@ b = Vector2( 1920, 1080 )
 script = ExtResource( 2 )
 enemies = [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 20 ) ]
 maps = [ "res://Data/Laser Test.prn", "res://Data/Level 1.2.prn", "res://Data/Test alpha 1.prn", "res://Data/Test alpha 2.prn" ]
-selected_map = 0
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -203,7 +202,6 @@ __meta__ = {
 
 [node name="TimeLeft" type="Label" parent="UI/HUD"]
 pause_mode = 2
-visible = false
 margin_left = 1740.0
 margin_top = 30.0
 margin_right = 1890.0
