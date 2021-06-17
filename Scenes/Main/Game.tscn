@@ -40,7 +40,7 @@ b = Vector2( 1920, 1080 )
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
 enemies = [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 20 ) ]
-maps = [ "res://Data/Laser Test.prn", "res://Data/Level 1.2.prn", "res://Data/Test alpha 1.prn", "res://Data/Test alpha 2.prn" ]
+maps = [ "res://Data/Laser Test.prn", "res://Data/Level 1.2 - copia.prn", "res://Data/Test alpha 1.prn", "res://Data/Test alpha 2.prn" ]
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 5 )
