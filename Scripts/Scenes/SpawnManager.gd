@@ -12,8 +12,6 @@ var list
 func _ready():
 	assert(game.maps.size() > game.selected_map)
 	list = csv_to_dictionary(game.maps[game.selected_map])
-	#UFF EL QUILOMBO DE PRIMER SPAWN
-#	spawn()
 #	else:
 #		print("bad selection")
 

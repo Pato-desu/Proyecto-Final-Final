@@ -7,7 +7,9 @@ onready var weapons = $Weapons
 export var max_health = 100.0
 var health = max_health
 var damage = 20
-export var speed = 450
+const off_speed = 100
+export var speed = off_speed
+var on_speed = speed
 onready var velocity = Vector2.LEFT * speed
 #var life
 export var color = Color.white
@@ -21,32 +23,43 @@ var resize = 1
 export var point_to_the_player = false
 export var or_angular_velocity = 0
 
+var activated = false
+
 func _ready():
 	modulate.a += glow
+	speed = off_speed
 	
-func init(x, y):
-	position = Vector2(x, y)
+#func init(x, y):
+#	position = Vector2(x, y)
 
 func _physics_process(delta):
 	position += velocity * delta
-	if point_to_the_player:
-		if is_instance_valid(player):
-			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.03, 0.03)
-	else:
-		rotation += or_angular_velocity * delta
-#		rotate(angular_vel * delta)
+	if activated:
+		if point_to_the_player:
+			if is_instance_valid(player):
+				following_rotation(player.global_position, Vector2.LEFT.angle(), 0.03, 0.03)
+		else:
+			rotation += or_angular_velocity * delta
+	#		rotate(angular_vel * delta)
 
-	if is_instance_valid(weapons) and not weapons.get_child_count():
-		resize = 0.9 / (delta * 60) #60 por los 60 fps
-		$CollisionPolygon2D.queue_free()
-		$CollisionShape2D.queue_free()
-		weapons.queue_free()
-	scale *= resize
-	if scale.x <= 0.1:
-		queue_free()
-		
+		if is_instance_valid(weapons) and not weapons.get_child_count():
+			resize = 0.9 / (delta * 60) #60 por los 60 fps
+			$CollisionPolygon2D.queue_free()
+			$CollisionShape2D.queue_free()
+			weapons.queue_free()
+		scale *= resize
+		if scale.x <= 0.1:
+			queue_free()
+	
 #func _process(_delta):
 
+func screen_entered():
+	activated = true
+	speed = 450
+
+func screen_exited():
+	queue_free()
+	
 func area_entered(area):
 	damager.load_damage(self, area)
 
@@ -61,9 +74,6 @@ func losing_hp():
 
 func before_dying():
 	damager.death()
-
-func screen_exited():
-	queue_free()
 
 # warning-ignore:shadowed_variable
 func following_rotation(target_global_position, original_angle, minimum, speed):
