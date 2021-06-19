@@ -67,7 +67,7 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
-collision_layer = 4
+collision_layer = 260
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true

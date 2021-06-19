@@ -19,7 +19,7 @@ var active_timer
 export var time_passive = 0.0
 var passive_timer
 
-func _ready():
+func init():
 	speed = weapon.bullet_speed
 	color = enemy.color
 	if period:
@@ -65,5 +65,5 @@ func shoot():
 	new_angle = - angle + weapon.rotation_degrees + enemy.rotation_degrees
 	direction = Vector2(cos(deg2rad(new_angle)), sin(deg2rad(new_angle)))
 	var aux = bullet.instance()
-	level.add_child(aux)
-	aux.init(global_position, direction.normalized() * speed, color)
+	aux.call_deferred("init", global_position, direction.normalized() * speed, color)
+	level.call_deferred("add_child", aux)

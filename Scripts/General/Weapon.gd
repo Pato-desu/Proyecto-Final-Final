@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var damager = get_node("/root/Game/Damager")
+onready var muzzles = $Muzzles
 export var max_health = 50.0
 var health = max_health
 #var damage = 10
@@ -10,8 +11,10 @@ onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThickOutline.tres")
 const glow = 0.1
 
-func _ready():
+func init():
 	modulate.a += glow 
+	for muzzle in muzzles.get_children():
+		muzzle.init()
 
 #func _process(_delta):
 

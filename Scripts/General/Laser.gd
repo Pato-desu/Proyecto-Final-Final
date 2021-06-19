@@ -67,9 +67,9 @@ func behaviour(cast, from, prev, n):
 			if collider.get_collision_layer_bit(8):
 #				hover(collider)
 				if activated:
-					sparks.emitting = true
-					assert(collider.has_method("laser_sensor"))
-					collider.laser_sensor(self, result.normal.normalized())
+#					sparks.emitting = true
+					if collider.has_method("laser_sensor"):
+						collider.laser_sensor(self, result.normal.normalized())
 			#Dañado
 			else:
 #				hover(collider)
