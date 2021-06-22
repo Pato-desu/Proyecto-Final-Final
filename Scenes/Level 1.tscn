@@ -1,8 +1,106 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Minions/1A.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemies/Minions/2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Enemies/Minions/1B.tscn" type="PackedScene" id=3]
 
-[node name="Level 1" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
-[node name="1A" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2344, 560 )
+[node name="Enemy0" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2170, 234 )
+
+[node name="Enemy1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2670, 543 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2770, 300 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2970, 518 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3170, 703 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3370, 648 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3770, 800 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3870, 700 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4070, 750 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4370, 432 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4670, 648 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4870, 864 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 5170, 648 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 5470, 864 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 5470, 432 )
+
+[node name="Enemy15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6170, 69 )
+
+[node name="Enemy16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6270, 216 )
+
+[node name="Enemy17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6470, 432 )
+
+[node name="Enemy18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6670, 648 )
+
+[node name="Enemy19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6870, 864 )
+
+[node name="Enemy20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7370, 108 )
+
+[node name="Enemy21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7970, 972 )
+
+[node name="Enemy22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8370, 540 )
+
+[node name="Enemy23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8570, 216 )
+
+[node name="Enemy24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9070, 540 )
+
+[node name="Enemy25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9170, 540 )
+
+[node name="Enemy26" parent="." instance=ExtResource( 1 )]
+position = Vector2( 9220, 420 )
+
+[node name="Enemy27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 9470, 864 )
+
+[node name="Enemy28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9570, 108 )
+
+[node name="Enemy29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9670, 540 )
+
+[node name="Enemy30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9770, 972 )
+
+[node name="Enemy31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 9770, 216 )
+
+[node name="Enemy32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 9999, 432 )

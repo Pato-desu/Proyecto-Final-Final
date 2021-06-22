@@ -10,10 +10,10 @@
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 960, 10 )
+extents = Vector2( 980, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 960, 10 )
+extents = Vector2( 980, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -59,24 +59,22 @@ script = ExtResource( 3 )
 collision_layer = 192
 collision_mask = 32
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BouncingWalls/Upper"]
-position = Vector2( 960, 0 )
+position = Vector2( 960, -8 )
 shape = SubResource( 1 )
 
 [node name="Lower" type="StaticBody2D" parent="BouncingWalls"]
 collision_layer = 192
 collision_mask = 32
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BouncingWalls/Lower"]
-position = Vector2( 960, 1080 )
+position = Vector2( 960, 1088 )
 shape = SubResource( 2 )
 
 [node name="SensorWalls" type="Node2D" parent="."]
@@ -104,7 +102,9 @@ scale = Vector2( 1, 55 )
 shape = SubResource( 4 )
 
 [node name="SpawnLine" type="Line2D" parent="."]
-points = PoolVector2Array( 960, 16, 960, 1080 )
+position = Vector2( 0, 0.0553503 )
+scale = Vector2( 1, 0.990775 )
+points = PoolVector2Array( 960, 16, 960, 1090 )
 default_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 7 )
 

@@ -7,7 +7,7 @@ onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
 
-const max_health = 100.0
+const max_health = 10000.0
 var health = max_health
 const damage = 150
 const empathetic_pain = 20
@@ -106,22 +106,22 @@ func before_dying():
 	game.over(false)
 
 # warning-ignore:shadowed_variable
-func following_rotation(target_global_position, original_angle, minimum, speed):
-	var objective_angle = (target_global_position - global_position).angle()
-	var current_angle = positive_angle_to_short_angle(rotation + original_angle)
-	var diff_angle = positive_angle_to_short_angle(objective_angle - current_angle)
-	if abs(diff_angle) > minimum:
-		if diff_angle > 0:
-			rotation += speed
-		else:
-			rotation -= speed
+#func following_rotation(target_global_position, original_angle, minimum, speed):
+#	var objective_angle = (target_global_position - global_position).angle()
+#	var current_angle = positive_angle_to_short_angle(rotation + original_angle)
+#	var diff_angle = positive_angle_to_short_angle(objective_angle - current_angle)
+#	if abs(diff_angle) > minimum:
+#		if diff_angle > 0:
+#			rotation += speed
+#		else:
+#			rotation -= speed
 
-func positive_angle_to_short_angle(angle):
-	if angle > PI:
-		return -2*PI + angle
-	elif angle < -PI:
-		return 2*PI + angle
-	return angle
+#func positive_angle_to_short_angle(angle):
+#	if angle > PI:
+#		return -2*PI + angle
+#	elif angle < -PI:
+#		return 2*PI + angle
+#	return angle
 
 #func mouse_pointing():
 #	look_at(get_global_mouse_position())
