@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/laser2.png-45bff26af9d645805676b3dc7bb71008.stex"
+path="res://.import/bossalpha2.1.2.png-fb3afd766492efb79b617d6e62b59830.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Extra/laser2.png"
-dest_files=[ "res://.import/laser2.png-45bff26af9d645805676b3dc7bb71008.stex" ]
+source_file="res://Sprites/Enemies/Bosses/bossalpha2.1.2.png"
+dest_files=[ "res://.import/bossalpha2.1.2.png-fb3afd766492efb79b617d6e62b59830.stex" ]
 
 [params]
 

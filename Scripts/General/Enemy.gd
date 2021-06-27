@@ -56,7 +56,7 @@ func _process(delta):	#el movimiento fuera de pantalla hasta entrar
 		queue_free()
 
 func screen_entered():
-	print(game.time)
+#	print(game.clock)
 	set_process(false)
 	set_physics_process(true)
 	for weapon in weapons.get_children():

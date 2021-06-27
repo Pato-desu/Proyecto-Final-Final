@@ -4,6 +4,8 @@ onready var menus = get_node("UI/Menus")
 onready var pause = menus.get_node("Pause")
 onready var gg = menus.get_node("GameOver")
 onready var player = get_node("Player")
+export(Array, PackedScene) var scenes
+export (Array, bool) var activated
 var won = -1
 var clock = 0.0
 var player_health

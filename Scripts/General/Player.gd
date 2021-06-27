@@ -7,7 +7,7 @@ onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
 
-const max_health = 10000.0
+const max_health = 100.0
 var health = max_health
 const damage = 150
 const empathetic_pain = 20

@@ -1,12 +1,14 @@
 extends Node
 
 onready var game = get_node("..")
-export(Array, PackedScene) var scenes
-export (Array, bool) var activated
+var scenes
+var activated
 var i = 0
 var size
 
 func _ready():
+	scenes = game.scenes
+	activated = game.activated
 	size = scenes.size()
 	assert(size == activated.size())
 	next()

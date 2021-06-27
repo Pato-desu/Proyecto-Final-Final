@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boss_1_c.png-34c76e1a589abcfa0f72869f0626a15d.stex"
+path="res://.import/bossalpha1.2.2.png-8c02629aaa60934e6983ae9ad078611c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemies/Bosses/boss_1_c.png"
-dest_files=[ "res://.import/boss_1_c.png-34c76e1a589abcfa0f72869f0626a15d.stex" ]
+source_file="res://Sprites/Enemies/Bosses/bossalpha1.2.2.png"
+dest_files=[ "res://.import/bossalpha1.2.2.png-8c02629aaa60934e6983ae9ad078611c.stex" ]
 
 [params]
 
