@@ -7,8 +7,8 @@ onready var muzzle = get_node("SpawnPoint")
 const Ball = preload("res://Scenes/General/Proyectile.tscn")
 var random
 var the_ball
-var max_health = 500.0
-var health = max_health
+const max_hp = 500.0
+var hp = max_hp
 var ball_speed = 500 #800?#1400?
 #var life
 const ball_clons = 4
@@ -49,7 +49,7 @@ func not_pointed():
 	sprite.material = null
 
 func losing_hp():
-	modulate.a = float(health) / max_health
+	modulate.a = float(hp) / max_hp
 	
 func before_dying():
 	boss.call_deferred("finished")

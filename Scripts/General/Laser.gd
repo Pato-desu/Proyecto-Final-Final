@@ -5,7 +5,7 @@ onready var damager = game.get_node("Damager")
 onready var player = game.get_node("Player/Hurtbox")
 onready var line = $Line
 onready var sparks = $Sparks
-const damage = 1.8 #100 D daño por segundo aprox
+const damage = 1.6 #100 D daño por segundo aprox
 var length = cast_to.length()
 var activated = false
 const max_reflects = 6
@@ -36,7 +36,7 @@ func behaviour(cast, from, prev, n):
 	#Dibujo de punto
 #	print(n, "° rebote salio de ", prev.name, " exactamente de ", from, " hacia ", cast)
 	result = space_state.intersect_ray(from, from + cast, [prev], collision_mask, true, true) 		
-	if result.empty():
+	if result.empty() or ("monitorable" in result.collider and not result.collider.monitorable):
 		line.add_point(to_local(cast + from))
 		#Desapuntado
 		if prev_pointed and prev_pointed.has_method("not_pointed"):

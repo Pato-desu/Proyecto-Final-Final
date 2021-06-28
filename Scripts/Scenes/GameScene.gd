@@ -27,7 +27,9 @@ func _process(delta):
 #		get_tree().paused = false
 	clock = clock + delta
 	if is_instance_valid(player):
-		player_health = player.health
+		player_health = player.hp / player.max_hp
+	else:
+		player_health = 0
 
 func over(win):
 	won = int(win)

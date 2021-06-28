@@ -4,9 +4,9 @@ onready var game = get_node("/root/Game")
 onready var damager = game.get_node("Damager")
 onready var player = game.get_node("Player")
 onready var weapons = $Weapons
-export var max_health = 100.0
-var health = max_health
-var damage = 20
+export var max_hp = 100.0
+var hp
+var damage = 3
 const off_speed = 100
 export var speed = off_speed
 onready var off_velocity = Vector2.LEFT * off_speed
@@ -24,6 +24,7 @@ export var point_to_the_player = false
 export var or_angular_velocity = 0
 
 func _ready():
+	hp = max_hp
 	modulate.a += glow
 	speed = off_speed
 	set_physics_process(false)
@@ -75,7 +76,7 @@ func not_pointed():
 	sprite.material = null
 
 func losing_hp():
-	modulate.a = glow + float(health) / max_health	
+	modulate.a = glow + float(hp) / max_hp
 
 func before_dying():
 	damager.death()

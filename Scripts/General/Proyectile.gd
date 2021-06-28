@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 onready var damager = get_node("/root/Game/Damager")
-var health = 1
-var damage = 5
+var hp = 1
+var damage = 1
 var velocity = Vector2.ZERO
 const glow = 0.0
 onready var sprite = get_node("Body")
@@ -14,7 +14,7 @@ var object
 func init(pos, vel, color):
 	position = pos
 	velocity = vel
-	call_deferred("set_atf", color)
+	set_deferred("atf.modulate", color)
 
 func set_atf(color):
 	atf.modulate = color

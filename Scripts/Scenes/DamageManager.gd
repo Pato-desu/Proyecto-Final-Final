@@ -16,7 +16,7 @@ func load_damage(to, from):
 
 func find_dmged(to):
 	var nodeto = to
-	while is_instance_valid (nodeto) and !("health" in nodeto):
+	while is_instance_valid (nodeto) and !("hp" in nodeto):
 		nodeto = nodeto.get_parent()
 	if is_instance_valid (nodeto):
 		return nodeto
@@ -44,11 +44,11 @@ func _process(_delta):
 
 func execute_damage(dmged, dmg):
 	if dmged != null and dmg != null:
-		dmged.health -= dmg
+		dmged.hp -= dmg
 		if dmged.has_method("losing_hp"):
 			dmged.losing_hp()
-		if dmged.health <= 0:
-			execute_damage(find_dmged(dmged.get_node("..")), -dmged.health)
+		if dmged.hp <= 0:
+			execute_damage(find_dmged(dmged.get_node("..")), -dmged.hp)
 			if dmged.has_method("before_dying"):
 				dmged.before_dying()
 			dmged.queue_free()

@@ -5,8 +5,8 @@ onready var boss = get_node("../..")
 onready var spawn = boss.get_node("SpawnLine")
 onready var score = boss.get_node("Scoreboard/Right")
 const ball_speed = 1000 #800? #1400
-const max_health = 100.0
-var health = max_health
+const max_hp = 100.0
+var hp = max_hp
 var the_ball
 #var life
 
@@ -39,7 +39,7 @@ func shoot(n):
 		other_ball.init(the_ball.position + added_pos, the_ball.velocity, Color(0.3, 0.3, 0.3))
 
 func losing_hp():
-	modulate.a = float(health) / max_health
+	modulate.a = float(hp) / max_hp
 
 func before_dying():
 	boss.call_deferred("finished")

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/General/Proyectile.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Extra/proyectile.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Extra/proyectileATF.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Extra/proyectile_ATF.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0

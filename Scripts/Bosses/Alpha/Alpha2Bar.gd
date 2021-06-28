@@ -7,7 +7,7 @@ var moving = false
 var ball
 const dist_precisa = 15
 const desv_laser = 15
-var health = 5
+var hp = 5
 
 func _physics_process(_delta):
 	if moving:

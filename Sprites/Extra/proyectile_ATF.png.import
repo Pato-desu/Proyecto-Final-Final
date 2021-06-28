@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/transparentwea.png-f5fa4b7ef383e50535cd4297ec0476d0.stex"
+path="res://.import/proyectile_ATF.png-b3f458aeff4805308a4b17eca6069df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Extra/transparentwea.png"
-dest_files=[ "res://.import/transparentwea.png-f5fa4b7ef383e50535cd4297ec0476d0.stex" ]
+source_file="res://Sprites/Extra/proyectile_ATF.png"
+dest_files=[ "res://.import/proyectile_ATF.png-b3f458aeff4805308a4b17eca6069df5.stex" ]
 
 [params]
 

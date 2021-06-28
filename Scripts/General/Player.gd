@@ -7,10 +7,10 @@ onready var laser = $Laser
 onready var sprite = $Sprite
 var shader = preload("res://Shaders/ThinOutline.tres")
 
-const max_health = 100.0
-var health = max_health
+const max_hp = 10.0
+var hp = max_hp
 const damage = 150
-const empathetic_pain = 20
+const empathetic_pain = 2
 const normal_speed = 500
 var speed
 var velocity
@@ -77,26 +77,26 @@ func not_pointed():
 	sprite.material = null
 
 func losing_hp():
-	hurtbox.monitoring = false
-	hurtbox.monitorable = false
-#	set_deferred("hurtbox.monitorable", false)
+	print(hp)
+	hurtbox.set_deferred("monitoring", false)
+	hurtbox.set_deferred("monitorable", false)
 	flicking_timer.start()
 	flick_timer.start()
-	new_modulation = glow + health/ max_health
+	new_modulation = glow + hp/ max_hp
 	modulate.a = 0
 	
 func not_losing_hp():
 	hurtbox.monitoring = true
 	hurtbox.monitorable = true
 	flick_timer.stop()
-	modulate.a = glow + float(health)/ max_health
+	modulate.a = glow + float(hp)/ max_hp
 
 func changing_visibility():
 	# warning-ignore:narrowing_conversion
 	if modulate.a:
 		modulate.a = 0
 	else:
-		modulate.a = glow + float(health)/ max_health
+		modulate.a = glow + float(hp)/ max_hp
 
 func on_another_death():
 	damager.execute_damage(self, empathetic_pain)

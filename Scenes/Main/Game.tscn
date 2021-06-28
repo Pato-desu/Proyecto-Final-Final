@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/UI/Menus/GameOverText.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Scenes/GameScene.gd" type="Script" id=2]
@@ -14,8 +14,11 @@
 [ext_resource path="res://Scenes/Levels/Tests/LaserTest.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Main/Scener.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Extra/healthbar.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Extra/healthbar_container.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/Enemies/Bosses/Alpha1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Enemies/Bosses/Alpha2.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/Extra/healthbar_splitted.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/UI/PopupMenu.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scripts/Scenes/SpawnManager.gd" type="Script" id=22]
 
@@ -37,7 +40,7 @@ b = Vector2( 1920, 1080 )
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
 scenes = [ ExtResource( 12 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 18 ) ]
-activated = [ false, false, true, true ]
+activated = [ false, true, true, true ]
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource( 22 )
@@ -82,13 +85,12 @@ shape = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 818.246, 532.353 )
+position = Vector2( 800, 540 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
@@ -183,15 +185,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthPoints" type="Label" parent="UI/HUD"]
-pause_mode = 2
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 150.0
-margin_bottom = 90.0
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0.643137, 0.807843, 0.101961, 1 )
-text = "Salud"
+[node name="HealthBar" type="TextureProgress" parent="UI/HUD"]
+margin_left = 83.0
+margin_top = 45.0
+margin_right = 582.0
+margin_bottom = 104.0
+value = 70.0
+texture_under = ExtResource( 15 )
+texture_over = ExtResource( 16 )
+texture_progress = ExtResource( 19 )
+tint_under = Color( 0.14902, 0.113725, 0, 1 )
+tint_over = Color( 0.160784, 0, 0.2, 1 )
+tint_progress = Color( 0.266667, 1, 0, 1 )
+nine_patch_stretch = true
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
