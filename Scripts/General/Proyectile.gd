@@ -14,7 +14,7 @@ var object
 func init(pos, vel, color):
 	position = pos
 	velocity = vel
-	set_deferred("atf.modulate", color)
+	call_deferred("set_atf", color)
 
 func set_atf(color):
 	atf.modulate = color

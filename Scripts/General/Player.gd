@@ -37,7 +37,7 @@ func _ready():
 	flick_timer.connect("timeout", self, "changing_visibility")
 	add_child(flicking_timer)
 	add_child(flick_timer)
-	modulate.a += glow 
+	modulate.a += glow
 	
 #func _process(_delta):
 
@@ -77,7 +77,7 @@ func not_pointed():
 	sprite.material = null
 
 func losing_hp():
-	print(hp)
+#	print(hp)
 	hurtbox.set_deferred("monitoring", false)
 	hurtbox.set_deferred("monitorable", false)
 	flicking_timer.start()

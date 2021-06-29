@@ -7,13 +7,13 @@
 [node name="Level1" type="Node2D"]
 
 [node name="Enemy0" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2170, 234 )
+position = Vector2( 2192, 528 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2670, 543 )
+position = Vector2( 2520, 344 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2770, 300 )
+position = Vector2( 2712, 160 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2970, 518 )
@@ -22,7 +22,7 @@ position = Vector2( 2970, 518 )
 position = Vector2( 3170, 703 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3370, 648 )
+position = Vector2( 3376, 648 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3770, 800 )
