@@ -5,7 +5,6 @@
 [ext_resource path="res://Sprites/Enemies/Weapons/1A1.png" type="Texture" id=3]
 
 [node name="1A1" instance=ExtResource( 2 )]
-max_health = 100.0
 bullet_speed = 800
 
 [node name="CollisionPolygon2D" parent="." index="0"]

@@ -6,8 +6,6 @@ var out = []
 
 func _ready():
 	moved(second)
-	for enemy in out:
-		remove_child(enemy)
 
 func moved(sec):
 	second = sec
@@ -18,3 +16,6 @@ func moved(sec):
 			out.append(enemy)
 		else:
 			enemy.visible = true
+	if not Engine.editor_hint:
+		for enemy in out:
+			remove_child(enemy)
