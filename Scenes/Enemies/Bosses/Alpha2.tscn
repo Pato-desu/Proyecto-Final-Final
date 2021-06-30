@@ -46,7 +46,6 @@ graph_offset = Vector2( 0, 375 )
 shader = SubResource( 5 )
 
 [sub_resource type="StreamTexture" id=7]
-load_path = "res://.import/bossalpha8.png-39b2d4b2f57195dcf79b2c347b88af7c.stex"
 
 [sub_resource type="DynamicFont" id=8]
 size = 60

@@ -190,7 +190,7 @@ margin_left = 83.0
 margin_top = 45.0
 margin_right = 582.0
 margin_bottom = 104.0
-value = 70.0
+value = 100.0
 texture_under = ExtResource( 15 )
 texture_over = ExtResource( 16 )
 texture_progress = ExtResource( 19 )
@@ -205,6 +205,7 @@ __meta__ = {
 
 [node name="TimeLeft" type="Label" parent="UI/HUD"]
 pause_mode = 2
+visible = false
 margin_left = 1740.0
 margin_top = 30.0
 margin_right = 1890.0
