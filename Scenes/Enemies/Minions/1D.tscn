@@ -9,7 +9,7 @@ radius = 58.6667
 
 [node name="1D" instance=ExtResource( 3 )]
 scale = Vector2( 1.5, 1.5 )
-speed = 125
+speed = 150
 color = Color( 1, 0.498039, 0.152941, 1 )
 
 [node name="CollisionPolygon2D" parent="." index="0"]

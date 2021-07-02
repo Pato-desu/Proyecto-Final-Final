@@ -6,7 +6,7 @@
 
 [node name="1C" instance=ExtResource( 2 )]
 max_hp = 120.0
-speed = 110
+speed = 175
 color = Color( 0.192157, 0.0509804, 1, 1 )
 or_angular_velocity = 1
 

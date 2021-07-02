@@ -6,88 +6,66 @@
 [ext_resource path="res://Scripts/Scenes/LevelTesting.gd" type="Script" id=4]
 
 [node name="Level1" type="Node2D"]
-position = Vector2( -5100, 0 )
 script = ExtResource( 4 )
-second = 17
 
 [node name="Enemy0" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 2192, 528 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 2520, 344 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 2712, 160 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 2970, 518 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 3170, 703 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 3376, 648 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 3770, 800 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 3870, 700 )
 
 [node name="Enemy8" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 4070, 750 )
 
 [node name="Enemy9" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 4370, 432 )
 
 [node name="Enemy10" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 4670, 648 )
 
 [node name="Enemy11" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 4870, 864 )
 
 [node name="Enemy12" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 5170, 648 )
 
 [node name="Enemy13" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 5470, 864 )
 
 [node name="Enemy14" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 5470, 432 )
 
 [node name="Enemy15" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 6170, 69 )
 
 [node name="Enemy16" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 6270, 216 )
 
 [node name="Enemy17" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 6470, 432 )
 
 [node name="Enemy18" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 6670, 648 )
 
 [node name="Enemy19" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 6870, 864 )
 
 [node name="Enemy20" parent="." instance=ExtResource( 2 )]
@@ -106,25 +84,19 @@ position = Vector2( 8846, 216 )
 position = Vector2( 9175, 540 )
 
 [node name="Enemy25" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9449, 672 )
+position = Vector2( 9568, 672 )
 
 [node name="Enemy26" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9584, 224 )
+position = Vector2( 9794, 224 )
 
 [node name="Enemy27" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9799, 996 )
+position = Vector2( 10326, 996 )
 
 [node name="Enemy28" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9992, 176 )
+position = Vector2( 10614, 249 )
 
 [node name="Enemy29" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10004, 608 )
+position = Vector2( 10622.2, 915.816 )
 
 [node name="Enemy30" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10619, 972 )
-
-[node name="Enemy31" parent="." instance=ExtResource( 3 )]
-position = Vector2( 10295, 310 )
-
-[node name="Enemy32" parent="." instance=ExtResource( 3 )]
-position = Vector2( 10524, 526 )
+position = Vector2( 11232.1, 564.246 )

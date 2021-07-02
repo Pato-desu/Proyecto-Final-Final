@@ -5,8 +5,8 @@
 [ext_resource path="res://Scenes/Enemies/Weapons/1B2.tscn" type="PackedScene" id=3]
 
 [node name="1B" instance=ExtResource( 2 )]
-max_hp = 200.0
-speed = 180
+max_hp = 150.0
+speed = 230
 color = Color( 0, 1, 1, 1 )
 point_to_the_player = true
 

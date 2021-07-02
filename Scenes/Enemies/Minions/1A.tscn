@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Enemies/Minions/1A.png" type="Texture" id=3]
 
 [node name="1A" instance=ExtResource( 1 )]
-speed = 200
+speed = 300
 color = Color( 0.929412, 0.109804, 0.141176, 1 )
 point_to_the_player = true
 

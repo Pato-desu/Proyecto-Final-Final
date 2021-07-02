@@ -8,8 +8,8 @@
 radius = 64.4981
 
 [node name="1D4" instance=ExtResource( 3 )]
-max_hp = 150.0
-bullet_speed = 350
+max_hp = 130.0
+bullet_speed = 400
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 visible = false
