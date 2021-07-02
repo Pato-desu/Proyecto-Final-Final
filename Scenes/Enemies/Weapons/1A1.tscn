@@ -5,7 +5,8 @@
 [ext_resource path="res://Sprites/Enemies/Weapons/1A1.png" type="Texture" id=3]
 
 [node name="1A1" instance=ExtResource( 2 )]
-bullet_speed = 800
+max_hp = 200.0
+bullet_speed = 1000
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 0, -55, -70, 68, 70, 68 )
