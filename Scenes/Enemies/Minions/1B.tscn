@@ -6,7 +6,7 @@
 
 [node name="1B" instance=ExtResource( 2 )]
 max_hp = 150.0
-speed = 230
+speed = 250
 color = Color( 0, 1, 1, 1 )
 point_to_the_player = true
 
@@ -29,3 +29,6 @@ texture = ExtResource( 1 )
 position = Vector2( -28, 0 )
 rotation = 1.5708
 scale = Vector2( 0.63, 0.57 )
+
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Enemies/Weapons/1B2.png" type="Texture" id=3]
 
 [node name="1B2" instance=ExtResource( 2 )]
-max_hp = 75.0
+max_hp = 65.0
 bullet_speed = 600
 
 [node name="CollisionPolygon2D" parent="." index="0"]
@@ -20,52 +20,40 @@ texture = ExtResource( 3 )
 [node name="1B2B" parent="Muzzles" index="0" instance=ExtResource( 1 )]
 position = Vector2( 0, 88 )
 angle = -90
-period = 2.25
+period = 1.75
 
-[node name="1B2C" parent="Muzzles" index="1" instance=ExtResource( 1 )]
-position = Vector2( 8, 88 )
-angle = -81
-period = 2.25
+[node name="1B2D" parent="Muzzles" index="1" instance=ExtResource( 1 )]
+position = Vector2( 24, 88 )
+angle = -80
+period = 1.75
 time_to_wake_up = 0.25
 
-[node name="1B2D" parent="Muzzles" index="2" instance=ExtResource( 1 )]
-position = Vector2( 24, 88 )
-angle = -72
-period = 2.25
+[node name="1B2E" parent="Muzzles" index="2" instance=ExtResource( 1 )]
+position = Vector2( 48, 88 )
+angle = -70
+period = 1.75
 time_to_wake_up = 0.5
 
-[node name="1B2E" parent="Muzzles" index="3" instance=ExtResource( 1 )]
-position = Vector2( 48, 88 )
-angle = -63
-period = 2.25
+[node name="1B2F" parent="Muzzles" index="3" instance=ExtResource( 1 )]
+position = Vector2( 80, 88 )
+angle = -60
+period = 1.75
 time_to_wake_up = 0.75
 
-[node name="1B2F" parent="Muzzles" index="4" instance=ExtResource( 1 )]
-position = Vector2( 80, 88 )
-angle = -54
-period = 2.25
+[node name="1B2G" parent="Muzzles" index="4" instance=ExtResource( 1 )]
+position = Vector2( -80, 88 )
+angle = -120
+period = 1.75
 time_to_wake_up = 1.0
 
-[node name="1B2G" parent="Muzzles" index="5" instance=ExtResource( 1 )]
-position = Vector2( -80, 88 )
-angle = -128
-period = 2.25
+[node name="1B2H" parent="Muzzles" index="5" instance=ExtResource( 1 )]
+position = Vector2( -48, 88 )
+angle = -110
+period = 1.75
 time_to_wake_up = 1.25
 
-[node name="1B2H" parent="Muzzles" index="6" instance=ExtResource( 1 )]
-position = Vector2( -48, 88 )
-angle = -117
-period = 2.25
-time_to_wake_up = 1.5
-
-[node name="1B2I" parent="Muzzles" index="7" instance=ExtResource( 1 )]
+[node name="1B2I" parent="Muzzles" index="6" instance=ExtResource( 1 )]
 position = Vector2( -24, 88 )
-angle = -108
-period = 2.25
-time_to_wake_up = 1.75
-
-[node name="1B2J" parent="Muzzles" index="8" instance=ExtResource( 1 )]
-position = Vector2( -8, 88 )
-angle = -99
-period = 2.25
-time_to_wake_up = 2.0
+angle = -100
+period = 1.75
+time_to_wake_up = 1.5
