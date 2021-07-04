@@ -5,6 +5,7 @@
 [ext_resource path="res://Sprites/Enemies/Weapons/1C3.png" type="Texture" id=3]
 
 [node name="1C3" instance=ExtResource( 2 )]
+max_hp = 60.0
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 polygon = PoolVector2Array( 72, 72, 0, -56, -72, 72 )

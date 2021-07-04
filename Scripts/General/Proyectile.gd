@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var damager = get_node("/root/Game/Damager")
+onready var notifier = $VisibilityNotifier2D
 var hp = 1
 var damage = 1
 var velocity = Vector2.ZERO
@@ -21,6 +22,8 @@ func set_atf(color):
 	atf.modulate.a += glow
 
 func _physics_process(delta):
+	if not notifier.is_on_screen():
+		queue_free()
 	obj = move_and_collide(velocity * delta)
 	if obj:
 		object = obj.collider

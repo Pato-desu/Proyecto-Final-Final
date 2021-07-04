@@ -16,6 +16,10 @@ disabled = false
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
+[node name="VisibilityNotifier2D" parent="." index="2"]
+position = Vector2( -2.34374, 1.78814e-07 )
+scale = Vector2( 6.63437, 7.2 )
+
 [node name="Sprite" parent="." index="3"]
 rotation = -1.5708
 texture = ExtResource( 3 )

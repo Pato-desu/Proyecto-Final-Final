@@ -1,8 +1,8 @@
 extends Position2D
 
-onready var level = get_node("/root/Game")
 onready var weapon = get_node("../..")
-onready var enemy = get_node("../../../..")
+onready var enemy = weapon.get_node("../..")
+onready var level = enemy.get_node("..")
 const bullet = preload("res://Scenes/General/Proyectile.tscn")
 var color
 var speed
@@ -65,5 +65,5 @@ func shoot():
 	new_angle = - angle + weapon.rotation_degrees + enemy.rotation_degrees
 	direction = Vector2(cos(deg2rad(new_angle)), sin(deg2rad(new_angle)))
 	var aux = bullet.instance()
-	aux.call_deferred("init", global_position, direction.normalized() * speed, color)
 	level.call_deferred("add_child", aux)
+	aux.call_deferred("init", global_position - level.global_position, direction.normalized() * speed, color)
