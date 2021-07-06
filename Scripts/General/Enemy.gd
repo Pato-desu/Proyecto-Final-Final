@@ -36,7 +36,7 @@ func _physics_process(delta):
 	position += velocity * delta
 	if point_to_the_player:
 		if is_instance_valid(player):
-			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.03, 0.03)
+			following_rotation(player.global_position, Vector2.LEFT.angle(), 0.01, 0.01)
 	else:
 		rotation += or_angular_velocity * delta
 #		rotate(angular_vel * delta)

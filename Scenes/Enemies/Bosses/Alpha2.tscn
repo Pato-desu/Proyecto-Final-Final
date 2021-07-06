@@ -5,6 +5,7 @@
 [ext_resource path="res://Scripts/Bosses/Alpha/Alpha2.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Bosses/Alpha/Alpha2Bar.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Enemies/Bosses/boss_alpha_2.1.2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemies/Bosses/boss_alpha_2.1.1.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Bosses/Alpha/Alpha2SpawnLine.gd" type="Script" id=7]
 [ext_resource path="res://Fonts/DejaVuSans_base_font.ttf" type="DynamicFontData" id=8]
 
@@ -45,9 +46,7 @@ graph_offset = Vector2( 0, 375 )
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
 
-[sub_resource type="StreamTexture" id=7]
-
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 60
 font_data = ExtResource( 8 )
 
@@ -121,7 +120,7 @@ script = ExtResource( 4 )
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15, -15, -15, 0, -18, 15, -15 )
 
 [node name="Sprite" type="Sprite" parent="RightBar"]
-texture = SubResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Extreme1" type="Polygon2D" parent="RightBar"]
 polygon = PoolVector2Array( 15, 15, 0, 18, -15, 15 )
@@ -143,7 +142,7 @@ margin_left = 860.0
 margin_top = 50.0
 margin_right = -62.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1
@@ -157,7 +156,7 @@ margin_left = 1022.0
 margin_top = 50.0
 margin_right = 138.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1

@@ -47,5 +47,5 @@ func not_pointed():
 func laser_sensor(_laser, normal):
 	velocity = normal.normalized() * -1 * velocity.length()
 
-func screen_exited():
-	queue_free()
+#func screen_exited():
+#	queue_free()

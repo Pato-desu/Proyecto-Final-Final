@@ -20,40 +20,40 @@ texture = ExtResource( 3 )
 [node name="1B2B" parent="Muzzles" index="0" instance=ExtResource( 1 )]
 position = Vector2( 0, 88 )
 angle = -90
-period = 1.75
+period = 2.45
 
-[node name="1B2D" parent="Muzzles" index="1" instance=ExtResource( 1 )]
+[node name="1B2C" parent="Muzzles" index="1" instance=ExtResource( 1 )]
 position = Vector2( 24, 88 )
 angle = -80
-period = 1.75
-time_to_wake_up = 0.25
+period = 2.45
+time_to_wake_up = 0.35
 
-[node name="1B2E" parent="Muzzles" index="2" instance=ExtResource( 1 )]
+[node name="1B2D" parent="Muzzles" index="2" instance=ExtResource( 1 )]
 position = Vector2( 48, 88 )
 angle = -70
-period = 1.75
-time_to_wake_up = 0.5
+period = 2.45
+time_to_wake_up = 0.7
 
-[node name="1B2F" parent="Muzzles" index="3" instance=ExtResource( 1 )]
+[node name="1B2E" parent="Muzzles" index="3" instance=ExtResource( 1 )]
 position = Vector2( 80, 88 )
 angle = -60
-period = 1.75
-time_to_wake_up = 0.75
+period = 2.45
+time_to_wake_up = 1.05
 
-[node name="1B2G" parent="Muzzles" index="4" instance=ExtResource( 1 )]
+[node name="1B2F" parent="Muzzles" index="4" instance=ExtResource( 1 )]
 position = Vector2( -80, 88 )
 angle = -120
-period = 1.75
-time_to_wake_up = 1.0
+period = 2.45
+time_to_wake_up = 1.4
 
-[node name="1B2H" parent="Muzzles" index="5" instance=ExtResource( 1 )]
+[node name="1B2G" parent="Muzzles" index="5" instance=ExtResource( 1 )]
 position = Vector2( -48, 88 )
 angle = -110
-period = 1.75
-time_to_wake_up = 1.25
+period = 2.45
+time_to_wake_up = 1.75
 
-[node name="1B2I" parent="Muzzles" index="6" instance=ExtResource( 1 )]
+[node name="1B2H" parent="Muzzles" index="6" instance=ExtResource( 1 )]
 position = Vector2( -24, 88 )
 angle = -100
-period = 1.75
-time_to_wake_up = 1.5
+period = 2.45
+time_to_wake_up = 2.1

@@ -37,4 +37,3 @@ modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 3 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="area_entered"]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="screen_exited"]

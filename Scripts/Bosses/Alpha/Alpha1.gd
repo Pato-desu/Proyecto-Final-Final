@@ -7,6 +7,7 @@ onready var player = game.get_node("Player")
 
 func _ready():
 	player.global_position = Vector2(1200, 540)
+	player.hp = player.max_hp
 	
 #func _process(_delta):
 #	if is_instance_valid(bar) and not bar.has_node("Weapon"):

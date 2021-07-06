@@ -63,7 +63,7 @@ margin_top = 425.0
 margin_right = 500.0
 margin_bottom = 653.0
 
-[node name="Close" parent="Main/VSplitContainer/Buttons" index="0"]
+[node name="Play" parent="Main/VSplitContainer/Buttons" index="0" instance=ExtResource( 1 )]
 margin_right = 500.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 9 )
@@ -87,7 +87,7 @@ disabled = true
 text = "Options"
 flat = false
 
-[node name="Exit" parent="Main/VSplitContainer/Buttons" index="3" instance=ExtResource( 1 )]
+[node name="Close" parent="Main/VSplitContainer/Buttons" index="3"]
 margin_top = 174.0
 margin_right = 500.0
 margin_bottom = 228.0
@@ -119,7 +119,7 @@ alignment = 2
 margin_right = 333.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 9 )
-text = "Back"
+text = "Go Back"
 flat = false
 
 [node name="Text" type="TextureRect" parent="Controls"]
@@ -133,6 +133,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Chapters" parent="." instance=ExtResource( 8 )]
+visible = false
+mouse_hider = false
+closeable = true
+
+[node name="VSplitContainer" parent="Chapters" index="0"]
+margin_left = -173.0
+margin_top = -94.0
+margin_right = 189.0
+margin_bottom = 471.0
+
+[node name="Title" parent="Chapters/VSplitContainer" index="0"]
+margin_right = 362.0
+text = "Chapters"
+
+[node name="Buttons" parent="Chapters/VSplitContainer" index="1"]
+margin_right = 362.0
+margin_bottom = 362.0
+alignment = 2
+
+[node name="Campaign" parent="Chapters/VSplitContainer/Buttons" index="0" instance=ExtResource( 1 )]
+margin_right = 362.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 9 )
+text = "Campaign"
+flat = false
+
+[node name="Level One" parent="Chapters/VSplitContainer/Buttons" index="1" instance=ExtResource( 1 )]
+margin_top = 58.0
+margin_right = 362.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 9 )
+text = "Level One"
+flat = false
+
+[node name="Boss Alpha" parent="Chapters/VSplitContainer/Buttons" index="2" instance=ExtResource( 1 )]
+margin_top = 116.0
+margin_right = 362.0
+margin_bottom = 170.0
+custom_fonts/font = ExtResource( 9 )
+text = "Boss Alpha"
+flat = false
+
+[node name="Close" parent="Chapters/VSplitContainer/Buttons" index="3"]
+margin_top = 174.0
+margin_right = 362.0
+margin_bottom = 228.0
+custom_fonts/font = ExtResource( 9 )
+text = "Go Back"
+flat = false
+
 [node name="Stars" type="Particles2D" parent="."]
 position = Vector2( 960, 540 )
 amount = 60
@@ -140,11 +191,17 @@ preprocess = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 10 )
 
-[connection signal="pressed" from="Main/VSplitContainer/Buttons/Close" to="Scener" method="action" binds= [ "play" ]]
+[connection signal="pressed" from="Main/VSplitContainer/Buttons/Play" to="Main" method="hide"]
+[connection signal="pressed" from="Main/VSplitContainer/Buttons/Play" to="Chapters" method="popup"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Main" method="hide"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Controls" method="popup"]
-[connection signal="pressed" from="Main/VSplitContainer/Buttons/Exit" to="." method="exit"]
+[connection signal="pressed" from="Main/VSplitContainer/Buttons/Close" to="." method="exit"]
 [connection signal="pressed" from="Controls/VSplitContainer/Buttons/Close" to="Main" method="popup"]
+[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Campaign" to="Scener" method="chapters" binds= [ "campaign" ]]
+[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Level One" to="Scener" method="chapters" binds= [ "level 1" ]]
+[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Boss Alpha" to="Scener" method="chapters" binds= [ "alpha" ]]
+[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Close" to="Main" method="popup"]
 
 [editable path="Main"]
 [editable path="Controls"]
+[editable path="Chapters"]

@@ -222,10 +222,10 @@ __meta__ = {
 [node name="Glow" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
-[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="Scener" method="action" binds= [ "restart" ]]
-[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="Scener" method="action" binds= [ "main" ]]
-[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/Close" to="Scener" method="action" binds= [ "restart" ]]
-[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/MainMenu" to="Scener" method="action" binds= [ "main" ]]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/Restart" to="Scener" method="execute" binds= [ "restart" ]]
+[connection signal="pressed" from="UI/Menus/Pause/VSplitContainer/Buttons/MainMenu" to="Scener" method="execute" binds= [ "main" ]]
+[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/Close" to="Scener" method="execute" binds= [ "restart" ]]
+[connection signal="pressed" from="UI/Menus/GameOver/VSplitContainer/Buttons/MainMenu" to="Scener" method="execute" binds= [ "main" ]]
 
 [editable path="UI/Menus/Pause"]
 [editable path="UI/Menus/GameOver"]
