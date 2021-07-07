@@ -102,17 +102,19 @@ closeable = true
 
 [node name="VSplitContainer" parent="Controls" index="0"]
 margin_left = -172.535
-margin_top = -429.418
+margin_top = -429.0
 margin_right = 160.465
 margin_bottom = 470.582
+custom_constants/separation = 650
 
 [node name="Title" parent="Controls/VSplitContainer" index="0"]
 margin_right = 333.0
 text = "Controls"
 
 [node name="Buttons" parent="Controls/VSplitContainer" index="1"]
+margin_top = 744.0
 margin_right = 333.0
-margin_bottom = 188.0
+margin_bottom = 798.0
 alignment = 2
 
 [node name="Close" parent="Controls/VSplitContainer/Buttons" index="0"]
@@ -124,9 +126,10 @@ flat = false
 
 [node name="Text" type="TextureRect" parent="Controls"]
 margin_left = -50.0
-margin_top = -50.0
+margin_top = -115.0
 margin_right = 1870.0
-margin_bottom = 1030.0
+margin_bottom = 965.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true,
@@ -153,11 +156,11 @@ margin_right = 362.0
 margin_bottom = 362.0
 alignment = 2
 
-[node name="Campaign" parent="Chapters/VSplitContainer/Buttons" index="0" instance=ExtResource( 1 )]
+[node name="Full Campaign" parent="Chapters/VSplitContainer/Buttons" index="0" instance=ExtResource( 1 )]
 margin_right = 362.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 9 )
-text = "Campaign"
+text = "Full Campaign"
 flat = false
 
 [node name="Level One" parent="Chapters/VSplitContainer/Buttons" index="1" instance=ExtResource( 1 )]
@@ -196,11 +199,11 @@ texture = ExtResource( 10 )
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Main" method="hide"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Controls" to="Controls" method="popup"]
 [connection signal="pressed" from="Main/VSplitContainer/Buttons/Close" to="." method="exit"]
-[connection signal="pressed" from="Controls/VSplitContainer/Buttons/Close" to="Main" method="popup"]
-[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Campaign" to="Scener" method="chapters" binds= [ "campaign" ]]
+[connection signal="popup_hide" from="Controls" to="Main" method="popup"]
+[connection signal="popup_hide" from="Chapters" to="Main" method="popup"]
+[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Full Campaign" to="Scener" method="chapters" binds= [ "campaign" ]]
 [connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Level One" to="Scener" method="chapters" binds= [ "level 1" ]]
 [connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Boss Alpha" to="Scener" method="chapters" binds= [ "alpha" ]]
-[connection signal="pressed" from="Chapters/VSplitContainer/Buttons/Close" to="Main" method="popup"]
 
 [editable path="Main"]
 [editable path="Controls"]

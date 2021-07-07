@@ -15,8 +15,8 @@ var player_health
 
 func _process(delta):
 	if won == -1:
-#		if Input.is_action_just_pressed("escape"):
-#			get_tree().quit()
+		if Input.is_action_just_pressed("escape"):
+			get_tree().quit()
 		if Input.is_action_just_pressed("reset"):
 			# warning-ignore:return_value_discarded
 			get_tree().reload_current_scene()
@@ -31,6 +31,15 @@ func _process(delta):
 	else:
 		player_health = 0
 
+func _input(event):
+	if event.is_action_pressed("down"):
+		print("down")
+#	if event.is_action_pressed("pause"):
+#		pause.popup()
+#	if event.is_action_pressed("reset"):
+#		# warning-ignore:return_value_discarded
+#		get_tree().reload_current_scene()
+			
 func over(win):
 	won = int(win)
 	gg.get_node("VSplitContainer/Title").update_text()
